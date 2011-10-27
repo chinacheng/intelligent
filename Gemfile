@@ -8,6 +8,8 @@ gem 'rails', '3.1.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 gem "mysql"  
 gem "uuidtools"
+gem "haml"
+gem "acts_as_tree"
 # Use unicorn as the web server
 # gem 'unicorn'
 
