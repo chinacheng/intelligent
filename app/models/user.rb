@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   GENDER_MALE = "male"
   GENDER_FEMALE = "female"
 
+  has_one :user_role
+
   def password=(pass)
     @password = pass
     self.salt = User.random_string(10) if !self.salt?
