@@ -1,10 +1,10 @@
 class AdminController < ApplicationController
-	def index
+  def index
+  
+  end
 
-	end
-
-	def frame
-
-	end
+  def frame
+  
+  end
 
 end
