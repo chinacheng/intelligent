@@ -18,6 +18,15 @@ class User < ActiveRecord::Base
 
   has_one :user_role
 
+  def self.login(email,password)
+    user = User.find_by_email(email)
+    return false if user.blank?
+    if user.hashed_password == User.encrypt(password,user.salt)
+      return true
+    end
+    return false
+  end
+
   def password=(pass)
     @password = pass
     self.salt = User.random_string(10) if !self.salt?
