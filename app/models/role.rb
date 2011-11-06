@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Role < ActiveRecord::Base
 
   validates_presence_of :name
@@ -14,7 +15,7 @@ class Role < ActiveRecord::Base
     when ROLE_ADMIN then "管理员"
     when ROLE_COMPANY then "公司"
     when ROLE_ENGINEER then "工程师"
-    when ROLE_NORMAL then "注册会员" 
+    when ROLE_NORMAL then "会员" 
     end
   end
 
