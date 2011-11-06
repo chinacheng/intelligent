@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   GENDER_FEMALE = "female"
 
   has_one :user_role
+  has_one :role, :through => :user_role
 
   def self.login(email,password)
     user = User.find_by_email(email)
@@ -31,6 +32,12 @@ class User < ActiveRecord::Base
     @password = pass
     self.salt = User.random_string(10) if !self.salt?
     self.hashed_password = User.encrypt(@password, self.salt)
+  end
+
+  # add role to user
+  def add_role(role_str)
+    role = Role.find_by_name(role_str)
+    UserRole.create(:user => self, :role => role)
   end
 
   protected

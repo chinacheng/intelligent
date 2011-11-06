@@ -9,3 +9,10 @@
 #
 #two: {}
 #  column: value
+admin:
+  name: admin 
+  remark: admin
+
+user:
+  name: normal
+  remark: normal user
