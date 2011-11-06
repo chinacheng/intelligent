@@ -9,7 +9,7 @@ Intelligent::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-	match ':controller/:action'
+#	match ':controller/:action'
 	
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -51,6 +51,13 @@ Intelligent::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
     root :to => "index#index"    
+
+    resources :users
+
+    match "session/new",:action=>:new,:controller=>"session"
+    match "session/create",:action=>:create,:controller=>"session",:method=>"post"
+    #resources :session
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
