@@ -1,1 +1,15 @@
 用户注册
+-form_for @user do |f|
+  .login 
+    =f.text_field "login"
+  .password
+    =f.password_field "password"
+  .password_confirmation
+    =f.password_field "password_confirmation"
+  .email
+    =f.text_field "email"
+  .gender
+    =f.radio_button "gender",:value=>User::GENDER_MALE
+    =f.radio_button "gender",:value=>User::GENDER_FEMALE
+  .submit 
+    =f.submit "提交"
