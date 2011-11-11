@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       flash[:notice] = "注册成功"
       return redirect_to new_session_path 
     end
+      flash[:error] = @user.errors
     return render :action=>:new
   end
 
