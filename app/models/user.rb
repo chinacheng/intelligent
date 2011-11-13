@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require "digest"
 require "uuidtools"
 
@@ -23,9 +25,16 @@ class User < ActiveRecord::Base
     user = User.find_by_email(email)
     return false if user.blank?
     if user.hashed_password == User.encrypt(password,user.salt)
-      return true
+      return user 
     end
     return false
+  end
+
+  def gender_text
+    case gender
+    when GENDER_MALE  then "男"
+    when GENDER_FEMALE then "女"
+    end
   end
 
   def password=(pass)

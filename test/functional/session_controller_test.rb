@@ -8,6 +8,8 @@ class SessionControllerTest < ActionController::TestCase
     post 'create',:email => "lilei@test.com",:password => "123456"
     assert_response 302
     assert_redirected_to root_path  
+
+    assert false,current_user.blank?
   end
 
 end

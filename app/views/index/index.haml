@@ -1,6 +1,10 @@
 .top
-  =link_to "登录", session_new_path
-  =link_to "注册", new_user_path
-  =link_to "登出","" 
+  -if !!current_user
+    =current_user.login 
+    =link_to "登出",""
+  -else
+    =link_to "登录", session_new_path
+    =link_to "注册", new_user_path
+ 
 .main
   这是主页

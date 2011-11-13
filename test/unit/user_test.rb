@@ -18,7 +18,7 @@ class UserTest < ActiveSupport::TestCase
 
       assert_equal false, User.login("user@test.com","12")
       assert_equal false, User.login("sss","333")
-      assert_equal true, User.login("user@test.com","123456")
+      assert_equal true, !!User.login("user@test.com","123456")
     end
   end
 
@@ -95,9 +95,9 @@ class UserTest < ActiveSupport::TestCase
   # read users from fixtures, and test their password
   test "test_user_passwords" do
     lucy,lilei,kate = users("lucy"),users("lilei"),users("kate")
-    assert_equal true, User.login("lucy@test.com","123456")
-    assert_equal true, User.login("lilei@test.com","123456")
-    assert_equal true, User.login("kate@test.com","123456")
+    assert_equal true, !!User.login("lucy@test.com","123456")
+    assert_equal true, !!User.login("lilei@test.com","123456")
+    assert_equal true, !!User.login("kate@test.com","123456")
   end
 
 
