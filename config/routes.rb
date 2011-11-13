@@ -55,7 +55,7 @@ Intelligent::Application.routes.draw do
     resources :users
 
     match "session/new",:action=>:new,:controller=>"session"
-    match "session/create",:action=>:create,:controller=>"session",:method=>"post"
+    match "session/create",:action=>:create,:controller=>"session",:via=>"post"
     #resources :session
 
   # See how all your routes lay out with "rake routes"

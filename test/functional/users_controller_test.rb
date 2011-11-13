@@ -12,7 +12,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_difference "User.count",1 do 
       post :create,:user=>{:name=>"user_test",:login=>"test_user",:password=>"123456",:password_confirmation=>"123456",:email=>"user@test.com",:gender=>User::GENDER_MALE}
       assert_response 302
-      assert_redirected_to new_session_path
+      assert_redirected_to session_new_path
     end
   end
 

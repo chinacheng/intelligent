@@ -3,7 +3,7 @@ require "uuidtools"
 
 class User < ActiveRecord::Base
 
-  validates_presence_of :name, :email, :gender, :password,:password_confirmation, :login, :salt
+  validates_presence_of :email, :gender, :password,:password_confirmation, :login, :salt
   validates_confirmation_of :password
   validates_uniqueness_of :login,:email
   validates_length_of :login,:within=>4..60
