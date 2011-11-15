@@ -1,10 +1,10 @@
 .top
   -if !!current_user
     =current_user.login 
-    =link_to "登出",""
+    =link_to I18n.t("view.login.logout"), session_destroy_path
   -else
-    =link_to "登录", session_new_path
-    =link_to "注册", new_user_path
+    =link_to I18n.t("view.login.login"), session_new_path
+    =link_to I18n.t("view.login.reg"), new_user_path
  
 .main
   这是主页

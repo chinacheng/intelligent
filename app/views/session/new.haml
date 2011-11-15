@@ -1,10 +1,12 @@
+-if flash[:error]
+  =flash[:error]
 =form_tag session_create_path,:method=>"post" do
   .email
-    邮箱地址：
+    =I18n.t("view.login.email") 
     =text_field_tag "email"
   .password
-    密码：
+    =I18n.t("view.login.password")
     =password_field_tag "password"
   .submit
-    =submit_tag "登录"
+    =submit_tag I18n.t("view.login.login")
 

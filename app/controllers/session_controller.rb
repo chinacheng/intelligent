@@ -8,6 +8,7 @@ class SessionController < ApplicationController
       session[:current_user_id] = user.id
       return redirect_to root_path
     end
+    flash[:error] = I18n.t("view.login.error") 
     return render :action => :new
   end
 

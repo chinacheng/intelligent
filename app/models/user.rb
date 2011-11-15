@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require "digest"
 require "uuidtools"
 
@@ -32,8 +30,8 @@ class User < ActiveRecord::Base
 
   def gender_text
     case gender
-    when GENDER_MALE  then "男"
-    when GENDER_FEMALE then "女"
+    when GENDER_MALE  then I18n.t("model.user.gender_male") 
+    when GENDER_FEMALE then I18n.t("model.user.gender_female")
     end
   end
 
