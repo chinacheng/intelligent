@@ -12,6 +12,8 @@ cn:
       email: 邮箱地址：
       password: 密码：
       error: 登录失败，登录名邮箱或者密码输入错误 
+    users:
+      avatar_new: 上传头像
 
   model:
     user:
@@ -30,3 +32,17 @@ cn:
       normal: 注册会员_
     user_role:
       uniq: 每个用户只能分配一个权限 
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: 密码不能为空
+              too_short: 密码长度太短
+            password_confirmation:
+              blank: 确认密码为空
+            gender:
+              blank: 性别不能为空
+              

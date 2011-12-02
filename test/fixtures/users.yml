@@ -14,12 +14,14 @@ lilei:
   login: lilei
   email: lilei@test.com
   salt: W0e5WCzd3M
+  gender: male
   hashed_password: 812651b62293b17b4641f9f9bb6e15fee98fd6f6
 
 lucy:
   name: lucy
   login: lucy
   email: lucy@test.com
+  gender: female
   salt: i2h8wodTFq
   hashed_password: 859d25a1682327f941ee50435ce8f31be1fa20e1
 
@@ -27,5 +29,6 @@ kate:
   name: kate
   login: late
   email: kate@test.com
+  gender: female
   salt: TNTeeEplgO
   hashed_password: c13907423830b7c71d26923987bb4daf06f874b8

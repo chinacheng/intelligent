@@ -2,6 +2,11 @@
 
 class UsersController < ApplicationController
 
+  before_filter :per_load
+  def per_load
+    @user = User.find_by_id(params[:id]) if params[:id]
+  end
+
   def new
     @user = User.new
   end
@@ -14,6 +19,17 @@ class UsersController < ApplicationController
     end
       flash[:error] = @user.errors
     return render :action=>:new
+  end
+
+  def avatar_new
+  end
+
+  def avatar_create
+    @user.avatar = params[:user][:avatar]
+    if @user.save
+      return redirect_to root_path 
+    end
+    render :action=>:avatar_new,:id=>params[:user][:id]
   end
 
 end

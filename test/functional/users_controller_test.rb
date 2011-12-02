@@ -16,4 +16,13 @@ class UsersControllerTest < ActionController::TestCase
     end
   end
 
+  test "user_avatar_upload" do
+    lilei = users("lilei")
+    avatar_file = File.new("#{RAILS_ROOT}/test/tmp/avatar_test.jpeg")  
+    get :avatar_new,:id=>lilei.id
+    assert_response 200
+    put :avatar_create,:id=>lilei.id,:user=>{:avatar=>avatar_file}
+    assert_response 302
+  end
+
 end

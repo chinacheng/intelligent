@@ -52,7 +52,12 @@ Intelligent::Application.routes.draw do
   # root :to => "welcome#index"
     root :to => "index#index"    
 
-    resources :users
+    resources :users do 
+      member do 
+        get :avatar_new
+        put :avatar_create
+      end
+    end
 
     match "session/new",    :controller=>"session", :action=>:new
     match "session/create", :controller=>"session", :action=>:create, :via=>"post"

@@ -3,11 +3,14 @@ require "uuidtools"
 
 class User < ActiveRecord::Base
 
-  validates_presence_of :email, :gender, :password,:password_confirmation, :login, :salt
+  validates_presence_of :email, :login, :salt
+  validates_presence_of :gender
+  validates_presence_of :password, :on=>:create
+  validates_presence_of :password_confirmation, :on=>:create
   validates_confirmation_of :password
+  validates_length_of :password,:within=>4..60, :on=>:create
   validates_uniqueness_of :login,:email
   validates_length_of :login,:within=>4..60
-  validates_length_of :password,:within=>4..60
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   attr_protected :id,:salt
