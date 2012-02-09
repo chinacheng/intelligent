@@ -33,6 +33,10 @@ cn:
     user_role:
       uniq: 每个用户只能分配一个权限 
 
+  controller:
+    users:
+      reg_success: 注册成功
+
   activerecord:
     errors:
       models:

@@ -14,16 +14,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "注册成功"
+      flash[:notice] = I18n.t("controller.users.reg_success") 
       return redirect_to session_new_path 
     end
       flash[:error] = @user.errors
     return render :action=>:new
   end
 
+  # upload avatar view 
   def avatar_new
   end
 
+  # upload avatar action
   def avatar_create
     @user.avatar = params[:user][:avatar]
     if @user.save
