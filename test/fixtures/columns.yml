@@ -4,8 +4,28 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+#one: {}
 # column: value
 #
-two: {}
+#two: {}
 #  column: value
+
+index:
+  name: shouye
+  sequence: 1
+  show: 1
+  parent_id: -1
+
+brand:
+  name: pingpaijieshao
+  sequence: 1
+  show: 1
+  parent_id: -1
+
+desgin:
+  name: desginer
+  sequence: 1
+  show: 0
+  parent_id: -1
+
+ 

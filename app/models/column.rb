@@ -15,4 +15,11 @@ class Column < ActiveRecord::Base
   COL_SHOW = 1
   COL_HIDE = 0
 
+  def main_navigation
+    colLst = Column.find(:all,
+                    :conditions => ["parent_id=?",TOP_COLS],
+                    :order => "sequence ASC");
+  end
+
+
 end

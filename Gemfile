@@ -10,7 +10,7 @@ gem "mysql"
 gem "uuidtools"
 gem "haml"
 gem "acts_as_tree"
-gem "paperclip"
+gem "paperclip" 
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -5,3 +5,5 @@ require File.expand_path('../application', __FILE__)
 Intelligent::Application.initialize!
 
 RAILS_ROOT = File.expand_path('../../',__FILE__)
+
+#config.gem 'paperclip', :source => 'http://rubygems.org'
