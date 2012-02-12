@@ -14,5 +14,18 @@ class Article < ActiveRecord::Base
   has_many  :comments
 
   CMMT_ON   = 1
-  CMMT_OFF  = 0  
+  CMMT_OFF  = 0 
+
+  def find_by_name_articles(article_name)
+    articles = Article.find(:all,
+                :conditions => ["name like '%?%'",article_name],
+                :order => "update_at DESC")
+    return articles
+  end 
+
+  def find_by_column_articles(article_col)
+    articles = Article.find_by_column(article_col)
+    return articles
+  end  
+ 
 end

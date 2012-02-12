@@ -1,4 +1,4 @@
-class Column < ActiveRecord::Base
+class Guide < ActiveRecord::Base
   # name      栏目名称
   # sequence  栏目序列 
   # show      栏目显示与否
@@ -16,7 +16,7 @@ class Column < ActiveRecord::Base
   COL_HIDE = 0
 
   def main_navigation
-    colLst = Column.find(:all,
+    colLst = Guide.find(:all,
                     :conditions => ["parent_id=?",TOP_COLS],
                     :order => "sequence ASC");
   end

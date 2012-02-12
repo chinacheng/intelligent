@@ -4,8 +4,33 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+#one: {}
 # column: value
 #
-two: {}
+#two: {}
 #  column: value
+
+Test1:
+  name: "Test Article"
+  summary: "Test Summary Article"
+  content: "hello! rails"
+  sort: "123"
+  user_id: 1
+  guide_id: 1
+
+Test2:
+  name: "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890ssssssssssssssssssssdddddddddfffffssssssssssssddddddddxxxxxxxffffffffffffggggggg"
+  summary: "Test Summary Article"
+  content: "hello! rails"
+  sort: "123"
+  user_id: 1
+  guide_id: 1
+
+Test3:
+  name: "Test Article"
+  summary: "Test Summary Article"
+  content: "hello! rails"
+  sort: "1234567890123456789012345678901234567"
+  user_id: 1
+  guide_id: 1
+  
