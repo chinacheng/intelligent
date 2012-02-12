@@ -13,7 +13,7 @@ class ArticleTest < ActiveSupport::TestCase
     end
   end
 
-  test "Article too Name length" do
+  test "Article Name is too long to create" do
     assert_difference "Article.count",0 do
       article = Article.new(:name=>"1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890ssssssssssssssssssssdddddddddfffffssssssssssssddddddddxxxxxxxffffffffffffggggggg",:summary=>"Test Summary Article",:content=>"hello! rails",:sort=>"123",:user_id=>1,:guide_id=>1)
 
@@ -25,7 +25,7 @@ class ArticleTest < ActiveSupport::TestCase
   test "Article's sort limit" do
     assert_difference "Article.count",0 do
       article = Article.new(:name=>"Test Article",:summary=>"Test Summary Article",
-                  :content=>"hello! rails",:sort=>"1234567890123456789012345678901234567",:user_id=>1,:guide_id=>1)
+                  :content=>"hello! rails",:sort=>"",:user_id=>1,:guide_id=>1)
       assert_equal false,article.valid?
       assert_equal false,article.save
     end
