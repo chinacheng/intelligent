@@ -8,7 +8,7 @@ class CreateArticles < ActiveRecord::Migration
       t.integer :comment_tag,:default => Article::CMMT_OFF
       t.integer :browses,:default => 0
       t.integer :user_id
-      t.integer :guide_id
+      t.integer :column_id
       t.timestamps
     end
   end
