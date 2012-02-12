@@ -18,7 +18,8 @@ class Guide < ActiveRecord::Base
   def main_navigation
     colLst = Guide.find(:all,
                     :conditions => ["parent_id=?",TOP_COLS],
-                    :order => "sequence ASC");
+                    :order => "sequence ASC")
+    return colLst
   end
 
 
