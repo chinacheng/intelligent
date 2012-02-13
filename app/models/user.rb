@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   has_one :user_role
   has_one :role, :through => :user_role
 
+  include Relative::UserMethods
+
   has_attached_file :avatar,:styles => {:medium=>"300*300>",:thumb=>"100*100>"}
 
   def self.login(email,password)
