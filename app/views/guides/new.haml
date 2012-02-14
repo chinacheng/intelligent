@@ -5,7 +5,7 @@
 -if flash[:error]
   =flash[:error]
 
-=form_for @guide,:url=>{:action => :save} do |f|
+=form_for @guide,:url=>{:action => :create} do |f|
   .guide_name
     =I18n.t("view.guide.name")
     =f.text_field :name

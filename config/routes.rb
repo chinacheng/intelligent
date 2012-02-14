@@ -58,18 +58,12 @@ Intelligent::Application.routes.draw do
         put :avatar_create
       end
     end
-    
 
     match "session/new",    :controller=>"session", :action=>:new
     match "session/create", :controller=>"session", :action=>:create, :via=>"post"
     match "session/destroy",:controller=>"session", :action=>:destroy, :vai=>"delete"
-    #resources :session
 
-    match "guides/new",     :controller=>"guides", :action=>:new
-    match "guides/edit",    :controller=>"guides", :action=>:edit
-    match "guides/remove",  :controller=>"guides", :action=>:remove,  :via=>"delete"
-    match "guides/save",    :controller=>"guides", :action=>:save,    :via=>"post"
-    match "guides/update",  :controller=>"guides", :action=>:update
+    resources :guides
 
   # See how all your routes lay out with "rake routes"
 

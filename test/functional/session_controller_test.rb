@@ -4,7 +4,6 @@ class SessionControllerTest < ActionController::TestCase
   
   test "user_login" do
     get :new
-    p current_user.blank?
     assert_equal true, current_user.blank?
     assert_response 200
     post 'create',:email => "lilei@test.com",:password => "123456"
