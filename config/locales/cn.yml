@@ -14,6 +14,17 @@ cn:
       error: 登录失败，登录名邮箱或者密码输入错误 
     users:
       avatar_new: 上传头像
+    guide:
+      create_title: 创建栏目
+      edit_title: 编辑栏目
+      show: 是否显示
+      name: 栏目名称
+      way: 展示方式
+      father: 父栏目
+      sequence: 栏目顺序
+      save: 创建
+      update: 更新
+      cancel: 取消
 
   model:
     user:
@@ -36,6 +47,13 @@ cn:
   controller:
     users:
       reg_success: 注册成功
+    guides:
+      update_success: 栏目更新成功
+      update_fail: 栏目更新失败
+      save_success: 栏目创建成功
+      save_fail: 栏目创建失败
+      edit_fail: 不能找到对应的栏目
+      remvoe_fail: 不能删除该栏目
 
   activerecord:
     errors:

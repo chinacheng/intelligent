@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   # upload avatar view 
   def avatar_new
+
   end
 
   # upload avatar action

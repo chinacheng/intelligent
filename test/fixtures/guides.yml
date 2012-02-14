@@ -11,9 +11,11 @@
 #  column: value
 
 index:
-  name: shouye
+  id: 1
+  name: "shouye"
   sequence: 1
   show: 1
+  way: "1"
   parent_id: -1
 
 brand:

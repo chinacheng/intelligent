@@ -9,7 +9,9 @@ class Article < ActiveRecord::Base
   # column  文章归属的栏目 
   # comment 文章评论
   validates_presence_of :name,:summary,:content,:sort,:comment_tag,:browses
-  validates_length_of :name, :maximum=>128
+  #validates_length_of :name, :maximum=>128
+  validates_length_of :name,:within=>0..128
+  validates_length_of :sort,:within=>0..32
 
   belongs_to :user
   belongs_to :column
