@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     if !@article.save
       flash[:error] = I18n.t("controller.article.save_fail")
     end
-    return redirect_to article_list_path
+    return redirect_to articles_path
   end
 
   def new 
@@ -28,16 +28,16 @@ class ArticlesController < ApplicationController
   def update
     if !@article.update_attributes(params[:article])
       flash[:error] = I18n.t("controller.article.update_fail")
-      return redirect_to article_update_path
+      return redirect_to edit_article_path(params[:id])
     end
-    return redirect_to article_list_path        
+    return redirect_to articles_path        
   end
 
   def destroy
     if !@article.destroy
       flash[:error] = I18n.t("controller.article.remvoe_fail")
     end
-    return redirect_to article_list_path
+    return redirect_to articles_path
   end
 
   def remove_batch

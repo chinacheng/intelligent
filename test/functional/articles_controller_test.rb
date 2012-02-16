@@ -8,9 +8,9 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_response 200
 
     assert_difference "Article.count",1 do
-      post :create,:article=>{:name=>"guides test",:show=>1,:way=>"1",:sequence=>2,:parent_id=>-1}
+      post :create,:article=>{:name=>"guides test",:summary=>"sd",:content=>"sd",:sort=>"34",:comment_tag=>"sd",:browses=>"sd"}
       assert_response 302
-      assert_redirected_to article_index_path
+      assert_redirected_to articles_path
     end
   end
 
@@ -20,7 +20,7 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_response 200
 
     assert_difference "Article.count",0 do
-      put :update, {:id=>1,:article=>{:name=>"guides test 12",:show=>1,:way=>"way",:sequence=>2,:parent_id=>-1}}
+      put :update, {:id=>1,:article=>{:name=>"guides test 12"}}
     end
 
     article = Article.find_by_id(1)
