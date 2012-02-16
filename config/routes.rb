@@ -64,15 +64,7 @@ Intelligent::Application.routes.draw do
     match "session/destroy",:controller=>"session", :action=>:destroy, :vai=>"delete"
 
     resources :guides
-  
-   # resources :article
-
-    match "article/list",   :controller=>"article", :action=>:list
-#    match "article/edit",   :controller=>"article", :action=>:edit
-#    match "article/destroy", :controller=>"article", :action=>:destroy, :vai=>"delete"
-#    match "article/update", :controller=>"article", :action=>:update
-
-    resources :article
+    resources :articles
 
   # See how all your routes lay out with "rake routes"
 

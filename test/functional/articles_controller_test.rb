@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ArticleControllerTest < ActionController::TestCase
+class ArticlesControllerTest < ActionController::TestCase
 
   #
   test "test new and create method" do
@@ -10,7 +10,7 @@ class ArticleControllerTest < ActionController::TestCase
     assert_difference "Article.count",1 do
       post :create,:article=>{:name=>"guides test",:show=>1,:way=>"1",:sequence=>2,:parent_id=>-1}
       assert_response 302
-      assert_redirected_to article_list_path
+      assert_redirected_to article_index_path
     end
   end
 

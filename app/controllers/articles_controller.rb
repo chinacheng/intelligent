@@ -1,11 +1,11 @@
-class ArticleController < ApplicationController
+class ArticlesController < ApplicationController
   before_filter :per_load
   
   def per_load
     @article=Article.find_by_id(params[:id]) if params[:id]
   end
 
-  def list
+  def index 
     @articles = Article.list(10)
   end
 
