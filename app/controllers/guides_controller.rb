@@ -2,7 +2,7 @@ class GuidesController < ApplicationController
 
   before_filter :per_load
   def per_load
-    @guide = Guide.find_by_id(params[:id])
+    @guide = Guide.find_by_id(params[:id]) if params[:id] 
   end
 
   def new
@@ -11,7 +11,7 @@ class GuidesController < ApplicationController
 
   def create 
     @guide = Guide.new(params[:guide])
-    @guide.parent_id = -1
+
     if @guide.save
       flash[:notice] = I18n.t("controller.guides.save_success")
       return redirect_to root_path

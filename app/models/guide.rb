@@ -5,8 +5,8 @@ class Guide < ActiveRecord::Base
   # way       栏目在页面上的展示形式 (考虑是否需要字段)
   # parent_id 父栏目ID
   validates_presence_of :name,:sequence,:show,:way
-# validates_uniqueness_of :name
-#  acts_as_tree :order => "sequence ASC"
+  validates_uniqueness_of :name
+  acts_as_tree :order => "sequence ASC"
   validates_presence_of :parent_id
   SHOW_TYPES = [
     ["YES",1],
@@ -20,4 +20,10 @@ class Guide < ActiveRecord::Base
   COL_SHOW = 1
   COL_HIDE = 0
 
+  def self.list_display
+    guides = Guide.find(:all,
+                    :conditions => ["parent_id=? and `show`=?",Guide::TOP_COLS,Guide::COL_SHOW],
+                    :order => "sequence ASC")
+    return guides
+  end
 end

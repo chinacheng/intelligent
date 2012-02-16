@@ -11,6 +11,7 @@
 #  column: value
 
 Test1:
+  id: 1
   name: "Test Article"
   summary: "Test Summary Article"
   content: "hello! rails"
@@ -19,6 +20,7 @@ Test1:
   guide_id: 1
 
 Test2:
+  id: 2
   name: "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890ssssssssssssssssssssdddddddddfffffssssssssssssddddddddxxxxxxxffffffffffffggggggg"
   summary: "Test Summary Article"
   content: "hello! rails"
@@ -27,6 +29,7 @@ Test2:
   guide_id: 1
 
 Test3:
+  id: 3
   name: "Test Article"
   summary: "Test Summary Article"
   content: "hello! rails"

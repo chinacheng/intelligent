@@ -9,25 +9,33 @@ class Article < ActiveRecord::Base
   # column  文章归属的栏目 
   # comment 文章评论
   validates_presence_of :name,:summary,:content,:sort,:comment_tag,:browses
-  #validates_length_of :name, :maximum=>128
   validates_length_of :name,:within=>0..128
   validates_length_of :sort,:within=>0..32
 
   belongs_to :user
-  belongs_to :column
-  has_many  :comments
+  belongs_to :guide
+  has_many   :comments
 
   CMMT_ON   = 1
   CMMT_OFF  = 0 
 
-  def find_by_name_articles(article_name)
+  def self.list(size)
+    articles = Article.find(:all,
+                :select => "id,name,sort,browses,guide_id,summary",
+                :order => "updated_at DESC",
+                :limit => size)
+    return articles
+  end
+
+  def self.find_by_name_articles(article_name,size)
     articles = Article.find(:all,
                 :conditions => ["name like '%?%'",article_name],
-                :order => "update_at DESC")
+                :order => "updated_at DESC",
+                :limit => size)
     return articles
   end 
 
-  def find_by_column_articles(article_col)
+  def self.find_by_column_articles(article_col)
     articles = Article.find_by_column(article_col)
     return articles
   end  

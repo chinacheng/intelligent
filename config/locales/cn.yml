@@ -14,6 +14,21 @@ cn:
       error: 登录失败，登录名邮箱或者密码输入错误 
     users:
       avatar_new: 上传头像
+    article:
+      create: 新建
+      update: 更新
+      create_title: 新建文章
+      edit_title: 编辑文章
+      name: 文章名称
+      summary: 文章摘要
+      guide: 所属栏目
+      tag: 文章标签
+      sort: 文章分类
+      content: 文章内容
+      list_edit: 编辑
+      list_del: 删除
+    
+      
     guide:
       create_title: 创建栏目
       edit_title: 编辑栏目
@@ -54,6 +69,10 @@ cn:
       save_fail: 栏目创建失败
       edit_fail: 不能找到对应的栏目
       remvoe_fail: 不能删除该栏目
+    article:
+      save_fail: 文章创建失败
+      update_fail: 文章更新失败
+      remvoe_fail: 删除该文章失败
 
   activerecord:
     errors:
