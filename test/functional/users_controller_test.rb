@@ -25,4 +25,10 @@ class UsersControllerTest < ActionController::TestCase
     assert_response 302
   end
 
+  test "index action" do
+    get :index
+    assert_response 200
+    assert_not_nil assigns(:users)
+  end
+
 end

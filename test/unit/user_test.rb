@@ -25,7 +25,7 @@ class UserTest < ActiveSupport::TestCase
   # too short login
   test "create_user_with_a_short_login_can_not_success" do
     assert_difference "User.count",0 do 
-      user = User.new(:name=>"test",:login=>"tes",:email=>"user@test.com",
+      user = User.new(:name=>"t",:login=>"t",:email=>"user@test.com",
                       :password=>"123456",:password_confirmation=>"123456",:gender=>User::GENDER_MALE)
       assert_equal false,user.valid?
       assert_equal false,user.save

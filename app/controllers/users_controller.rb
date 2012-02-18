@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id]) if params[:id]
   end
 
+  def index
+    @users = User.paginate(:per_page=>20,:page=>params[:page])
+  end
+
   def new
     @user = User.new
   end

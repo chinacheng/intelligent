@@ -1,2 +1,4 @@
-<%= @user.login %>
-<%= @user.gender_text %>
+= @user.login 
+= @user.gender_text 
+-if current_user != @user
+  =link_to 
