@@ -20,6 +20,11 @@ class Relative < ActiveRecord::Base
       Relative.create(:fan=>self,:follow=>user)
     end
 
+    def unfan(user)
+      relative = Relative.find_by_follow_id_and_fan_id(user.id, self.id)
+      relative.destroy if relative 
+    end
+
     # a is a fans of b , return true or return false
     def fan?(user)
       !!Relative.find_by_fan_id_and_follow_id(self.id,user.id)

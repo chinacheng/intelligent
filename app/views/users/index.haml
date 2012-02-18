@@ -1,6 +1,6 @@
 -@users.each do |user|
   .user_info{:id=>"user_#{user.id}"}
-    =user.name
+    =link_to user.name,user_path(user.id)
     =user.email 
     =image_tag user.avatar.url(:thumb)
 

@@ -1,4 +1,14 @@
 = @user.login 
 = @user.gender_text 
--if current_user != @user
-  =link_to 
+follows:
+=@user.follows.size
+fans:
+=@user.fans.size
+
+-if current_user != @user && !current_user.fan?(@user)
+  =form_tag relatives_path do
+    =hidden_field_tag "id",@user.id
+    =submit_tag "follow"
+-elsif current_user.fan?(@user)
+  followed
+  =button_to "unfollow",relative_path(:id=>@user.id),:method=>:delete
