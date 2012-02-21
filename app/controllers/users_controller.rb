@@ -39,4 +39,12 @@ class UsersController < ApplicationController
     render :action=>:avatar_new,:id=>params[:user][:id]
   end
 
+  def fans
+    @fans = @user.fans
+  end
+
+  def follows
+    @follows = @user.follows
+  end
+
 end

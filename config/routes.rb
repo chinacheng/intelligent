@@ -56,12 +56,14 @@ Intelligent::Application.routes.draw do
       member do 
         get :avatar_new
         put :avatar_create
+        get :fans
+        get :follows
       end
     end
 
     match "session/new",    :controller=>"session", :action=>:new
     match "session/create", :controller=>"session", :action=>:create, :via=>"post"
-    match "session/destroy",:controller=>"session", :action=>:destroy, :vai=>"delete"
+    match "session/destroy",:controller=>"session", :action=>:destroy, :via=>"delete"
 
     resources :guides
     resources :articles

@@ -31,4 +31,26 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:users)
   end
 
+  test "test user's fans and follows" do
+    lilei, lucy, kate = users("lilei"),users("lucy"),users("kate")
+    assert_difference "Relative.count",3 do
+      lilei.fan(lucy)
+      lilei.fan(kate)
+      lucy.fan(lilei)
+    end
+    session[:user_id] = kate.id
+    get :fans,:id=>lilei.id
+    assert_response 200
+    fans = assigns(:fans)
+    assert_equal fans.size,1
+    assert_equal true,fans.include?(lucy)
+
+    get :follows,:id=>lilei.id
+    assert_response 200
+    follows = assigns(:follows)
+    assert_equal follows.size,2
+    assert_equal true,follows.include?(lucy)
+    assert_equal true,follows.include?(kate)
+  end
+
 end

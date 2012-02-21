@@ -13,6 +13,7 @@ gem "haml"
 gem "acts_as_tree"
 gem "paperclip" 
 gem "paginate"
+gem "rake","0.9.2.2"
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -1,14 +1,15 @@
 = @user.login 
 = @user.gender_text 
 follows:
-=@user.follows.size
+=link_to @user.follows.size,follows_user_path(@user)
 fans:
-=@user.fans.size
+=link_to @user.fans.size,fans_user_path(@user)
 
--if current_user != @user && !current_user.fan?(@user)
-  =form_tag relatives_path do
-    =hidden_field_tag "id",@user.id
-    =submit_tag "follow"
--elsif current_user.fan?(@user)
-  followed
-  =button_to "unfollow",relative_path(:id=>@user.id),:method=>:delete
+.status
+  -if current_user != @user && !current_user.fan?(@user)
+    =form_tag relatives_path do
+      =hidden_field_tag "id",@user.id
+      =submit_tag "follow"
+  -elsif current_user.fan?(@user)
+    you had followed he(she)
+    =button_to "unfollow",relative_path(:id=>@user.id),:method=>:delete
