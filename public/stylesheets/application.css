@@ -5,3 +5,8 @@
  *= require_self
  *= require_tree . 
 */
+
+.passport{left:0;top:0;width:100%;min-width:960px;height:27px;color:#727171 }
+.header{width:960px;height:50px;}
+.content{height:700px;width:960px;}
+.footer{width:960px;margin:0 auto;color:#000;text-align:center;}

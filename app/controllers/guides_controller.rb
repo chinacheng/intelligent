@@ -17,7 +17,7 @@ class GuidesController < ApplicationController
       return redirect_to root_path
     end
     flash[:error] = I18n.t("controller.guides.save_fail")
-    return redirect_to guides_new_path
+    return render :action=>:new 
   end
 
   def edit
