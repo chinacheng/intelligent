@@ -20,6 +20,9 @@ class GuidesController < ApplicationController
     return render :action=>:new 
   end
 
+  def show
+  end
+
   def edit
   end
 

@@ -17,7 +17,7 @@ class GuidesControllerTest < ActionController::TestCase
     assert_equal "guides test 12",guide.name
   end
   
-  test "Guide new method" do
+  test "Guide new,create method and show" do
     get :new
     assert_response 200
 
@@ -26,6 +26,11 @@ class GuidesControllerTest < ActionController::TestCase
       assert_response 302
       assert_redirected_to root_path
     end
+
+    guide = Guide.last
+    get :show,:id=>guide
+    assert_response 200
+    assert_equal guide,assigns(:guide)
   end
 
   # 
