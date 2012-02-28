@@ -5,7 +5,7 @@ development:
   database: intelligent_development
   pool: 5
   timeout: 5000
-#  username: rails
+ # username: rails
 #  password: rails
   host: localhost
   encoding: utf8
@@ -18,8 +18,8 @@ test:
   database: intelligent_test
   pool: 5
   timeout: 5000
-#  username: rails
-#  password: rails
+ # username: rails
+ # password: rails
   host: localhost
   encoding: utf8
 

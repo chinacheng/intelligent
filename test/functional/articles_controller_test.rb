@@ -2,6 +2,11 @@ require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
 
+  test "test index method" do
+    get :index
+    assert_response 200
+  end
+
   #
   test "test new and create method" do
     get :new

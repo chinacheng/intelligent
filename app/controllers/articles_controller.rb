@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    puts "in destroy ................."
     if !@article.destroy
       flash[:error] = I18n.t("controller.article.remvoe_fail")
     end
