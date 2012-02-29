@@ -3,8 +3,7 @@ require 'test_helper'
 class GuidesControllerTest < ActionController::TestCase
    
   test "guide edit method" do
-  #  guide = guides(:index)
-  #  assert_equal true,guide.save
+    session[:current_user_id] = users(:lilei).id
     get :edit,:id=>1
     assert_response 200
     
@@ -18,6 +17,7 @@ class GuidesControllerTest < ActionController::TestCase
   end
   
   test "Guide new,create method and show" do
+    session[:current_user_id] = users(:lilei).id
     get :new
     assert_response 200
 
@@ -33,11 +33,12 @@ class GuidesControllerTest < ActionController::TestCase
     assert_equal guide,assigns(:guide)
   end
 
-  # 
   test "destroy guide method" do
+    session[:current_user_id] = users(:lilei).id
     assert_difference "Guide.count",-1 do
       delete :destroy, :id=>1
       assert_response 302
     end
   end
+
 end

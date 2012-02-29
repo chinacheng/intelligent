@@ -2,6 +2,8 @@
 
 class UsersController < ApplicationController
 
+  skip_before_filter :login_require
+
   before_filter :per_load
   def per_load
     @user = User.find_by_id(params[:id]) if params[:id]

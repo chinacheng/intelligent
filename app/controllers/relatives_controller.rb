@@ -1,4 +1,8 @@
+# encoding: utf-8
+
 class RelativesController < ApplicationController
+
+  skip_before_filter :login_require,:only=>[:index,:show]
 
   before_filter :per_load
   def per_load

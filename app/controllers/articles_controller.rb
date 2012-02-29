@@ -1,6 +1,10 @@
+# encoding: utf-8
+
 class ArticlesController < ApplicationController
+
+  skip_before_filter :login_require,:only=>[:index,:show]
+
   before_filter :per_load
-  
   def per_load
     @article=Article.find_by_id(params[:id]) if params[:id]
   end
@@ -34,7 +38,6 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    puts "in destroy ................."
     if !@article.destroy
       flash[:error] = I18n.t("controller.article.remvoe_fail")
     end

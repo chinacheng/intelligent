@@ -7,8 +7,8 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_response 200
   end
 
-  #
   test "test new and create method" do
+    session[:current_user_id] = users(:lilei).id
     get :new
     assert_response 200
 
@@ -19,8 +19,8 @@ class ArticlesControllerTest < ActionController::TestCase
     end
   end
 
-  #
   test "test edit and update method" do
+    session[:current_user_id] = users(:lilei).id
     get :edit,:id=>1
     assert_response 200
 
@@ -32,8 +32,8 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_equal "guides test 12",article.name
   end
 
-  #
   test "test destroy method" do
+    session[:current_user_id] = users(:lilei).id
     assert_difference "Article.count",-1 do
       delete :destroy, :id=>1
       assert_response 302

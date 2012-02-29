@@ -1,8 +1,16 @@
+# encoding: utf-8
+
 class GuidesController < ApplicationController
+
+  skip_before_filter :login_require,:only=>[:index,:show]
 
   before_filter :per_load
   def per_load
     @guide = Guide.find_by_id(params[:id]) if params[:id] 
+  end
+
+  def index
+    @guides = Guide.find(:all)
   end
 
   def new
