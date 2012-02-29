@@ -19,7 +19,7 @@ class GuidesController < ApplicationController
 
   def create 
     @guide = Guide.new(params[:guide])
-
+    @guide.user_id = current_user.id
     if @guide.save
       flash[:notice] = I18n.t("controller.guides.save_success")
       return redirect_to root_path
@@ -40,7 +40,7 @@ class GuidesController < ApplicationController
       return redirect_to root_path
     end
     flash[:error] = I18n.t("controller.guides.update_fail")
-    return redirect_to guides_update_path
+    return redirect_to :action=>:edit,:id=>params[:id] 
   end
 
   def destroy 

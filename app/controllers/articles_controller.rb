@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params[:article])
-    
+    @article.user_id = current_user.id    
     if !@article.save
       flash[:error] = I18n.t("controller.article.save_fail")
     end

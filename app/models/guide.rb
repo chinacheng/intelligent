@@ -4,14 +4,14 @@ class Guide < ActiveRecord::Base
   # show      栏目显示与否
   # way       栏目在页面上的展示形式 (考虑是否需要字段)
   # parent_id 父栏目ID
-  validates_presence_of :name,:sequence,:show,:way
+  # user_id   创建人 
+  # uri       链接
+  validates_presence_of :name, :uri, :sequence, :show, :way, :user_id, :parent_id
   validates_uniqueness_of :name
+
+  belongs_to :user
+
   acts_as_tree :order => "sequence ASC"
-  validates_presence_of :parent_id
-  SHOW_TYPES = [
-    ["YES",1],
-    ["NO", 0]
-  ]
 
   # 顶级栏目的parent_id
   TOP_COLS = -1
@@ -20,10 +20,15 @@ class Guide < ActiveRecord::Base
   COL_SHOW = 1
   COL_HIDE = 0
 
+  module UserMethods
+    def self.included(base)
+      base.has_many :guides
+    end
+  end
+
   def self.list_display
     guides = Guide.find(:all,
                     :conditions => ["parent_id=? and `show`=?",Guide::TOP_COLS,Guide::COL_SHOW],
                     :order => "sequence ASC")
-    return guides
   end
 end

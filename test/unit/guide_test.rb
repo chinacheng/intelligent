@@ -1,20 +1,24 @@
 require 'test_helper'
 
 class GuideTest < ActiveSupport::TestCase
-   test "Create Colums Success" do
+   test "Create guides Success" do
+     lilei = users(:lilei)
      assert_difference "Guide.count",1 do
-      col = Guide.new(:name=>"index",:sequence=>1,:show=>1,:way=>"1",
-                  :parent_id=>-1)
+      guide_tmp = Guide.new(:name=>"index",:uri=>"index",:sequence=>1,:show=>1,:way=>"1",:parent_id=>-1,:user_id=>lilei.id)
+      assert_equal true,guide_tmp.valid?
+      assert_equal true,guide_tmp.save
 
-      assert_equal true,col.valid?
-      assert_equal true,col.save
+      guide = Guide.last
+      assert_equal lilei,guide.user
+
+      assert_equal lilei.guides.size, 1
+      assert_equal lilei.guides.include?(guide), true
      end
    end
 
   test "Guides Name is Null" do
     assert_difference "Guide.count", 0 do
-      col = Guide.new(:sequence=>1,:show=>1,:way=>"1",
-                  :parent_id=>-1)
+      col = Guide.new(:sequence=>1,:show=>1,:way=>"1",:parent_id=>-1)
 
       assert_equal false,col.valid?
       assert_equal false,col.save
@@ -23,12 +27,10 @@ class GuideTest < ActiveSupport::TestCase
   
   test "Guides Name too length" do 
     assert_difference "Guide.count",0 do
-      col = Guide.new(:name=>"1234567890123456789012345678901234567",:show=>1,:way=>"1",
-                :parent_id=>-1)
+      col = Guide.new(:name=>"1234567890123456789012345678901234567",:show=>1,:way=>"1",:parent_id=>-1)
       assert_equal false,col.valid?
       assert_equal false,col.save
     end
   end
-
   
 end

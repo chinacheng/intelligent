@@ -3,17 +3,22 @@ require 'test_helper'
 class GuidesControllerTest < ActionController::TestCase
    
   test "guide edit method" do
-    session[:current_user_id] = users(:lilei).id
+    lilei, guide = users(:lilei), guides(:index)
+    session[:current_user_id] = lilei.id
     get :edit,:id=>1
     assert_response 200
     
     #total = Guide.count
+    name = "guides test 12"
     assert_difference "Guide.count",0 do
-      put :update, {:id=>1,:guide=>{:name=>"guides test 12",:show=>1,:way=>"way",:sequence=>2,:parent_id=>-1}}
+      put :update, {:id=>guide.id,:guide=>{:name=>name,:user_id=>lilei.id,:uri=>"index",:sequence=>2,:parent_id=>-1}}
     end  
 
-    guide = Guide.find_by_id(1)
-    assert_equal "guides test 12",guide.name
+    guide.reload
+    assert_equal name, guide.name
+    assert_equal guide.user, lilei
+    assert_equal lilei.guides.include?(guide), true
+
   end
   
   test "Guide new,create method and show" do
@@ -22,7 +27,7 @@ class GuidesControllerTest < ActionController::TestCase
     assert_response 200
 
     assert_difference "Guide.count",1 do
-      post :create,:guide=>{:name=>"guides test",:show=>1,:way=>"1",:sequence=>2,:parent_id=>-1}
+      post :create,:guide=>{:name=>"guides test",:uri=>"index",:show=>1,:way=>"1",:sequence=>2,:parent_id=>-1}
       assert_response 302
       assert_redirected_to root_path
     end

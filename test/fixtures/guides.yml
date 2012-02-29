@@ -13,6 +13,7 @@
 index:
   id: 1
   name: "shouye"
+  uri: "index"
   sequence: 1
   show: 1
   way: "1"
@@ -20,12 +21,14 @@ index:
 
 brand:
   name: pingpaijieshao
+  uri: brand
   sequence: 1
   show: 1
   parent_id: -1
 
 desgin:
   name: desginer
+  uri: design
   sequence: 1
   show: 0
   parent_id: -1
