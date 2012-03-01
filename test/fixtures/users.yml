@@ -9,6 +9,15 @@
 #
 #two: {}
 #  column: value
+admin:
+  id: 1
+  name: admin
+  login: admin
+  email: admin@test.com
+  salt: Q6IuRzkQRi
+  gender: male
+  hashed_password: 6bdeecc257645c3395f1c973ba467d59d83932db 
+
 lilei:
   name: lilei
   login: lilei

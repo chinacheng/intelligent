@@ -12,6 +12,7 @@ class UserRoleTest < ActiveSupport::TestCase
       assert user_role.role.name, role_admin.name
       assert_equal lucy.role.name, role_admin.name
     end
+    assert_equal true,lucy.is_admin?
     assert_difference "UserRole.count",0 do
       lucy.add_role(Role::ROLE_ADMIN)
     end

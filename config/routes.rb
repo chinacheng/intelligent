@@ -61,9 +61,11 @@ Intelligent::Application.routes.draw do
       end
     end
 
-    match "session/new",    :controller=>"session", :action=>:new
-    match "session/create", :controller=>"session", :action=>:create, :via=>"post"
-    match "session/destroy",:controller=>"session", :action=>:destroy, :via=>"delete"
+    match "session/new",    :controller=>:session, :action=>:new
+    match "session/create", :controller=>:session, :action=>:create, :via=>"post"
+    match "session/destroy",:controller=>:session, :action=>:destroy, :via=>"delete"
+
+    match "admin/index", :controller=>:admin, :action=>:index
 
     resources :guides
     resources :articles

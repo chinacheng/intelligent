@@ -16,4 +16,10 @@ class SessionControllerTest < ActionController::TestCase
     assert_equal lilei,current_user
   end
 
+  test "admin login" do
+    post 'create',:email => "admin@test.com",:password => "123456"
+    assert_response 302
+    assert_redirected_to admin_index_path  
+  end
+
 end

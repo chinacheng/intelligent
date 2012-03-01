@@ -19,11 +19,9 @@ class User < ActiveRecord::Base
   GENDER_MALE = "male"
   GENDER_FEMALE = "female"
 
-  has_one :user_role
-  has_one :role, :through => :user_role
-
   include Relative::UserMethods
   include Guide::UserMethods
+  include UserRole::UserMethods
 
   has_attached_file :avatar,:styles => {:medium=>"300*300>",:thumb=>"100*100>",:tiny=>"25*25>"}
 
