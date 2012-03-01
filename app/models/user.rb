@@ -55,6 +55,11 @@ class User < ActiveRecord::Base
     UserRole.create(:user => self, :role => role)
   end
 
+  # if the user has avatar return true, or, return false
+  def has_avatar?
+    !self.avatar_file_name.blank?
+  end
+
   protected
 
   def self.encrypt(pass, salt)

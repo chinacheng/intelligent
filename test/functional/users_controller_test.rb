@@ -23,6 +23,9 @@ class UsersControllerTest < ActionController::TestCase
     assert_response 200
     put :avatar_create,:id=>lilei.id,:user=>{:avatar=>avatar_file}
     assert_response 302
+    #TODO this is a problem , test user upload atatar
+    #lilei.reload
+    #assert_equal lilei.has_avatar?,true
   end
 
   test "index action" do
