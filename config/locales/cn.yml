@@ -14,6 +14,7 @@ cn:
       error: 登录失败，登录名邮箱或者密码输入错误 
     users:
       avatar_new: 上传头像
+      avatar_again: 更换头像
     article:
       create: 新建
       update: 更新
