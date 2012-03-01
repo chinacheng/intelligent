@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   include Relative::UserMethods
   include Guide::UserMethods
 
-  has_attached_file :avatar,:styles => {:medium=>"300*300>",:thumb=>"100*100>"}
+  has_attached_file :avatar,:styles => {:medium=>"300*300>",:thumb=>"100*100>",:tiny=>"25*25>"}
 
   def self.login(email,password)
     user = User.find_by_email(email)
