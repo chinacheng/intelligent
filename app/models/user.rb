@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   include Relative::UserMethods
   include Guide::UserMethods
   include UserRole::UserMethods
+  include Comment::UserMethods
 
   has_attached_file :avatar,:styles => {:medium=>"300*300>",:thumb=>"100*100>",:tiny=>"25*25>"}
 
