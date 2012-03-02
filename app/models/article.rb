@@ -14,10 +14,11 @@ class Article < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :guide
-  has_many   :comments
 
   CMMT_ON   = 1
   CMMT_OFF  = 0 
+
+  include Comment::HostMethods
 
   def self.list(size)
     articles = Article.find(:all,

@@ -10,6 +10,16 @@
 #two: {}
 #  column: value
 
+study_rails:
+  id: 5
+  name: "How to Study Rails"
+  summary: "It is a easy to study a rails if you are work hard"
+  content: "Study is a very important thing for the life. rails is a easy and good computer language ……"
+  sort: "123"
+  user_id: 1
+  guide_id: 1
+
+
 Test1:
   id: 1
   name: "Test Article"

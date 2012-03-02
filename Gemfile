@@ -14,6 +14,7 @@ gem "acts_as_tree"
 gem "paperclip" 
 gem "paginate"
 gem "rake","0.9.2.2"
+gem "nokogiri"
 
 # Use unicorn as the web server
 # gem 'unicorn'
