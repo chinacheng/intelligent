@@ -30,6 +30,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    puts "update articles ...... #{params[:article]}"
+
     if !@article.update_attributes(params[:article])
       flash[:error] = I18n.t("controller.article.update_fail")
       return redirect_to edit_article_path(params[:id])

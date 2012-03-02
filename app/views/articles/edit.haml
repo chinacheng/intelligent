@@ -5,6 +5,7 @@
   =flash[:error]
 
 =form_for @article,:url=>{:action=>:update} do |f|
+  =hidden_field_tag "id", @article.id
   .article_name
     =I18n.t("view.article.name")
     =f.text_field :name
@@ -13,7 +14,7 @@
     =f.text_field :summary
   .article_guide
     =I18n.t("view.article.guide")
-    =f.text_field :guide
+    =f.select :guide_id,Guide.all.map{|c| [c.name,c.id]}
   .article_tag
     =I18n.t("view.article.tag")
     =f.text_field :comment_tag
