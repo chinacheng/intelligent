@@ -68,8 +68,12 @@ Intelligent::Application.routes.draw do
     match "admin/index", :controller=>:admin, :action=>:index
 
     resources :guides
-    resources :articles
     resources :relatives
+    resources :articles do 
+      resources :comments
+    end
+    resources :comments
+
 
   # See how all your routes lay out with "rake routes"
 

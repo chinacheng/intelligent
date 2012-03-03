@@ -19,6 +19,7 @@ admin:
   hashed_password: 6bdeecc257645c3395f1c973ba467d59d83932db 
 
 lilei:
+  id: 2
   name: lilei
   login: lilei
   email: lilei@test.com

@@ -61,6 +61,12 @@ cn:
       uniq: 每个用户只能分配一个权限 
 
   controller:
+    save_success: 保存成功
+    save_fail: 保存失败
+    update_success: 更新成功
+    update_fail: 保存失败
+    destroy_success: 删除成功
+    destroy_fail: 删除失败
     users:
       reg_success: 注册成功
     guides:
