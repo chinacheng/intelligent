@@ -1,0 +1,5 @@
+.article_list_item
+  =link_to item.name, article_path(item) 
+  =item.summary 
+  =link_to I18n.t("view.article.list_edit"), edit_article_path(item.id)
+  =button_to I18n.t("view.article.list_del"), article_path(item.id),:method => :delete

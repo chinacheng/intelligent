@@ -40,5 +40,11 @@ class Article < ActiveRecord::Base
     articles = Article.find_by_column(article_col)
     return articles
   end  
+
+  module UserMethods
+    def self.included(base)
+      base.has_many :articles
+    end
+  end
  
 end

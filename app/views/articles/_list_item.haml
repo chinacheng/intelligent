@@ -1,9 +1,0 @@
-.article_list
-  .article_list_title
-    .search_article
-  -for item in @articles
-    .article_list_item
-      =item.name 
-      =item.summary 
-      =link_to I18n.t("view.article.list_edit"), edit_article_path(item.id)
-      =button_to I18n.t("view.article.list_del"), article_path(item.id),:method => :delete

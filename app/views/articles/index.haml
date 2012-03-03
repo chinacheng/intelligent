@@ -1,1 +1,6 @@
-=render "list_item"
+.article_list
+  .article_list_title
+    .search_article
+  -@articles.each do |item|
+    =render :partial=>"info",:locals=>{:item=>item}
+

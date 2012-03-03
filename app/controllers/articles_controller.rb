@@ -38,6 +38,9 @@ class ArticlesController < ApplicationController
     render :action=>:edit,:id=>params[:id]
   end
 
+  def show
+  end
+
   def destroy
     if !@article.destroy
       flash[:error] = I18n.t("controller.article.destroy_fail")

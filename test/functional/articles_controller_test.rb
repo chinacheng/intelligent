@@ -8,7 +8,8 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test "test new and create method" do
-    session[:current_user_id] = users(:lilei).id
+    lilei = users(:lilei)
+    session[:current_user_id] = lilei.id
     get :new
     assert_response 200
 
@@ -17,6 +18,13 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_response 302
       assert_redirected_to articles_path
     end
+    article = Article.last
+    assert_equal article.user, lilei
+    assert_equal [article.name, article.summary, article.content],["guides test", "sd", "sd"]
+    assert_equal lilei.articles.include?(article), true
+
+    get :show,:id=>article.id
+    assert_response 200
   end
 
   test "test edit and update method" do
