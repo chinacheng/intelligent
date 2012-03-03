@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @host.comments.new(params[:comment])
     @comment.user = current_user
+    @comment.address = request.remote_ip
     if @comment.save
       flash[:notice] = I18n.t("controller.save_sucess")
       return redirect_to_by_host_type

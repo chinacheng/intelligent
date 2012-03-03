@@ -1,0 +1,8 @@
+=form_for [host, comment] do |f|
+  .content
+    =f.label :content,I18n.t("view.comments.content_label") 
+  .content_field
+    =f.text_area :content, :rows=>3
+  .submit
+    =f.submit I18n.t("view.submit")
+

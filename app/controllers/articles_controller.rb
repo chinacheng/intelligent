@@ -39,6 +39,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @comments = @article.comments.paginate(:per_page=>10,:page=>params[:page])
   end
 
   def destroy

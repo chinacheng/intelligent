@@ -5,3 +5,11 @@
 .content
   =@article.content
 
+.comment_new
+  =render :partial=>"/comments/form",:locals=>{:host=>@article, :comment=>@article.comments.new}
+
+-if @comments.size > 0
+  .comments
+    =render :partial=>"/comments/info",:collection=>@comments,:as=>:comment
+  =will_paginate @comments
+

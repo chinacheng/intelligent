@@ -11,7 +11,7 @@ class CommentsControllerTest < ActionController::TestCase
     session[:current_user_id] = lilei.id
 
     assert_difference "Comment.count",1 do
-      post :create,:article_id=>study_rails.id,:comment=>{:content=>"good, very useful",:address=>"192.168.0.1"}
+      post :create,:article_id=>study_rails.id,:comment=>{:content=>"good, very useful",:address=>"0.0.0.0"}
     end
     assert_redirected_to article_path(:id=>study_rails.id)
     comment = Comment.last
@@ -19,7 +19,7 @@ class CommentsControllerTest < ActionController::TestCase
     assert_equal study_rails, comment.host
     assert_equal lilei, comment.user
     assert_equal comment.content, "good, very useful"
-    assert_equal comment.address, "192.168.0.1"
+    assert_equal comment.address, "0.0.0.0"
 
     # content can not be blank
     assert_difference "Comment.count", 0 do

@@ -5,6 +5,9 @@ cn:
   hello: "Hello world"
   
   view:
+    submit: 提交
+    save: 保存
+    cancel: 取消
     login:
       login: 登录
       logout: 登出
@@ -28,8 +31,8 @@ cn:
       content: 文章内容
       list_edit: 编辑
       list_del: 删除
-    
-      
+    comments:
+      content_label: 填写评论：
     guide:
       create_title: 创建栏目
       edit_title: 编辑栏目
