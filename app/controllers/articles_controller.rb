@@ -13,35 +13,34 @@ class ArticlesController < ApplicationController
     @articles = Article.list(10)
   end
 
+  def new
+    @article = Article.new
+  end
+
   def create
     @article = Article.new(params[:article])
     @article.user_id = current_user.id    
-    if !@article.save
-      flash[:error] = I18n.t("controller.article.save_fail")
+    if @article.save
+      flash[:notice] = I18n.t("controller.article.save_success")
+      return redirect_to articles_path
     end
-    return redirect_to articles_path
-  end
-
-  def new 
-    @article = Article.new
+    render :action=>:new
   end
 
   def edit
   end
 
   def update
-    puts "update articles ...... #{params[:article]}"
-
-    if !@article.update_attributes(params[:article])
-      flash[:error] = I18n.t("controller.article.update_fail")
-      return redirect_to edit_article_path(params[:id])
+    if @article.update_attributes(params[:article])
+      flash[:notice] = I18n.t("controller.article.edit_success")
+      return redirect_to articles_path        
     end
-    return redirect_to articles_path        
+    render :action=>:edit,:id=>params[:id]
   end
 
   def destroy
     if !@article.destroy
-      flash[:error] = I18n.t("controller.article.remvoe_fail")
+      flash[:error] = I18n.t("controller.article.destroy_fail")
     end
     return redirect_to articles_path
   end
