@@ -74,6 +74,12 @@ Intelligent::Application.routes.draw do
     end
     resources :comments
 
+    namespace :admin do
+      resources :articles
+      resources :comments
+    end
+
+
 
   # See how all your routes lay out with "rake routes"
 
