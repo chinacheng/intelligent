@@ -43,10 +43,10 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    if !@article.destroy
-      flash[:error] = I18n.t("controller.article.destroy_fail")
+    if @article.destroy
+      flash[:notice] = I18n.t("controller.destroy_success")
+      return redirect_to articles_path
     end
-    return redirect_to articles_path
   end
 
   def remove_batch

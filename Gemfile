@@ -16,6 +16,7 @@ gem "paginate"
 gem "rake","0.9.2.2"
 gem "nokogiri"
 gem "will_paginate"
+gem "jquery-rails"
 
 # Use unicorn as the web server
 # gem 'unicorn'

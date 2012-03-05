@@ -4,7 +4,8 @@
     %title Intelligent Website
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
-    = csrf_meta_tag
+    = javascript_include_tag "jquery.min"
+    = javascript_include_tag "jquery_ujs"
   %body
     .passport
       =render :partial=>"/index/passport"
