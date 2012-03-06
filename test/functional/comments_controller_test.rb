@@ -33,4 +33,15 @@ class CommentsControllerTest < ActionController::TestCase
 
   end
 
+  test "delete other's comment is forbidden" do
+    comment =  comments(:lilei_comment_study_rails)
+     # create a comment and test the function that other people should not delete lilei's comment 
+    session[:current_user_id] = users(:lucy).id
+    # destroy the comment
+    assert_difference "Comment.count", 0 do
+      delete :destroy,:id=>comment.id
+      assert_response 404
+    end
+  end
+
 end

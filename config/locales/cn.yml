@@ -8,6 +8,7 @@ cn:
     submit: 提交
     save: 保存
     cancel: 取消
+    destroy: 删除
     login:
       login: 登录
       logout: 登出
