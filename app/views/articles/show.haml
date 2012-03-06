@@ -4,6 +4,10 @@
   =@article.summary
 .content
   =@article.content
+.create_date
+  =@article.created_at.full_str
+.update_date
+  =@article.updated_at.full_str
 
 .comment_new
   =render :partial=>"/comments/form",:locals=>{:host=>@article, :comment=>@article.comments.new}
