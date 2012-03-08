@@ -9,10 +9,13 @@
     = javascript_include_tag "jquery_ujs"
   %body
     .passport
-      =render :partial=>"/index/passport"
-    .header
+      .info_message.container
+        .logo
+        .top_nav
+          =render :partial=>"/index/passport"
+    .header.container
       =render :partial=>"/index/header"
-    .main_content
+    .main_content.container
       = yield
-    .footer
+    .footer.container
       =render :partial=>"/index/footer"
