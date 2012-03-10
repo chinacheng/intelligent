@@ -97,4 +97,6 @@ cn:
               blank: 确认密码为空
             gender:
               blank: 性别不能为空
-              
+  will_paginate:
+    previous_label: 上一页 
+    next_label: 下一页
