@@ -75,7 +75,17 @@ Intelligent::Application.routes.draw do
     resources :comments
 
     namespace :admin do
+      
       resources :articles
+
+      match "admin/articles/openComm", :controller=>:articles, :action=>:openComm
+      match "admin/articles/closeComm", :controller=>:articles, :action=>:closeComm
+
+      match "admin/articles/pass", :controller=>:articles, :action=>:pass
+      match "admin/articles/notpass", :controller=>:articles, :action=>:notpass
+      match "admin/articles/view", :controller=>:articles, :action=>:view
+      match "admin/articles/back", :controller=>:articles, :action=>:back
+    
       resources :comments
     end
 

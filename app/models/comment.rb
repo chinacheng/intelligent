@@ -6,12 +6,12 @@ class Comment < ActiveRecord::Base
   # host_id       评论的对象的ID
   # host_type     评论对象的类型
 
-  validates_presence_of :content,:address,:host_id,:host_type
+  validates_presence_of :content,:address,:host_id,:host_type,:is_show
   belongs_to  :user
   belongs_to  :host, :polymorphic => true
 
-  SHOW_ON = 1
-  SHOW_OFF = 0
+  SHOW_ON = true
+  SHOW_OFF = false
 
   module HostMethods
     def self.included(base)

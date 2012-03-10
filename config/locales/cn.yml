@@ -4,11 +4,32 @@
 cn:
   hello: "Hello world"
   
+  common:
+    edit: 编辑
+    del: 删除
+    view: 查看
+    submit: 提交
+    create: 新建
+    save: 保存
+    update: 更新
+    cancel: 取消
+    return: 返回
+    approval: 
+      pass: 审批
+      cancel: 取消审批
+    comment:
+      open: 开启评论
+      close: 关闭评论
+
+    crt_date: 创建时间
+    upd_date: 更新时间
+
   view:
     submit: 提交
     save: 保存
     cancel: 取消
     destroy: 删除
+
     login:
       login: 登录
       logout: 登出
@@ -16,12 +37,12 @@ cn:
       email: 邮箱地址：
       password: 密码：
       error: 登录失败，登录名邮箱或者密码输入错误 
+
     users:
       avatar_new: 上传头像
       avatar_again: 更换头像
+
     article:
-      create: 新建
-      update: 更新
       create_title: 新建文章
       edit_title: 编辑文章
       name: 文章名称
@@ -30,10 +51,12 @@ cn:
       tag: 文章标签
       sort: 文章分类
       content: 文章内容
-      list_edit: 编辑
-      list_del: 删除
+      has_comm: 是否评论
+      is_pass: 通过审核
+      
     comments:
-      content_label: 填写评论：
+      content_label: 填写评论
+    
     guide:
       create_title: 创建栏目
       edit_title: 编辑栏目
@@ -42,9 +65,7 @@ cn:
       way: 展示方式
       father: 父栏目
       sequence: 栏目顺序
-      save: 创建
-      update: 更新
-      cancel: 取消
+      uri: 链接路径
 
   model:
     user:
@@ -73,6 +94,7 @@ cn:
     destroy_fail: 删除失败
     users:
       reg_success: 注册成功
+
     guides:
       update_success: 栏目更新成功
       update_fail: 栏目更新失败
@@ -97,6 +119,7 @@ cn:
               blank: 确认密码为空
             gender:
               blank: 性别不能为空
+
   will_paginate:
     previous_label: 上一页 
     next_label: 下一页

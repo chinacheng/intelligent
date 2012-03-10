@@ -1,0 +1,28 @@
+
+.article_view
+  .article_name
+    =I18n.t("view.article.name")
+    =@article.name
+
+  .article_summary
+    =I18n.t("view.article.summary")
+    =@article.summary
+
+  .article_sort
+    =I18n.t("view.article.sort")
+    =@article.sort
+
+  .article_content
+    =I18n.t("view.article.content")
+    =@article.content
+
+  .create_date
+    =I18n.t("common.crt_date")
+    =@article.created_at.full_str
+
+  .update_date
+    =I18n.t("common.upd_date")
+    =@article.updated_at.full_str
+
+  .submit
+    =button_to I18n.t("common.return"), :action=> :back

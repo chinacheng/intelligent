@@ -9,17 +9,26 @@
   .guide_name
     =I18n.t("view.guide.name")
     =f.text_field :name
+
   .guide_father
     =I18n.t("view.guide.father")
     =f.text_field :parent_id
+
   .guide_show
     =I18n.t("view.guide.show")
-    =f.text_field :show
+    =f.select :is_show, Guide::YES_ON, {:prompt => '请选择是否显示该栏目'}
+
   .guide_way
     =I18n.t("view.guide.way")
     =f.text_field :way
+
   .guide_sequence
     =I18n.t("view.guide.sequence")
     =f.text_field :sequence
+
+  .guide_uri
+    =I18n.t("view.guide.uri")
+    =f.text_field :uri
+
   .submit
-    =f.submit I18n.t("view.guide.save")
+    =f.submit I18n.t("common.save")

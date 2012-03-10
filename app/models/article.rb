@@ -8,15 +8,22 @@ class Article < ActiveRecord::Base
   # user    创建文章的用户
   # column  文章归属的栏目 
   # comment 文章评论
-  validates_presence_of :name,:summary,:content,:sort,:comment_tag,:user_id
+  validates_presence_of :name,:summary,:content,:sort,:has_comm,:user_id,:is_pass
   validates_length_of :name,:within=>0..128
   validates_length_of :sort,:within=>0..32
 
   belongs_to :user
   belongs_to :guide
 
-  CMMT_ON   = 1
-  CMMT_OFF  = 0 
+  CMMT_ON   = true
+  CMMT_OFF  = false
+
+  PASS_ON = true
+  PASS_OFF = false
+  
+
+  YES_ON = {"Yes" => true, "No" => false} 
+
 
   include Comment::HostMethods
 

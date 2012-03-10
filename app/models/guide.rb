@@ -6,7 +6,7 @@ class Guide < ActiveRecord::Base
   # parent_id 父栏目ID
   # user_id   创建人 
   # uri       链接
-  validates_presence_of :name, :uri, :sequence, :show, :way, :user_id, :parent_id
+  validates_presence_of :name, :uri, :sequence, :is_show, :way, :user_id, :parent_id
   validates_uniqueness_of :name
 
   belongs_to :user
@@ -17,8 +17,10 @@ class Guide < ActiveRecord::Base
   TOP_COLS = -1
   
   # 该栏目显示与否的标记
-  COL_SHOW = 1
-  COL_HIDE = 0
+  COL_SHOW = true
+  COL_HIDE = false
+
+  YES_ON = {"Yes" => true, "No" => false}
 
   module UserMethods
     def self.included(base)
@@ -28,7 +30,7 @@ class Guide < ActiveRecord::Base
 
   def self.list_display
     guides = Guide.find(:all,
-                    :conditions => ["parent_id=? and `show`=?",Guide::TOP_COLS,Guide::COL_SHOW],
+                    :conditions => ["parent_id=? and `is_show`=?",Guide::TOP_COLS,Guide::COL_SHOW],
                     :order => "sequence ASC")
   end
 end
