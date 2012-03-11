@@ -76,6 +76,7 @@ Intelligent::Application.routes.draw do
     namespace :admin do
       resources :guides
       resources :comments
+      resources :users
       resources :articles do
         member do
           put :toggle_allow_comment

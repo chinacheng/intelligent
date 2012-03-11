@@ -21,7 +21,6 @@ cn:
     comment:
       open: 开启评论
       close: 关闭评论
-
     crt_date: 创建时间
     upd_date: 更新时间
 
@@ -30,7 +29,10 @@ cn:
     save: 保存
     cancel: 取消
     destroy: 删除
-
+    admin:
+      users: 用户管理
+      guides: 导航管理
+      articles: 文章管理
     login:
       login: 登录
       logout: 登出

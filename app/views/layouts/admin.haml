@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Intelligent Website
+    = csrf_meta_tag
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "admin"
+    = javascript_include_tag "application"
+    = javascript_include_tag "jquery.min"
+    = javascript_include_tag "jquery_ujs"
+  %body
+    .passport
+      .info_message.container
+        .logo
+        .top_nav
+          =render :partial=>"/index/passport"
+    .main_content.container
+      .admin_silder
+        =render :partial=>"silder"
+      .admin_content
+        = yield
+    .footer.container
+      =render :partial=>"/index/footer"

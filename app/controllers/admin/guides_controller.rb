@@ -1,14 +1,6 @@
 # encoding: utf-8
 
-class Admin::GuidesController < ApplicationController
-
-  before_filter :check_admin
-  def check_admin
-    if !current_user.is_admin?
-      render :status=>403, :text=>"you are in the wrong place"
-    end
-  end
-
+class Admin::GuidesController < AdminController
 
   before_filter :per_load
   def per_load
