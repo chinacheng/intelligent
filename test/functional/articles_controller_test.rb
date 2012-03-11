@@ -14,7 +14,7 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_response 200
 
     assert_difference "Article.count",1 do
-      post :create,:article=>{:name=>"guides test",:summary=>"sd",:content=>"sd",:sort=>"34",:comment_tag=>"sd",:browses=>"sd"}
+      post :create,:article=>{:name=>"guides test",:summary=>"sd",:content=>"sd",:sort=>"34",:allow_comment=>true,:browses=>"sd"}
       assert_response 302
       assert_redirected_to articles_path
     end

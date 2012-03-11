@@ -2,7 +2,6 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 cn:
-  hello: "Hello world"
   
   common:
     edit: 编辑
@@ -51,7 +50,7 @@ cn:
       tag: 文章标签
       sort: 文章分类
       content: 文章内容
-      has_comm: 是否评论
+      allow_comment: 是否评论
       is_pass: 通过审核
       
     comments:
@@ -119,6 +118,10 @@ cn:
               blank: 确认密码为空
             gender:
               blank: 性别不能为空
+        article:
+          attributes:
+            allow_comment: 
+              blank: 是否允许评论不能为空 
 
   will_paginate:
     previous_label: 上一页 

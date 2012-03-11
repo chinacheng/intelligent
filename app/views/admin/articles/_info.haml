@@ -1,20 +1,21 @@
 .article_item
-  =link_to article.name, admin_articles_path(article)
+  -article_id = article.id
+  =link_to article.name, admin_articles_path(article_id)
   =article.summary
-  =link_to I18n.t("common.edit"), edit_admin_article_path(article.id)
-  =link_to I18n.t("common.view"), :action => :show, :id => article.id
+  =link_to I18n.t("common.edit"), edit_admin_article_path(article_id)
+  =link_to I18n.t("common.view"), :action => :show, :id => article_id
 
   -if article.has_comm == Article::CMMT_OFF
-    =link_to I18n.t("common.comment.open"), :action=>:open_comment, :id=>article.id
+    =link_to I18n.t("common.comment.open"), :action=>:open_comment, :id=>article_id
   -elsif article.has_comm == Article::CMMT_ON
-    =link_to I18n.t("common.comment.close"), :action=>:close_comment, :id=>article.id
+    =link_to I18n.t("common.comment.close"), :action=>:close_comment, :id=>article_id
   
   -if article.is_pass == Article::PASS_OFF
-    =link_to I18n.t("common.approval.pass"), :action=>:pass, :id=>article.id
+    =link_to I18n.t("common.approval.pass"), :action=>:pass, :id=>article_id
   -elsif article.is_pass = Article::PASS_ON
-    =link_to I18n.t("common.approval.cancel"), :action=>:no_pass, :id=>article.id
+    =link_to I18n.t("common.approval.cancel"), :action=>:no_pass, :id=>article_id
 
-  =link_to I18n.t("common.del"), admin_article_path(article.id), :method => :delete, :confirm=>"are you sure?"
+  =link_to I18n.t("common.del"), admin_article_path(article_id), :method => :delete, :confirm=>"are you sure?"
     
 
   

@@ -75,19 +75,14 @@ Intelligent::Application.routes.draw do
     resources :comments
 
     namespace :admin do
-      
-      resources :articles
-
-      match "admin/articles/open_comment", :controller=>:articles, :action=>:open_comment
-      match "admin/articles/close_comment", :controller=>:articles, :action=>:close_comment
-
-      match "admin/articles/pass", :controller=>:articles, :action=>:pass
-      match "admin/articles/no_pass", :controller=>:articles, :action=>:no_pass
-    
+      resources :articles do
+        member do
+          put :toggle_comment
+          put :toggle_pass
+        end
+      end
       resources :comments
     end
-
-
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,15 +1,19 @@
 class Admin::ArticlesController < ApplicationController
-  skip_before_filter :login_require
+
+  before_filter :check_admin
+  def check_admin
+    if !current_user.is_admin?
+      render :status=>403, :text=>"you are in the wrong place"
+    end
+  end
 
   before_filter :per_load
   def per_load
-    @article=Article.find_by_id(params[:id]) if params[:id]
+    @article = Article.find_by_id(params[:id]) if params[:id]
   end
 
-
   def index
-  #  @articles = Article.list(20)
-    @articles = Article.paginate(:page=>1,:per_page=>2)
+    @articles = Article.paginate(:page=>params[:page],:per_page=>10)
   end
 
   def new
@@ -48,12 +52,7 @@ class Admin::ArticlesController < ApplicationController
     return redirect_to admin_articles_path
   end
 
-
-  def remove_batch
-
-  end
-
-  def open_comment
+  def toggle_comment
     if !@article.update_attribute(:has_comm,Article::CMMT_OFF)
       flash[:error] = I18n.t("controller.update_fail")
     end
@@ -61,15 +60,7 @@ class Admin::ArticlesController < ApplicationController
     return redirect_to admin_articles_path
   end
 
-  def close_comment
-    if !@article.update_attribute(:has_comm,Article::CMMT_OFF)
-      flash[:error] = I18n.t("controller.update_fail") 
-    end
-
-    return redirect_to admin_articles_path
-  end
-
-  def pass
+  def toggle_pass
     if !@article.update_attribute(:is_pass,Article::PASS_ON)
       flash[:error] = I18n.t("controller.update_fail")
     end
@@ -77,11 +68,4 @@ class Admin::ArticlesController < ApplicationController
     return redirect_to admin_articles_path
   end
 
-  def no_pass
-    if !@article.update_attribute(:is_pass,Article::PASS_OFF)
-      flash[:error] = I18n.t("controller.update_fail")
-    end
-
-    return redirect_to admin_articles_path
-  end
 end

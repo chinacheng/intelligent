@@ -1,7 +1,7 @@
 class Guide < ActiveRecord::Base
   # name      栏目名称
   # sequence  栏目序列 
-  # show      栏目显示与否
+  # is_show      栏目显示与否
   # way       栏目在页面上的展示形式 (考虑是否需要字段)
   # parent_id 父栏目ID
   # user_id   创建人 
@@ -15,12 +15,19 @@ class Guide < ActiveRecord::Base
 
   # 顶级栏目的parent_id
   TOP_COLS = -1
-  
-  # 该栏目显示与否的标记
-  COL_SHOW = true
-  COL_HIDE = false
 
   YES_ON = {"Yes" => true, "No" => false}
+
+  def self.list_display
+    Guide.find_all_by_is_show(true)
+  end
+  
+  def uri_path
+    if uri.blank?
+      return "/"
+    end
+    uri
+  end
 
   module UserMethods
     def self.included(base)
@@ -28,9 +35,4 @@ class Guide < ActiveRecord::Base
     end
   end
 
-  def self.list_display
-    guides = Guide.find(:all,
-                    :conditions => ["parent_id=? and `is_show`=?",Guide::TOP_COLS,Guide::COL_SHOW],
-                    :order => "sequence ASC")
-  end
 end

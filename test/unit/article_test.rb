@@ -4,11 +4,10 @@ class ArticleTest < ActiveSupport::TestCase
   test "Create Article" do
     assert_difference "Article.count",1 do
       article = Article.new(:name=>"Test Article",:summary=>"Test Summary Article",
-                  :content=>"hello! rails",:sort=>"123",:user_id=>1,:guide_id=>1)
-
+                  :content=>"hello! rails",:allow_comment=>false,:sort=>"123",:user_id=>1,:guide_id=>1)
       assert_equal true,article.valid?
       assert_equal true,article.save
-      assert_equal Article::CMMT_OFF,article.comment_tag
+      assert_equal Article::COMMOT_OFF,article.allow_comment
       assert_equal 0,article.browses
     end
   end
@@ -22,12 +21,4 @@ class ArticleTest < ActiveSupport::TestCase
     end
   end
 
-  test "Article's sort limit" do
-    assert_difference "Article.count",0 do
-      article = Article.new(:name=>"Test Article",:summary=>"Test Summary Article",
-                  :content=>"hello! rails",:sort=>"",:user_id=>1,:guide_id=>1)
-      assert_equal false,article.valid?
-      assert_equal false,article.save
-    end
-  end
 end

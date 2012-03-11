@@ -6,13 +6,20 @@
  *= require_tree . 
 */
 
-.passport{left: 0;top: 0;width: 100%;min-width: 960px;height: 27px;background-image: -moz-linear-gradient(#FAFAFA, #EAEAEA);border-bottom: 1px solid #CACACA;}
-.header{width: 960px;height: 50px;}
-.main_content{height: 700px;width: 960px;}
-.footer{color: #000000;text-align: center;}
 .container{margin: 0 auto;width: 960px;}
+
+.passport{left: 0;top: 0;width: 100%;min-width: 960px;height: 27px;border-bottom: 1px solid #CACACA;vertical-align: middle;font-size: 12px;}
+.top_nav{float:right;vertical-align: middle;padding: 5px 5px 5px 5px;}
+
+.header{height: 100px;}
+.head_logo{height: 70px;}
+
+.guides{height: 30px;}
+
+.main_content{height: 700px;}
+.footer{color: #000000;text-align: center;}
+
 .info_message{}
-.top_nav{float:right;}
 
 a.info{color: #222222;text-decoration: none;}
 a.info:hover{color: #4183c4;text-decoration: none;}

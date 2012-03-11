@@ -1,8 +1,8 @@
-
 .message
 -if flash[:error]
   =flash[:error]
 
 .article_list
-  =render :partial=>"info",:collection=>@articles,:as=>:article
-  =will_paginate @articles
+  =render :partial=>"info", :collection=>@articles, :as=>:article
+
+=will_paginate @articles

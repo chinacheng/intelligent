@@ -1,2 +1,5 @@
--@guides.each do |guide|
-  =link_to guide.name,guide_path(guide)
+.head_logo
+
+.guides
+  -@guides.each do |guide|
+    =link_to guide.name,guide.uri_path

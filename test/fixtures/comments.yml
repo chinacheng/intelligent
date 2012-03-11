@@ -13,7 +13,7 @@ two: {}
 lilei_comment_study_rails:
   content: 评论内容 
   address: 发表评论的ip地址
-  show: 1 
+  is_show: true 
   user_id: 2 
   host_id: 5 
   host_type: Article

@@ -1,38 +1,4 @@
 .article_title
   =I18n.t("view.article.edit_title")
 
--if flash[:error]
-  =flash[:error]
-
-=form_for @article,:url=>{:action=>:update} do |f|
-  =hidden_field_tag "id", @article.id
-  .article_name
-    =I18n.t("view.article.name")
-    =f.text_field :name
-
-  .article_summary
-    =I18n.t("view.article.summary")
-    =f.text_field :summary
-
-  .article_guide
-    =I18n.t("view.article.guide")
-    =f.select :guide_id,Guide.all.map{|c| [c.name,c.id]}
-
-  .article_pass
-    =I18n.t("view.article.is_pass")
-    =f.select :is_pass, Article::YES_ON, {:prompt => '请选择是否通过审批'}
-
-  .article_tag
-    =I18n.t("view.article.has_comm")
-    =f.select :has_comm, Article::YES_ON, {:prompt => '请选择是否可以评论'}
-
-  .article_sort
-    =I18n.t("view.article.sort")
-    =f.text_field :sort
-
-  .article_content
-    =I18n.t("view.article.content")
-    =f.text_area :content, :rows=>15, :cols=>50
-
-  .submit
-    =f.submit I18n.t("common.update")
+=render :partical=>"form"

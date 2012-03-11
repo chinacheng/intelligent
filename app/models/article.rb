@@ -8,31 +8,25 @@ class Article < ActiveRecord::Base
   # user    创建文章的用户
   # column  文章归属的栏目 
   # comment 文章评论
-  validates_presence_of :name,:summary,:content,:sort,:has_comm,:user_id,:is_pass
-  validates_length_of :name,:within=>0..128
-  validates_length_of :sort,:within=>0..32
+  validates_presence_of :name, :summary, :content, :user_id
+  validates_length_of :name, :within => 0..128
+  validates_length_of :sort, :within => 0..32
 
   belongs_to :user
   belongs_to :guide
 
-  CMMT_ON   = true
-  CMMT_OFF  = false
+  COMMOT_ON  = true
+  COMMOT_OFF = false
 
-  PASS_ON = true
+  PASS_ON  = true
   PASS_OFF = false
-  
 
-  YES_ON = {"Yes" => true, "No" => false} 
-
+  YES_ON = {"Yes" => true, "No" => false}
 
   include Comment::HostMethods
 
-  def self.list(size)
-    articles = Article.find(:all,
-                :select => "id,name,sort,browses,guide_id,summary",
-                :order => "updated_at DESC",
-                :limit => size)
-    return articles
+  def self.list
+    Artile.find_all_by_is_show(true)
   end
 
   def self.find_by_name_articles(article_name,size)
@@ -42,11 +36,6 @@ class Article < ActiveRecord::Base
                 :limit => size)
     return articles
   end 
-
-  def self.find_by_column_articles(article_col)
-    articles = Article.find_by_column(article_col)
-    return articles
-  end  
 
   module UserMethods
     def self.included(base)

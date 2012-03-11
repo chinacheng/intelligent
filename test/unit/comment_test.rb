@@ -10,7 +10,7 @@ class CommentTest < ActiveSupport::TestCase
     lilei_comments_size = lilei.comments.size
     study_comments_size = study_rails.comments.size
     assert_difference "Comment.count",1 do
-      study_rails.add_comments({:content=>content,:address=>"192.168.0.1", :user_id=>lilei.id ,:show=>Comment::SHOW_ON},lilei)
+      study_rails.add_comments({:content=>content,:address=>"192.168.0.1", :user_id=>lilei.id ,:is_show=>Comment::SHOW_ON},lilei)
     end
 
     comment = Comment.last

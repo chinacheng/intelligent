@@ -27,7 +27,7 @@ class GuidesControllerTest < ActionController::TestCase
     assert_response 200
 
     assert_difference "Guide.count",1 do
-      post :create,:guide=>{:name=>"guides test",:uri=>"index",:show=>1,:way=>"1",:sequence=>2,:parent_id=>-1}
+      post :create,:guide=>{:name=>"guides test",:uri=>"index",:is_show=>true,:way=>"1",:sequence=>2,:parent_id=>-1}
       assert_response 302
       assert_redirected_to root_path
     end

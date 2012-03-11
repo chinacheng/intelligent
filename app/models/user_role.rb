@@ -9,7 +9,7 @@ class UserRole < ActiveRecord::Base
   module UserMethods
     def self.included(base)
       base.has_one :user_role
-      base.has_one :role, :through=>:user_role
+      base.has_one :role, :through=>:user_role, :as=>:user
     end
 
     def is_admin?
