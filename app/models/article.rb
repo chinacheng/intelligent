@@ -15,8 +15,8 @@ class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :guide
 
-  COMMOT_ON  = true
-  COMMOT_OFF = false
+  COMMET_ON  = true
+  COMMET_OFF = false
 
   PASS_ON  = true
   PASS_OFF = false

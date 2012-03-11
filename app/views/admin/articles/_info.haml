@@ -5,9 +5,9 @@
   =link_to I18n.t("common.edit"), edit_admin_article_path(article_id)
   =link_to I18n.t("common.view"), :action => :show, :id => article_id
 
-  -if article.has_comm == Article::CMMT_OFF
+  -if article.allow_comment == Article::COMMET_OFF
     =link_to I18n.t("common.comment.open"), :action=>:open_comment, :id=>article_id
-  -elsif article.has_comm == Article::CMMT_ON
+  -elsif article.allow_comment == Article::COMMET_ON
     =link_to I18n.t("common.comment.close"), :action=>:close_comment, :id=>article_id
   
   -if article.is_pass == Article::PASS_OFF
