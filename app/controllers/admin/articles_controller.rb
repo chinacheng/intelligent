@@ -48,15 +48,12 @@ class Admin::ArticlesController < ApplicationController
     return redirect_to admin_articles_path
   end
 
-  def view
-
-  end
 
   def remove_batch
 
   end
 
-  def openComm
+  def open_comment
     if !@article.update_attribute(:has_comm,Article::CMMT_OFF)
       flash[:error] = I18n.t("controller.update_fail")
     end
@@ -64,7 +61,7 @@ class Admin::ArticlesController < ApplicationController
     return redirect_to admin_articles_path
   end
 
-  def closeComm
+  def close_comment
     if !@article.update_attribute(:has_comm,Article::CMMT_OFF)
       flash[:error] = I18n.t("controller.update_fail") 
     end
@@ -80,7 +77,7 @@ class Admin::ArticlesController < ApplicationController
     return redirect_to admin_articles_path
   end
 
-  def notpass
+  def no_pass
     if !@article.update_attribute(:is_pass,Article::PASS_OFF)
       flash[:error] = I18n.t("controller.update_fail")
     end

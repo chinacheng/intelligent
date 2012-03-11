@@ -78,13 +78,11 @@ Intelligent::Application.routes.draw do
       
       resources :articles
 
-      match "admin/articles/openComm", :controller=>:articles, :action=>:openComm
-      match "admin/articles/closeComm", :controller=>:articles, :action=>:closeComm
+      match "admin/articles/open_comment", :controller=>:articles, :action=>:open_comment
+      match "admin/articles/close_comment", :controller=>:articles, :action=>:close_comment
 
       match "admin/articles/pass", :controller=>:articles, :action=>:pass
-      match "admin/articles/notpass", :controller=>:articles, :action=>:notpass
-      match "admin/articles/view", :controller=>:articles, :action=>:view
-      match "admin/articles/back", :controller=>:articles, :action=>:back
+      match "admin/articles/no_pass", :controller=>:articles, :action=>:no_pass
     
       resources :comments
     end

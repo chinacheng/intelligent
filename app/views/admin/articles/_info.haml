@@ -2,17 +2,17 @@
   =link_to article.name, admin_articles_path(article)
   =article.summary
   =link_to I18n.t("common.edit"), edit_admin_article_path(article.id)
-  =link_to I18n.t("common.view"), :action => :view, :id => article.id
+  =link_to I18n.t("common.view"), :action => :show, :id => article.id
 
   -if article.has_comm == Article::CMMT_OFF
-    =link_to I18n.t("common.comment.open"), :action=>:openComm, :id=>article.id
+    =link_to I18n.t("common.comment.open"), :action=>:open_comment, :id=>article.id
   -elsif article.has_comm == Article::CMMT_ON
-    =link_to I18n.t("common.comment.close"), :action=>:closeComm, :id=>article.id
+    =link_to I18n.t("common.comment.close"), :action=>:close_comment, :id=>article.id
   
   -if article.is_pass == Article::PASS_OFF
     =link_to I18n.t("common.approval.pass"), :action=>:pass, :id=>article.id
   -elsif article.is_pass = Article::PASS_ON
-    =link_to I18n.t("common.approval.cancel"), :action=>:notpass, :id=>article.id
+    =link_to I18n.t("common.approval.cancel"), :action=>:no_pass, :id=>article.id
 
   =link_to I18n.t("common.del"), admin_article_path(article.id), :method => :delete, :confirm=>"are you sure?"
     
