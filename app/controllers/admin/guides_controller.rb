@@ -1,8 +1,14 @@
 # encoding: utf-8
 
-class GuidesController < ApplicationController
+class Admin::GuidesController < ApplicationController
 
-  skip_before_filter :login_require,:only=>[:index,:show]
+  before_filter :check_admin
+  def check_admin
+    if !current_user.is_admin?
+      render :status=>403, :text=>"you are in the wrong place"
+    end
+  end
+
 
   before_filter :per_load
   def per_load
@@ -23,7 +29,7 @@ class GuidesController < ApplicationController
 
     if @guide.save
       flash[:notice] = I18n.t("controller.guides.save_success")
-      return redirect_to root_path
+      return redirect_to :action=>:index
     end
     flash[:error] = I18n.t("controller.guides.save_fail")
     return render :action=>:new 
@@ -38,7 +44,7 @@ class GuidesController < ApplicationController
   def update
     if @guide.update_attributes(params[:guide])
       flash[:notice] = I18n.t("controller.guides.update_success")
-      return redirect_to root_path
+      return redirect_to :action=>:index
     end
     flash[:error] = I18n.t("controller.guides.update_fail")
     return redirect_to :action=>:edit,:id=>params[:id] 
@@ -47,7 +53,7 @@ class GuidesController < ApplicationController
   def destroy 
     if @guide.destroy
       flash[:notice] = I18n.t("controller.guides.remvoe_success")
-      redirect_to root_path
+      redirect_to :action=>:index
     end
   end
   

@@ -67,7 +67,6 @@ Intelligent::Application.routes.draw do
 
     match "admin/index", :controller=>:admin, :action=>:index
 
-    resources :guides
     resources :relatives
     resources :articles do 
       resources :comments
@@ -75,13 +74,14 @@ Intelligent::Application.routes.draw do
     resources :comments
 
     namespace :admin do
+      resources :guides
+      resources :comments
       resources :articles do
         member do
           put :toggle_allow_comment
           put :toggle_is_pass
         end
       end
-      resources :comments
     end
 
   # See how all your routes lay out with "rake routes"

@@ -6,6 +6,7 @@ cn:
   common:
     edit: 编辑
     del: 删除
+    destroy: 删除
     view: 查看
     submit: 提交
     create: 新建
@@ -13,6 +14,7 @@ cn:
     update: 更新
     cancel: 取消
     return: 返回
+    confirm_destroy: 确认删除？
     approval: 
       pass: 审批
       cancel: 取消审批

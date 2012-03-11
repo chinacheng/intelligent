@@ -1,0 +1,5 @@
+.guide_info
+  -guide_id = guide.id
+  =link_to guide.name, admin_guide_path(guide.id) 
+  =link_to I18n.t("common.edit"), edit_admin_guide_path(guide.id)
+  =link_to I18n.t("common.destroy"), admin_guide_path(guide.id), :method=>:delete, :confirm=>I18n.t("common.confirm_destroy")

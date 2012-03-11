@@ -1,11 +1,8 @@
-
-.title
-=I18n.t("view.guide.create_title")
-
 -if flash[:error]
   =flash[:error]
 
-=form_for @guide,:url=>{:action => :create} do |f|
+=form_for [:admin, @guide] do |f|
+  =hidden_field_tag "id", @guide.id
   .guide_name
     =I18n.t("view.guide.name")
     =f.text_field :name
@@ -17,7 +14,7 @@
   .guide_show
     =I18n.t("view.guide.show")
     =f.select :is_show, Guide::YES_ON, {:prompt => '请选择是否显示该栏目'}
-
+  
   .guide_way
     =I18n.t("view.guide.way")
     =f.text_field :way
