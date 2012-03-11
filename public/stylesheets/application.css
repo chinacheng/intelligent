@@ -17,7 +17,7 @@
 .guides{height: 30px;}
 
 .main_content{height: 700px;}
-.footer{color: #000000;text-align: center;}
+.footer{clear: both;color: #000000;text-align: center;}
 
 .info_message{}
 
