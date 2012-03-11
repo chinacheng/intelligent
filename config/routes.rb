@@ -77,8 +77,8 @@ Intelligent::Application.routes.draw do
     namespace :admin do
       resources :articles do
         member do
-          put :toggle_comment
-          put :toggle_pass
+          put :toggle_allow_comment
+          put :toggle_is_pass
         end
       end
       resources :comments

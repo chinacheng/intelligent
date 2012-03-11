@@ -7,7 +7,7 @@ class ArticleTest < ActiveSupport::TestCase
                   :content=>"hello! rails",:allow_comment=>false,:sort=>"123",:user_id=>1,:guide_id=>1)
       assert_equal true,article.valid?
       assert_equal true,article.save
-      assert_equal Article::COMMET_OFF,article.allow_comment
+      assert_equal Article::COMMENT_OFF,article.allow_comment
       assert_equal 0,article.browses
     end
   end
@@ -19,6 +19,22 @@ class ArticleTest < ActiveSupport::TestCase
       assert_equal false,article.valid?
       assert_equal false,article.save
     end
+  end
+
+  test "toggle is pass(default is true)" do
+    article = articles(:study_rails)
+    article.toggle_is_pass
+    assert_equal article.is_pass, false
+    article.toggle_is_pass
+    assert_equal article.is_pass, true 
+  end
+
+  test "toggle allow comment(default is true)" do
+    article = articles(:study_rails)
+    article.toggle_allow_comment
+    assert_equal article.allow_comment, false
+    article.toggle_allow_comment
+    assert_equal article.allow_comment, true 
   end
 
 end

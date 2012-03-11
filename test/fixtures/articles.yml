@@ -18,6 +18,8 @@ study_rails:
   sort: "123"
   user_id: 1
   guide_id: 1
+  allow_comment: true
+  is_pass: true
 
 
 Test1:

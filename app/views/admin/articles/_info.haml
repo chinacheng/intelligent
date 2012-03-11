@@ -3,17 +3,17 @@
   =link_to article.name, admin_articles_path(article_id)
   =article.summary
   =link_to I18n.t("common.edit"), edit_admin_article_path(article_id)
-  =link_to I18n.t("common.view"), :action => :show, :id => article_id
+  =link_to I18n.t("common.view"), admin_article_path(article_id)
 
-  -if article.allow_comment == Article::COMMET_OFF
-    =link_to I18n.t("common.comment.open"), :action=>:open_comment, :id=>article_id
-  -elsif article.allow_comment == Article::COMMET_ON
-    =link_to I18n.t("common.comment.close"), :action=>:close_comment, :id=>article_id
+  -if article.allow_comment == Article::COMMENT_OFF
+    =link_to I18n.t("common.comment.open"), toggle_allow_comment_admin_article_path(article_id), :method=>:put
+  -elsif article.allow_comment == Article::COMMENT_ON
+    =link_to I18n.t("common.comment.close"), toggle_allow_comment_admin_article_path(article_id), :method=>:put
   
   -if article.is_pass == Article::PASS_OFF
-    =link_to I18n.t("common.approval.pass"), :action=>:pass, :id=>article_id
+    =link_to I18n.t("common.approval.pass"), toggle_is_pass_admin_article_path(article_id), :method=>:put
   -elsif article.is_pass = Article::PASS_ON
-    =link_to I18n.t("common.approval.cancel"), :action=>:no_pass, :id=>article_id
+    =link_to I18n.t("common.approval.cancel"), toggle_is_pass_admin_article_path(article_id), :method=>:put
 
   =link_to I18n.t("common.del"), admin_article_path(article_id), :method => :delete, :confirm=>"are you sure?"
     

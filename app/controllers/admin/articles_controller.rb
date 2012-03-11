@@ -48,23 +48,17 @@ class Admin::ArticlesController < ApplicationController
     end
   end
 
-  def back
+  def toggle_allow_comment
+    if !@article.toggle_allow_comment
+      flash[:error] = I18n.t("controller.update_fail")
+    end
     return redirect_to admin_articles_path
   end
 
-  def toggle_comment
-    if !@article.update_attribute(:has_comm,Article::CMMT_OFF)
+  def toggle_is_pass
+    if !@article.toggle_is_pass
       flash[:error] = I18n.t("controller.update_fail")
     end
-
-    return redirect_to admin_articles_path
-  end
-
-  def toggle_pass
-    if !@article.update_attribute(:is_pass,Article::PASS_ON)
-      flash[:error] = I18n.t("controller.update_fail")
-    end
-
     return redirect_to admin_articles_path
   end
 

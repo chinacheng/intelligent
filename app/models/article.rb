@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
   # summary 文章摘要
   # content 文章内容
   # sort    文章分类
-  # comment_tag 文章是否可评论标志
+  # allow_comment 文章是否可评论标志
   # browses 文章浏览量
   # user    创建文章的用户
   # column  文章归属的栏目 
@@ -15,8 +15,8 @@ class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :guide
 
-  COMMET_ON  = true
-  COMMET_OFF = false
+  COMMENT_ON  = true
+  COMMENT_OFF = false
 
   PASS_ON  = true
   PASS_OFF = false
@@ -36,6 +36,20 @@ class Article < ActiveRecord::Base
                 :limit => size)
     return articles
   end 
+
+  def toggle_is_pass
+    if is_pass == PASS_ON
+      return update_attributes(:is_pass => PASS_OFF)
+    end
+    update_attributes(:is_pass => PASS_ON)
+  end
+
+  def toggle_allow_comment
+    if allow_comment == COMMENT_ON
+      return update_attributes(:allow_comment => COMMENT_OFF)
+    end
+    update_attributes(:allow_comment => COMMENT_ON)
+  end
 
   module UserMethods
     def self.included(base)
