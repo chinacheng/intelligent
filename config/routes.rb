@@ -74,6 +74,9 @@ Intelligent::Application.routes.draw do
     resources :comments
 
     namespace :admin do
+      match "start_super/new",    :controller=>:start_super, :action=>:new
+      match "start_super/create", :controller=>:start_super, :action=>:create, :via=>"post"
+      match "start_super/destroy",:controller=>:start_super, :action=>:destroy, :via=>"delete"
       resources :guides
       resources :comments
       resources :users

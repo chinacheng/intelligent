@@ -1,7 +1,4 @@
-# encoding: utf-8
-
-class SessionController < ApplicationController
-
+class Admin::StartSuperController < AdminController
   skip_before_filter :login_require
 
   def new
@@ -20,8 +17,8 @@ class SessionController < ApplicationController
   def _redirect_by_role
     case true
     # admin is not allow login from this action
-    when current_user.is_admin? then destroy 
-    else redirect_to root_path
+    when current_user.is_admin? then redirect_to admin_index_path
+    else destroy
     end
 
   end

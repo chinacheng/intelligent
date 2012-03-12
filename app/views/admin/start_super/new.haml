@@ -1,0 +1,12 @@
+-if flash[:error]
+  =flash[:error]
+=form_tag admin_start_super_create_path,:method=>"post" do
+  .email
+    =I18n.t("view.login.email") 
+    =text_field_tag "email"
+  .password
+    =I18n.t("view.login.password")
+    =password_field_tag "password"
+  .submit
+    =submit_tag I18n.t("view.login.login")
+
