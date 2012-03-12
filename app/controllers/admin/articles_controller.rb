@@ -6,7 +6,9 @@ class Admin::ArticlesController < AdminController
   end
 
   def index
-    @articles = Article.paginate(:page=>params[:page],:per_page=>10)
+    @articles = Article.paginate(:page=>params[:page],:per_page=>20,
+                  :conditions=> ['name like ?',"%#{params[:search_text]}%"],
+                  :order => "updated_at DESC")
   end
 
   def new

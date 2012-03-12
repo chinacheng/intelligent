@@ -6,7 +6,7 @@ class Guide < ActiveRecord::Base
   # parent_id 父栏目ID
   # user_id   创建人 
   # uri       链接
-  validates_presence_of :name, :sequence, :user_id, :parent_id
+  validates_presence_of :name, :user_id, :parent_id
   validates_uniqueness_of :name
 
   belongs_to :user

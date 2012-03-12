@@ -2,3 +2,48 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+UL {
+  PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+
+LI {
+  PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+
+UL {
+  LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+
+
+
+#search {margin: 10px 0px 0px; width: 697px; float: left; height: 37px; overflow: hidden}
+
+.search_left {width: 5px; float: left; height: 37px;}
+
+.search_center {width: 687px; background: #fed400; float: left; height: 37px;}
+
+.search_right {}
+
+.search_input {
+  BORDER-BOTTOM: #b5b8c8 0px solid; BORDER-LEFT: #b5b8c8 0px solid; PADDING-BOTTOM: 0px; MARGIN: -2px; PADDING-LEFT: 4px; WIDTH: 383px; PADDING-RIGHT: 4px; HEIGHT: 24px; COLOR: #555; FONT-SIZE: 14px; BORDER-TOP: #b5b8c8 0px solid; BORDER-RIGHT: #b5b8c8 0px solid; PADDING-TOP: 6px
+}
+.search_select {
+  BORDER-BOTTOM: #b5b8c8 0px solid; BORDER-LEFT: #b5b8c8 0px solid; MARGIN: -1px; WIDTH: 130px; BACKGROUND: #fff; HEIGHT: 24px; COLOR: #555; FONT-SIZE: 14px; BORDER-TOP: #b5b8c8 0px solid; BORDER-RIGHT: #b5b8c8 0px solid
+}
+
+.search_s {BORDER-BOTTOM: #ffba00 1px solid; BORDER-LEFT: #ffba00 1px solid; PADDING-BOTTOM: 2px; MARGIN: 6px 0px 0px 2px; PADDING-LEFT: 2px; WIDTH: 129px; PADDING-RIGHT: 2px; BACKGROUND: #fff; FLOAT: left; HEIGHT: 20px; OVERFLOW: hidden; BORDER-TOP: #ffba00 1px solid; BORDER-RIGHT: #ffba00 1px solid; PADDING-TOP: 2px;
+}
+
+.search_s1 {
+  MARGIN: 0px; WIDTH: 129px; BACKGROUND: #fff; FLOAT: left; HEIGHT: 20px; OVERFLOW: hidden
+}
+
+.search_i {
+  BORDER-BOTTOM: #ffba00 1px solid; BORDER-LEFT: #ffba00 1px solid; MARGIN: 6px 0px 0px 2px; WIDTH: 390px; BACKGROUND: #fff; FLOAT: left; HEIGHT: 24px; OVERFLOW: hidden; BORDER-TOP: #ffba00 1px solid; BORDER-RIGHT: #ffba00 1px solid
+}
+.search_b {
+  MARGIN: 11px 0px 0px 6px; FLOAT: left; HEIGHT: 18px; OVERFLOW: hidden
+}
+
+

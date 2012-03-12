@@ -7,6 +7,7 @@ class ArticleTest < ActiveSupport::TestCase
                   :content=>"hello! rails",:allow_comment=>false,:sort=>"123",:user_id=>1,:guide_id=>1)
       assert_equal true,article.valid?
       assert_equal true,article.save
+      assert_equal false,article.is_top
       assert_equal Article::COMMENT_OFF,article.allow_comment
       assert_equal 0,article.browses
     end
