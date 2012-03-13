@@ -4,7 +4,7 @@ class Admin::GuidesControllerTest < ActionController::TestCase
    
   test "guide edit method" do
     admin, guide = users(:admin), guides(:index)
-    session[:current_user_id] = admin.id
+    admin_login
     get :edit,:id=>1
     assert_response 200
     
@@ -22,7 +22,7 @@ class Admin::GuidesControllerTest < ActionController::TestCase
   end
   
   test "Guide new,create method and show" do
-    session[:current_user_id] = users(:admin).id
+    admin_login
     get :new
     assert_response 200
 
@@ -38,7 +38,7 @@ class Admin::GuidesControllerTest < ActionController::TestCase
   end
 
   test "destroy guide method" do
-    session[:current_user_id] = users(:admin).id
+    admin_login
     assert_difference "Guide.count",-1 do
       delete :destroy, :id=>1
       assert_response 302

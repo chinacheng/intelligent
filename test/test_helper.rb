@@ -14,4 +14,12 @@ class ActiveSupport::TestCase
   def current_user
     User.find_by_id(session[:current_user_id])
   end
+
+  def admin_login
+    session[:current_user_id] = users(:admin).id
+  end
+
+  def user_login(name)
+    session[:current_user_id] = users(name).id 
+  end
 end

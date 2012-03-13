@@ -2,8 +2,8 @@ require 'test_helper'
 
 class Admin::ArticlesControllerTest < ActionController::TestCase
 
-  def admin_login
-    session[:current_user_id] = users(:admin).id
+  def admin_login_get_article
+    admin_login
     @article = articles(:study_rails)
   end
 
@@ -21,7 +21,7 @@ class Admin::ArticlesControllerTest < ActionController::TestCase
   end
   
   test "admin user can access the controller and it's actions " do
-    admin_login
+    admin_login_get_article
     get :index
     assert_response 200 
     get :new
@@ -33,7 +33,7 @@ class Admin::ArticlesControllerTest < ActionController::TestCase
   end
 
   test "toggle article's is_pass status(default is true)" do
-    admin_login
+    admin_login_get_article
     put :toggle_is_pass, :id=>@article.id
     @article.reload
     assert_equal @article.is_pass, false
@@ -43,7 +43,7 @@ class Admin::ArticlesControllerTest < ActionController::TestCase
   end
 
   test "toggle article's allow_comment status(default is true)" do 
-    admin_login
+    admin_login_get_article
     put :toggle_allow_comment, :id=>@article.id
     @article.reload
     assert_equal @article.allow_comment, false
