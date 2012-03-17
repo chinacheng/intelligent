@@ -16,12 +16,26 @@
 
 .guides{height: 30px;}
 
-.main_content{height: 700px;}
-.footer{clear: both;color: #000000;text-align: center;}
+.main_content{height: 700px;overflow: ;}
+.footer{clear: both;color: #000000;text-align: center;font-size: 14px;}
 
 .info_message{}
 
 a.info{color: #222222;text-decoration: none;}
-a.info:hover{color: #4183c4;text-decoration: none;}
+a.info:hover{color: #4183C4;text-decoration: none;}
 a{color: #1E50A2;text-decoration: none;}
 a:hover{color: #BA2636;text-decoration: underline;}
+
+img.user_face{border: 1px solid #DDD;padding: 1px;}
+
+.article{width: 600px;}
+.article .meta{font-size: 14px;}
+.article .summary{padding: 12px 5px 6px;line-height: 23px;font-size: 14px;text-indent: 2em;border: 1px solid #DCDDDD; margin:15px 0 0;}
+.article .content{padding: 9px 0;line-height: 23px;font-size: 14px;word-wrap: break-word;overflow: hidden;}
+
+.comment{margin:10px 0;border: 1px solid #DDD;width: 550px;}
+.comment .meta{padding: 5px 10px;height: 25px;font-size: 12px;margin: 0;}
+.comment .meta .author{padding: 1px;display: block;float: left;}
+.comment .meta .date_time{padding: 1px 1px; display: block;float: right;}
+.comment .content{padding: 5px 10px;line-height: 20px; font-size: 14px;clear: both;}
+.comment .operates{font-size: 12px;}

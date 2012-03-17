@@ -1,7 +1,6 @@
 .article_item
   -article_id = article.id
   =link_to article.name, admin_article_path(article_id)
-  =article.summary
   =link_to I18n.t("common.edit"), edit_admin_article_path(article_id)
   =link_to I18n.t("common.view"), admin_article_path(article_id)
 

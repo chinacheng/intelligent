@@ -1,13 +1,13 @@
-.name
-  =@article.name
-.summary
-  =@article.summary
-.content
-  =@article.content
-.create_date
-  =@article.created_at.full_str
-.update_date
-  =@article.updated_at.full_str
+.article
+  %h2.name
+    =@article.name
+  .meta
+    =@article.created_at.full_str
+    =link_to @article.user.name, user_path(@article.user)
+  .summary
+    =@article.summary
+  .content
+    =@article.content
 
 .comment_new
   =render :partial=>"/comments/form",:locals=>{:host=>@article, :comment=>@article.comments.new}

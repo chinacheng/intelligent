@@ -1,5 +1,16 @@
-.comment_div
-  =comment.content
-  =comment.user.name
-  =comment.address
-  =link_to I18n.t("view.destroy"),comment_path(comment),:confirm=>"are you sure?",:method=>:delete
+-user = comment.user
+.comment
+  .meta
+    %span.author
+      -if !user.has_avatar?
+      -else
+        =image_tag user.avatar.url(:tiny),:class=>'user_face'
+      =user.name
+      =comment.address
+    %span.date_time
+      =comment.created_at.full_str
+  .content
+    =comment.content
+  .operates
+    %span.operate
+      =link_to I18n.t("view.destroy"),comment_path(comment),:confirm=>"are you sure?",:method=>:delete
