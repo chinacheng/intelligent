@@ -1,5 +1,5 @@
 =form_for [host, comment] do |f|
-  .content
+  .content_label
     =f.label :content,I18n.t("view.comments.content_label") 
   .content_field
     =f.text_area :content, :rows=>3
