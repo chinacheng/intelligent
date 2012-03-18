@@ -14,19 +14,20 @@
 .header{height:100px;}
 .head_logo{height:70px;}
 
-.guides{height:30px;}
+.guides{padding:2px; height:30px;}
+.guides .guide{margin:0 5px; display:inline-block; font-size:14px; line-height:30px;}
+.
 
 .main_content{}
 .footer{clear:both; color:#000000; text-align:center; font-size:14px;}
 
 .info_message{}
 
-.area{}
+.area{height:300px;}
 .left_area{width:200px; float:left;}
 .main_area{width:760px; float:left;}
 .main_area .middle_container{width:400px; float:left;}
 .main_area .right_container{width:360px; float:right;}
-
 
 a.info{color:#222222; text-decoration:none;}
 a.info:hover{color:#4183C4; text-decoration:none;}

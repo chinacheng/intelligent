@@ -2,4 +2,5 @@
 
 .guides
   -@guides.each do |guide|
-    =link_to guide.name,guide.uri_path
+    %span.guide
+      =link_to guide.name,guide.uri_path
