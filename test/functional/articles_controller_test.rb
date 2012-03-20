@@ -21,7 +21,7 @@ class ArticlesControllerTest < ActionController::TestCase
     article = Article.last
     assert_equal article.user, lilei
     assert_equal [article.name, article.summary, article.content],["guides test", "sd", "sd"]
-    assert_equal lilei.articles.include?(article), true
+    assert lilei.articles.include?(article)
 
     get :show,:id=>article.id
     assert_response 200
@@ -32,7 +32,7 @@ class ArticlesControllerTest < ActionController::TestCase
     get :edit,:id=>1
     assert_response 200
 
-    assert_difference "Article.count",0 do
+    assert_no_difference "Article.count" do
       put :update, {:id=>1,:article=>{:name=>"guides test 12"}}
     end
 

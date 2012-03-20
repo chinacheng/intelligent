@@ -39,17 +39,17 @@ class Admin::ArticlesControllerTest < ActionController::TestCase
     assert_equal @article.is_pass, false
     put :toggle_is_pass, :id=>@article.id
     @article.reload
-    assert_equal @article.is_pass, true  
+    assert @article.is_pass  
   end
 
   test "toggle article's allow_comment status(default is true)" do 
     admin_login_get_article
     put :toggle_allow_comment, :id=>@article.id
     @article.reload
-    assert_equal @article.allow_comment, false
+    assert !@article.allow_comment
     put :toggle_allow_comment, :id=>@article.id
     @article.reload
-    assert_equal @article.allow_comment, true
+    assert @article.allow_comment
   end
 
 end

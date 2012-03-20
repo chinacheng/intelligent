@@ -6,8 +6,8 @@ class MenuTest < ActiveSupport::TestCase
       menu = Menu.new(:name => "admins",:app_id => "admin",:sequence => 1,:tip => "test of menus",
                       :image => "images/menus/1.gif")
 
-      assert_equal true,menu.valid?
-      assert_equal true,menu.save		
+      assert menu.valid?
+      assert menu.save		
     end
   end
 end

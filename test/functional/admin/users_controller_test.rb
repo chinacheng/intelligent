@@ -6,7 +6,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     admin_login
     get :index
     assert_response 200
-    assert_equal assigns("users").blank?, false
+    assert !assigns("users").blank?
   end
 
   test "common user access index action" do

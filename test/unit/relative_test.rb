@@ -13,14 +13,33 @@ class RelativeTest < ActiveSupport::TestCase
       kate.fan(lilei)
     end
     assert_equal lucy.fans.size, 2
-    assert_equal lucy.fans.include?(lilei), true
-    assert_equal lucy.fans.include?(kate), true
+    assert lucy.fans.include?(lilei)
+    assert lucy.fans.include?(kate)
     assert_equal kate.follows.size, 2
 
-    assert_equal kate.follows.include?(lucy), true
-    assert_equal kate.follows.include?(lilei), true
+    assert kate.follows.include?(lucy)
+    assert kate.follows.include?(lilei)
 
-    assert_equal lilei.fan?(lucy),true
+    assert lilei.fan?(lucy)
+  end
+
+  # test the method fan_each_other
+  test "fan each other and remove a fan" do
+    lucy,lilei = users("lucy"),users("lilei")
+    assert !lucy.fan_each_other?(lilei)
+    lucy.fan(lilei)
+    assert !lucy.fan_each_other?(lilei)
+    lilei.fan(lucy)
+    assert lucy.fan_each_other?(lilei)
+
+    # remove a fan
+    lucy.remove_fan(lilei)
+    assert lucy.fan?(lilei)
+    assert !lucy.fan_each_other?(lilei)
+    assert !lilei.fan?(lucy)
+
+    lilei.remove_fan(lucy)
+    assert !lilei.fan?(lucy)
   end
 
 end

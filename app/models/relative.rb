@@ -25,11 +25,20 @@ class Relative < ActiveRecord::Base
       relative.destroy if relative 
     end
 
-    # a is a fans of b , return true or return false
+    # a is one of b's fans return true, or return false
     def fan?(user)
       !!Relative.find_by_fan_id_and_follow_id(self.id,user.id)
     end
 
+    # if a and b fan each other return true, or return false
+    def fan_each_other?(user)
+      self.fan?(user) && user.fan?(self)
+    end 
+
+    # remove a fan
+    def remove_fan(user)
+      user.unfan(self)
+    end
   end
 
 end

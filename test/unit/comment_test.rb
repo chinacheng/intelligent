@@ -17,11 +17,11 @@ class CommentTest < ActiveSupport::TestCase
     assert_equal comment.content, content
     assert_equal comment.user, lilei
 
-    assert_equal lilei.comments.include?(comment), true
+    assert lilei.comments.include?(comment)
     assert_equal lilei.comments.size - lilei_comments_size, 1
 
     assert_equal comment.host, study_rails
-    assert_equal study_rails.comments.include?(comment), true
+    assert study_rails.comments.include?(comment)
     assert_equal study_rails.comments.size - study_comments_size, 1
   end
 

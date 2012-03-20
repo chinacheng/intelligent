@@ -22,7 +22,7 @@ class CommentsControllerTest < ActionController::TestCase
     assert_equal comment.address, "0.0.0.0"
 
     # content can not be blank
-    assert_difference "Comment.count", 0 do
+    assert_no_difference "Comment.count" do
       post :create,:article_id=>study_rails.id,:comment=>{:content=>"",:address=>"192,168.0.1"}
     end
 
@@ -38,7 +38,7 @@ class CommentsControllerTest < ActionController::TestCase
      # create a comment and test the function that other people should not delete lilei's comment 
     session[:current_user_id] = users(:lucy).id
     # destroy the comment
-    assert_difference "Comment.count", 0 do
+    assert_no_difference "Comment.count" do
       delete :destroy,:id=>comment.id
       assert_response 404
     end

@@ -17,7 +17,7 @@ class Admin::GuidesControllerTest < ActionController::TestCase
     guide.reload
     assert_equal name, guide.name
     assert_equal guide.user, admin
-    assert_equal admin.guides.include?(guide), true
+    assert admin.guides.include?(guide)
 
   end
   

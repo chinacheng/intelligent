@@ -8,8 +8,8 @@ class UserRoleTest < ActiveSupport::TestCase
       role_admin = roles("admin")
       lucy.add_role(Role::ROLE_ADMIN)
       user_role = UserRole.last
-      assert user_role.user.name, lucy.name
-      assert user_role.role.name, role_admin.name
+      assert_equal user_role.user.name, lucy.name
+      assert_equal user_role.role.name, role_admin.name
       assert_equal lucy.role.name, role_admin.name
     end
     assert_equal true,lucy.is_admin?
