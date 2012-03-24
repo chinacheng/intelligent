@@ -19,7 +19,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     lilei = users("lilei")
     admin_login
     assert_difference "User.count",-1 do
-      delete :destroy,:id=>lilei.id
+      delete :destroy, :id=>lilei.id
     end
   end
 

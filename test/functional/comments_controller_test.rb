@@ -15,7 +15,7 @@ class CommentsControllerTest < ActionController::TestCase
     end
     assert_redirected_to article_path(:id=>study_rails.id)
     comment = Comment.last
-    assert_equal true, study_rails.comments.include?(comment)
+    assert study_rails.comments.include?(comment)
     assert_equal study_rails, comment.host
     assert_equal lilei, comment.user
     assert_equal comment.content, "good, very useful"

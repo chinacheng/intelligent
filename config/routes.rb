@@ -56,6 +56,7 @@ Intelligent::Application.routes.draw do
       member do 
         get :avatar_new
         put :avatar_create
+        post :avatar_cut
         get :fans
         get :follows
       end

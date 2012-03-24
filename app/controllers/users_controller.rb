@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(:per_page=>10,:page=>params[:page])
+    @users = User.paginate(:per_page => 10, :page => params[:page])
   end
 
   def new
@@ -24,21 +24,30 @@ class UsersController < ApplicationController
       return redirect_to session_new_path 
     end
       flash[:error] = @user.errors
-    return render :action=>:new
+    return render :action => :new
   end
 
   # upload avatar view 
   def avatar_new
-
   end
 
   # upload avatar action
   def avatar_create
     @user.avatar = params[:user][:avatar]
     if @user.save
-      return redirect_to root_path 
+      return redirect_to @user 
     end
-    render :action=>:avatar_new,:id=>params[:user][:id]
+    render :action => :avatar_new, :id => params[:user][:id]
+  end
+
+  # cut user's avatar 
+  def avatar_cut
+    if @user.cut_avatar(params[:user])
+      flash[:notice] = I18n.t("common.operate_success")
+      return redirect_to @user
+    end
+    flash[:notice] = I18n.t("common.operate_fail")
+    return redirect_to :action => :avatar_new, :id => params[:id]
   end
 
   def fans

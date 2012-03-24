@@ -8,13 +8,14 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on=>:create
   validates_presence_of :password_confirmation, :on=>:create
   validates_confirmation_of :password
-  validates_length_of :password,:within=>4..60, :on=>:create
-  validates_uniqueness_of :login,:email
-  validates_length_of :login,:within=>2..60
+  validates_length_of :password, :within=>4..60, :on=>:create
+  validates_uniqueness_of :login, :email
+  validates_length_of :login, :within=>2..60
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  attr_protected :id,:salt
-  attr_accessor :password,:password_confirmation
+  attr_protected :id, :salt
+  attr_accessor :password, :password_confirmation
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   GENDER_MALE = "male"
   GENDER_FEMALE = "female"
@@ -25,9 +26,9 @@ class User < ActiveRecord::Base
   include Comment::UserMethods
   include Article::UserMethods
 
-  has_attached_file :avatar,:styles => {:medium=>"300*300>",:thumb=>"100*100>",:tiny=>"25*25>"}
+  has_attached_file :avatar, :styles => {:medium=>"300*300>",:thumb=>"100*100>",:tiny=>"25*25>"}
 
-  def self.login(email,password)
+  def self.login(email, password)
     user = User.find_by_email(email)
     return false if user.blank?
     if user.hashed_password == User.encrypt(password,user.salt)
@@ -58,6 +59,19 @@ class User < ActiveRecord::Base
   # if the user has avatar return true, or, return false
   def has_avatar?
     !self.avatar_file_name.blank?
+  end
+
+  # cut user's avatar, if cuccess return true, or return false
+  require "RMagick"
+  def cut_avatar(params)
+    update_attributes(params)
+    if !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+      [[:medium,1], [:thumb,3], [:tiny,12]].each do |arr|
+        img = Magick::Image::read(avatar.path(arr[0])).first  
+        img.crop!(crop_x.to_f/arr[1], crop_y.to_f/arr[1], crop_w.to_f/arr[1], crop_h.to_f/arr[1], true)  
+        img.write(avatar.path(arr[0])){ self.quality = 95; self.density = 92; }
+      end
+    end
   end
 
   protected

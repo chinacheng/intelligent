@@ -1,12 +1,13 @@
-= @user.login 
-= @user.gender_text 
+=@user.login 
+=@user.gender_text 
+=image_tag current_user.avatar.url(:thumb) 
 follows:
 =link_to @user.follows.size,follows_user_path(@user)
 fans:
 =link_to @user.fans.size,fans_user_path(@user)
 
 -if current_user
-  -if current_user.has_avatar?
+  -if current_user == @user && current_user.has_avatar?
     =link_to I18n.t("view.users.avatar_again"), avatar_new_user_path(current_user)
 
   .see_other_user

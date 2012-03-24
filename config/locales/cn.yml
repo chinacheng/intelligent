@@ -15,7 +15,10 @@ cn:
     cancel: 取消
     return: 返回
     search: 搜索
+    upload: 上传
     confirm_destroy: 确认删除？
+    operate_success: 操作成功
+    operate_fail: 操作失败 
     approval: 
       pass: 审批
       cancel: 取消审批
