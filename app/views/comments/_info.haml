@@ -4,9 +4,10 @@
     %span.user_face.tiny.block_left
       -if !user.has_avatar?
       -else
-        =image_tag user.avatar.url(:tiny),:class=>'user_face'
+        =link_to(user) do
+          =image_tag user.avatar.url(:tiny),:class=>'user_face'
     %span.author_info
-      =user.name
+      =link_to user.name, user
       =comment.address
     %span.date_time
       =comment.created_at.full_str
