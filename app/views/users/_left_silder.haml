@@ -1,0 +1,35 @@
+.user_attributes
+  .user_face.medium
+    =image_tag current_user.avatar.url(:thumb), :class=>"user_face" 
+  =@user.login 
+  =@user.gender_text 
+%ul.relatives
+  %li
+    %strong
+      =link_to @user.follows.size,follows_user_path(@user)
+    %span
+      =I18n.t("view.users.follows")
+  %li
+    %strong
+      =link_to @user.fans.size,fans_user_path(@user)
+    %span
+      =I18n.t("view.users.fans")
+  %li.no_border
+    %strong
+      =link_to 0
+    %span
+      = I18n.t("view.users.topics")
+.clear
+
+-if current_user
+  -if current_user == @user && current_user.has_avatar?
+    =link_to I18n.t("view.users.avatar_again"), avatar_new_user_path(current_user)
+
+  .see_other_user
+    -if current_user != @user && !current_user.fan?(@user)
+      =form_tag relatives_path do
+        =hidden_field_tag "id",@user.id
+        =submit_tag "follow"
+    -elsif current_user.fan?(@user)
+      you had followed he(she)
+      =button_to "unfollow",relative_path(:id=>@user.id),:method=>:delete

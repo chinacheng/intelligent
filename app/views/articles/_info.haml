@@ -1,4 +1,4 @@
 .article_list_item
-  =link_to article.name, article_path(article) 
+  =link_to article.name, article_path(article),:class=>"data" 
   =link_to I18n.t("common.edit"), edit_article_path(article.id)
   =link_to I18n.t("common.del"), article_path(article.id), :method => :delete, :confirm=>"are you sure?"

@@ -1,0 +1,11 @@
+
+.left_silder{width:150px;}
+.right_container{}
+
+.user_attributes{margin:0 0 15px 10px;}
+ul.relatives{margin:0 0 10px 10px; padding:0;}
+.relatives li.no_border{border:0;}
+.relatives li{padding:0 5px 0 5px; float:left; text-align:center; border-right:1px solid #DDD;}
+.relatives strong{font-size:16px;}
+.relatives a{display:block;}
+

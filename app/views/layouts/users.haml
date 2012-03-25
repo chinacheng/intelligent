@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Intelligent Website
+    = csrf_meta_tag
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "users"
+    = javascript_include_tag "application"
+  %body
+    .passport
+      .info_message.container
+        .logo
+        .top_nav
+          = render :partial=>"/index/passport"
+    .header.container
+      = render :partial=>"/index/header"
+    .main_content.container
+      .left_silder
+        = render :partial=>"/users/left_silder"
+      .right_container
+        = yield
+    .footer.container
+      = render :partial=>"/index/footer"

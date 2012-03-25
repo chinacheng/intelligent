@@ -1,0 +1,17 @@
+.article{width:600px;}
+.article .meta{font-size:12px; color:#808080;}
+.article .summary{padding:12px 5px 6px; line-height:23px; font-size:14px; text-indent:2em; border:1px solid #DCDDDD; margin:15px 0 0;}
+.article .content{padding:9px 0; line-height:23px; font-size:14px; word-wrap:break-word; overflow:hidden;}
+
+.comment{margin:10px 0; border:1px solid #DDD;}
+.comment .meta{padding:5px 10px; height:25px; font-size:12px; margin: 0;}
+.comment .meta .author_info{padding:5px; display:block; float:left;}
+.comment .meta .date_time{padding:5px; display:block; float:right;}
+.comment .content{padding:5px 10px; line-height:20px; font-size:14px; clear:both;}
+.comment .operates{padding:0 10px 5px; font-size:12px; height:16px;}
+.comment .operate{display:black; float:right;}
+
+.comment_new{background-color:#EEE; font-size:12px;}
+.comment_new .content_field textarea{margin:5px; width:96%; height:80px;}
+.comment_new .content_label{padding:5px 5px 0;}
+.comment_new .submit{padding:0 5px 5px;}

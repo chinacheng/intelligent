@@ -48,6 +48,9 @@ cn:
     users:
       avatar_new: 上传头像
       avatar_again: 更换头像
+      follows: 关注
+      fans: 粉丝
+      topics: 主题
 
     article:
       create_title: 新建文章
