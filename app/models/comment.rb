@@ -25,10 +25,4 @@ class Comment < ActiveRecord::Base
     end
   end
 
-  module UserMethods
-    def self.included(base)
-      base.has_many :comments
-    end
-  end
-
 end

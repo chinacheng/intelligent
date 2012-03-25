@@ -20,11 +20,13 @@ class User < ActiveRecord::Base
   GENDER_MALE = "male"
   GENDER_FEMALE = "female"
 
+  has_many :articles
+  has_many :comments
+  has_many :guides
+  has_many :topics
+
   include Relative::UserMethods
-  include Guide::UserMethods
   include UserRole::UserMethods
-  include Comment::UserMethods
-  include Article::UserMethods
 
   has_attached_file :avatar, :styles => {:medium=>"300*300>",:thumb=>"100*100>",:tiny=>"25*25>"}
 

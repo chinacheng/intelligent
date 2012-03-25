@@ -12,7 +12,8 @@ class Admin::UsersControllerTest < ActionController::TestCase
   test "common user access index action" do
     user_login("lilei")
     get :index
-    assert_response 403
+    assert_response 403 
+    assert !current_user.blank?
   end
 
   test "admin destroy a user" do

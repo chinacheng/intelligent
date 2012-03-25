@@ -2,9 +2,9 @@
 
 class UsersController < ApplicationController
 
-  layout "application", :except=>[:show]
+  layout "application", :except => [:show]
 
-  skip_before_filter :login_require
+  skip_before_filter :login_require, :only => [:new, :create, :index, :show, :fans, :follows]
 
   before_filter :per_load
   def per_load

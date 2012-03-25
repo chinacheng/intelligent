@@ -51,10 +51,4 @@ class Article < ActiveRecord::Base
     update_attributes(:allow_comment => COMMENT_ON)
   end
 
-  module UserMethods
-    def self.included(base)
-      base.has_many :articles
-    end
-  end
- 
 end

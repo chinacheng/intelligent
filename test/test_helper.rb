@@ -12,14 +12,17 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 
   def current_user
-    User.find_by_id(session[:current_user_id])
+    User.find_by_id(session["current_user_id"])
   end
 
   def admin_login
-    session[:current_user_id] = users(:admin).id
+    session["current_user_id"] = users(:admin).id
   end
 
-  def user_login(name)
-    session[:current_user_id] = users(name).id 
+  def user_login(user)
+    case user.class.to_s
+    when "String" then session["current_user_id"] = users(user).id
+    when "User" then session["current_user_id"] = user.id
+    end 
   end
 end

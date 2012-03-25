@@ -29,10 +29,4 @@ class Guide < ActiveRecord::Base
     uri
   end
 
-  module UserMethods
-    def self.included(base)
-      base.has_many :guides
-    end
-  end
-
 end

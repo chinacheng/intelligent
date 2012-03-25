@@ -18,11 +18,12 @@ class UsersControllerTest < ActionController::TestCase
 
   test "user_avatar_upload" do
     lilei = users("lilei")
-    avatar_file = File.new("#{RAILS_ROOT}/test/tmp/avatar_test.jpeg")  
+    user_login(lilei)
+    avatar_file = File.new("#{RAILS_ROOT}/test/tmp/avatar_test.jpeg")
     get :avatar_new, :id=>lilei.id
     assert_response 200
     put :avatar_create, :id=>lilei.id, :user=>{:avatar => avatar_file}
-    assert_response 302
+    assert_response 200
     #TODO this is a problem , test user upload atatar
     #lilei.reload
     #assert_equal lilei.has_avatar?,true
@@ -41,7 +42,7 @@ class UsersControllerTest < ActionController::TestCase
       lilei.fan(kate)
       lucy.fan(lilei)
     end
-    session[:user_id] = kate.id
+    session[:current_user_id] = kate.id
     get :fans, :id => lilei.id
     assert_response 200
     fans = assigns(:fans)
