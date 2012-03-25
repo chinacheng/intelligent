@@ -1,6 +1,7 @@
 =javascript_include_tag "jquery.Jcrop"
 =javascript_include_tag "users"
 =stylesheet_link_tag "jquery.Jcrop" 
+=stylesheet_link_tag "users"
 
 =form_for [:avatar_create, @user] do |f|
   =f.file_field :avatar
@@ -8,10 +9,13 @@
 
 -if current_user.has_avatar?
   =image_tag current_user.avatar.url(:medium),:id=>"user_avatar_medium"
+  #cut_message.hide
+    %span 
+      =I18n.t("view.users.select_img_first")
   =form_for @user, :url => avatar_cut_user_path(@user), :method => :post do |f|
     =f.hidden_field :crop_x, :id => "position_x"
     =f.hidden_field :crop_y, :id => "position_y"
     =f.hidden_field :crop_w, :id => "width"
     =f.hidden_field :crop_h, :id => "height"
-    =submit_tag I18n.t("common.submit")
+    =submit_tag I18n.t("common.submit"), :id=>"cut_avatar_button"
 

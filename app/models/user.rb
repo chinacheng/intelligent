@@ -66,10 +66,11 @@ class User < ActiveRecord::Base
   def cut_avatar(params)
     update_attributes(params)
     if !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
-      [[:medium,1], [:thumb,3], [:tiny,12]].each do |arr|
-        img = Magick::Image::read(avatar.path(arr[0])).first  
-        img.crop!(crop_x.to_f/arr[1], crop_y.to_f/arr[1], crop_w.to_f/arr[1], crop_h.to_f/arr[1], true)  
-        img.write(avatar.path(arr[0])){ self.quality = 95; self.density = 92; }
+      img = Magick::Image::read(avatar.path(:medium)).first  
+      [[:thumb, 100], [:tiny, 25]].each do |arr|
+        new_img = img.crop(crop_x.to_f, crop_y.to_f, crop_w.to_f, crop_h.to_f, true)  
+        new_img.scale!(arr[1],arr[1])
+        new_img.write(avatar.path(arr[0])){ self.quality = 100; self.density = 100; }
       end
     end
   end

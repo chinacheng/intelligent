@@ -45,5 +45,6 @@ img.user_face{border:1px solid #DDD; padding:1px;}
 .medium img{width:100px; height:100px;}
 
 .block_left{display:block; float:left;}
+.hide{display:none;}
 
 li{list-style:none;}

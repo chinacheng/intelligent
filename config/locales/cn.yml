@@ -51,6 +51,7 @@ cn:
       follows: 关注
       fans: 粉丝
       topics: 主题
+      select_img_first: 请在图像上选择一个范围 
 
     article:
       create_title: 新建文章

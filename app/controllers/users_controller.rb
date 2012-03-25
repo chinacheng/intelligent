@@ -2,6 +2,8 @@
 
 class UsersController < ApplicationController
 
+  layout "application", :except=>[:show]
+
   skip_before_filter :login_require
 
   before_filter :per_load
@@ -11,6 +13,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(:per_page => 10, :page => params[:page])
+    
   end
 
   def new
@@ -35,7 +38,6 @@ class UsersController < ApplicationController
   def avatar_create
     @user.avatar = params[:user][:avatar]
     if @user.save
-      return redirect_to @user 
     end
     render :action => :avatar_new, :id => params[:user][:id]
   end
