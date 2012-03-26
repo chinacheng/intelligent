@@ -1,6 +1,6 @@
 .user_attributes
   .user_face.medium
-    =image_tag current_user.avatar.url(:thumb), :class=>"user_face" 
+    =image_tag @user.avatar.url(:thumb), :class=>"user_face" 
   =@user.login 
   =@user.gender_text 
 %ul.relatives
