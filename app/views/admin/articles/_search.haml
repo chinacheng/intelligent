@@ -1,0 +1,7 @@
+.article_search#search
+  =form_tag admin_articles_path,:method=>:get do
+    .search_area
+      =text_field_tag "search",params[:search], :class => "searchbox"
+      =submit_tag I18n.t("common.search"), :class => "searchbtn"
+      .right
+        =link_to I18n.t("common.create"),new_admin_article_path,:class => "searchbtn"

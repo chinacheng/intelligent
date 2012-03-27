@@ -1,0 +1,23 @@
+.content_display_form
+  .form_title
+    =I18n.t("view.users.view_title")
+
+  .form_body
+    .user_name
+      =label_tag I18n.t("view.users.name")
+      =@user.name
+
+    .user_login
+      =label_tag I18n.t("view.users.login")
+      =@user.login
+
+    .user_gender
+      =label_tag I18n.t("view.users.gender")
+      =@user.gender_text
+
+    .user_email
+      =label_tag I18n.t("view.users.email")
+      =@user.email
+
+    .submit
+      =link_to I18n.t("common.back"), admin_users_path

@@ -1,0 +1,28 @@
+-if flash[:error]
+  .message
+    =flash[:error]
+
+=form_for [:admin, @user] do |f|
+  =hidden_field_tag "id", @user.id
+  .user_name
+    =f.label I18n.t("view.users.name")
+    =f.text_field :name, :class => "inputbox"
+
+  .user_login
+    =f.label I18n.t("view.users.login")
+    =f.text_field :login, :class => "inputbox"  
+
+  .user_gender
+    =f.label I18n.t("view.users.gender")
+    =f.radio_button :gender,User::GENDER_MALE
+    =I18n.t("common.gender.male")
+    =f.radio_button :gender,User::GENDER_FEMALE
+    =I18n.t("common.gender.female")
+
+  .user_email
+    =f.label I18n.t("view.users.email")
+    =f.email_field :email, :class => "inputbox"
+
+  .submit
+    =f.submit I18n.t("common.save")
+    =link_to I18n.t("common.back"), admin_users_path

@@ -1,0 +1,7 @@
+=form_tag admin_guides_path,:method=>:get do
+  .search_area
+    =text_field_tag "search",params[:search], :class => "searchbox"
+    =submit_tag I18n.t("common.search"), :class => "searchbtn"
+    .right
+      =link_to I18n.t("common.create"),new_admin_guide_path,:class => "searchbtn"
+  

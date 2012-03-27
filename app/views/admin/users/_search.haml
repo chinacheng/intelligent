@@ -1,0 +1,5 @@
+
+=form_tag admin_users_path,:method=>:get do
+  .search_area
+    =text_field_tag "search",params[:search], :class => "searchbox"
+    =submit_tag I18n.t("common.search"), :class => "searchbtn"
