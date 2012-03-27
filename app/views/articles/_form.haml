@@ -17,11 +17,11 @@
 
   .article_pass
     =I18n.t("view.article.is_pass")
-    =f.select :is_pass, Article::YES_ON, {:prompt => '请选择是否通过审批'}
+    =f.select :is_pass, Article::YES_ON, {:prompt => I18n.t("view.prompt.is_pass")}
 
   .article_tag
     =I18n.t("view.article.allow_comment")
-    =f.select :allow_comment, Article::YES_ON, {:prompt => '请选择是否可以评论'}
+    =f.select :allow_comment, Article::YES_ON, {:prompt => I18n.t("view.prompt.is_comment")}
 
   .article_sort
     =I18n.t("view.article.sort")

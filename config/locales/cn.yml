@@ -14,22 +14,37 @@ cn:
     save: 保存
     update: 更新
     cancel: 取消
-    return: 返回
+    back: 返回
     search: 搜索
     upload: 上传
     confirm_destroy: 确认删除？
     operate_success: 操作成功
-    operate_fail: 操作失败 
-    approval: 
-      pass: 审批
-      cancel: 取消审批
+    operate_fail: 操作失败
+
+    operator: 操 作
+    approval:
+      pass: 通过
+      cancel: 不通过
     comment:
-      open: 开启评论
-      close: 关闭评论
+      open: 开启
+      close: 关闭
+    display:
+      show: 显示
+      hide: 隐藏
+
+    gender:
+      male: 男
+      female: 女
+
     crt_date: 创建时间
     upd_date: 更新时间
 
   view:
+    prompt:
+      select: 请选择
+      select_guide: 请选择所属栏目
+      del: 确定删除?
+
     submit: 提交
     save: 保存
     cancel: 取消
@@ -38,6 +53,7 @@ cn:
       users: 用户管理
       guides: 导航管理
       articles: 文章管理
+      comments: 评论管理
     login:
       login: 登录
       logout: 登出
@@ -52,7 +68,15 @@ cn:
       follows: 关注
       fans: 粉丝
       topics: 主题
-      select_img_first: 请在图像上选择一个范围 
+      select_img_first: 请在图像上选择一个范围
+      edit_title: 编辑用户信息
+      crt_title: 新建用户
+      view_title: 查看用户信息
+      name: 姓名
+      login: 登入名
+      gender: 性别
+      email: 电子邮箱
+      avatar: 头像 
 
     article:
       create_title: 新建文章
@@ -63,21 +87,24 @@ cn:
       tag: 文章标签
       sort: 文章分类
       content: 文章内容
-      allow_comment: 是否评论
-      is_pass: 通过审核
+      review: 评 论
+      check: 审 核
+      author: 作 者
       
     comments:
       content_label: 填写评论
     
     guide:
-      create_title: 创建栏目
+      view_title: 查看栏目
+      crt_title: 新建栏目
       edit_title: 编辑栏目
-      show: 是否显示
+      display: 显示
       name: 栏目名称
       way: 展示方式
       father: 父栏目
       sequence: 栏目顺序
       uri: 链接路径
+      author: 作 者
 
   model:
     user:

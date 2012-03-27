@@ -1,27 +1,29 @@
 -if flash[:error]
   = flash[:error]
 
-用户注册
+.register_title
+  =I18n.t("view.login.user.register")
+
 =form_for @user do |f|
   .name
-    姓名：
+    =I18n.t("view.login.user.name")
     =f.text_field :name
   .login 
-    登录名：
+    =I18n.t("view.login.user.login")
     =f.text_field :login
   .password
-    密码：
+    =I18n.t("view.login.user.password")
     =f.password_field :password
   .password_confirmation
-    密码确认：
+    =I18n.t("view.login.user.confirm_password")
     =f.password_field :password_confirmation
   .email
-    电子邮件：
+    =I18n.t("view.login.user.email")
     =f.text_field :email
   .gender
     =f.radio_button :gender,User::GENDER_MALE
-    男
+    =I18n.t("common.gender.male")
     =f.radio_button :gender,User::GENDER_FEMALE
-    女
+    =I18n.t("common.gender.female")
   .submit 
-    =f.submit "提交"
+    =f.submit I18n.t("view.login.user.summit")
