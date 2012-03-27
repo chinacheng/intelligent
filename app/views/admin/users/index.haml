@@ -1,1 +1,8 @@
-=render :partial=>"info",:collection=>@users,:as=>:user
+
+-if flash[:error]
+  .message
+    =flash[:error]
+
+=render :partial=>"search"
+
+=render :partial=>"info"

@@ -1,3 +1,31 @@
-.user_info{:id=>"user_#{user.id}"}
-  =user.name
-  =link_to I18n.t("common.destroy"), admin_user_path(user),:method=>:delete, :confirm=>I18n.t("common.confirm_destroy")
+.content_list
+  %table{:width => "100%"}
+    %thead
+      %tr
+        %th
+          =I18n.t("view.users.name")
+        %th
+          =I18n.t("view.users.login")
+        %th{:width => "10%"}
+          =I18n.t("view.users.gender")
+        %th{:width => "20%"}
+          =I18n.t("view.users.email")
+        %th{:width => "20%"}
+          =I18n.t("common.operator")
+    %tbody
+      -for user in @users
+        %tr
+          -user_id=user.id
+          %td
+            =link_to user.name, admin_user_path(user_id)
+          %td
+            =user.login
+          %td
+            =user.gender_text
+          %td
+            =user.email
+          %td
+            =link_to I18n.t("common.edit"), edit_admin_user_path(user.id)
+            =link_to I18n.t("common.del"), admin_user_path(user),:method=>:delete, :confirm=>I18n.t("view.prompt.del")
+
+  =will_paginate @users

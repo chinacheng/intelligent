@@ -5,9 +5,13 @@ class Admin::UsersController < AdminController
     @user = User.find_by_id(params[:id]) if params[:id]
   end
 
+
   def index
-    @users = User.paginate(:per_page=>20,:page=>params[:page])
+    @users = User.paginate(:per_page=>20,:page=>params[:page],
+                  :conditions=> ['name like ?',"%#{params[:search]}%"],
+                  :order => "updated_at DESC")
   end
+
 
   def destroy
     if @user.destroy
