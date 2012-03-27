@@ -1,31 +1,39 @@
 -if flash[:error]
-  =flash[:error]
+  .message
+    =flash[:error]
 
 =form_for [:admin, @guide] do |f|
   =hidden_field_tag "id", @guide.id
   .guide_name
-    =I18n.t("view.guide.name")
-    =f.text_field :name
+    %label
+      =I18n.t("view.guide.name")
+    =f.text_field :name, :class => "inputbox"
 
   .guide_father
-    =I18n.t("view.guide.father")
-    =f.text_field :parent_id
+    %label
+      =I18n.t("view.guide.father")
+    =f.select :parent_id, Guide.all.map{|c| [c.name,c.id]},{:prompt => I18n.t("view.prompt.select_guide")}
 
   .guide_show
-    =I18n.t("view.guide.show")
-    =f.select :is_show, Guide::YES_ON, {:prompt => '请选择是否显示该栏目'}
+    %label
+      =I18n.t("view.guide.display")
+    =f.select :is_show, DictionaryEntity::DISPLAY_MAP
   
   .guide_way
-    =I18n.t("view.guide.way")
-    =f.text_field :way
+    %label
+      =I18n.t("view.guide.way")
+    =f.text_field :way, :class => "inputbox"
 
   .guide_sequence
-    =I18n.t("view.guide.sequence")
-    =f.text_field :sequence
+    %label
+      =I18n.t("view.guide.sequence")
+    =f.text_field :sequence, :class => "inputbox"
 
   .guide_uri
-    =I18n.t("view.guide.uri")
-    =f.text_field :uri
+    %label
+      =I18n.t("view.guide.uri")
+    =f.text_field :uri, :class => "inputbox"
 
   .submit
     =f.submit I18n.t("common.save")
+    =link_to I18n.t("common.back"), admin_guides_path

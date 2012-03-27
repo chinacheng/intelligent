@@ -1,1 +1,41 @@
-=@guide.name
+.content_display_form
+  .form_title
+    =I18n.t("view.guide.view_title")
+  .form_body
+    .guide_name
+      %label
+        =I18n.t("view.guide.name")
+      =@guide.name
+    
+    .guide_father
+      %label
+        =I18n.t("view.guide.father")
+      =@guide.parent
+
+    .guide_show
+      %label
+        =I18n.t("view.guide.display")
+      =@guide.display
+
+    .guide_way
+      %label
+        =I18n.t("view.guide.way")
+      =@guide.way
+
+    .guide_sequence
+      %label
+        =I18n.t("view.guide.sequence")
+      =@guide.uri
+
+    .guide_crt
+      %label
+        =I18n.t("common.crt_date")
+      =@guide.created_at
+
+    .guide_upd
+      %label
+        =I18n.t("common.upd_date")
+      =@guide.updated_at
+
+    .submit
+      =link_to I18n.t("common.back"), :action => :index

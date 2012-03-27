@@ -1,5 +1,41 @@
-.guide_info
-  -guide_id = guide.id
-  =link_to guide.name, admin_guide_path(guide.id) 
-  =link_to I18n.t("common.edit"), edit_admin_guide_path(guide.id)
-  =link_to I18n.t("common.destroy"), admin_guide_path(guide.id), :method=>:delete, :confirm=>I18n.t("common.confirm_destroy")
+.content_list
+  %table{:width => "100%"}
+    %thead
+      %tr
+        %th{:width => "10%"}
+          =I18n.t("view.guide.name")
+        %th{:width => "10%"}
+          =I18n.t("view.guide.father")
+        %th
+          =I18n.t("view.guide.display")
+        %th
+          =I18n.t("view.guide.way")
+        %th
+          =I18n.t("view.guide.sequence")
+        %th
+          =I18n.t("view.guide.author")
+        %th{:width => "15%"}
+          =I18n.t("common.operator")
+
+
+    %tbody
+      -for guide in @guides
+        %tr
+          -guide_id = guide.id
+          %td
+            =link_to guide.name, admin_guide_path(guide_id)
+          %td
+            =guide.parent
+          %td
+            =guide.display
+          %td
+            =guide.way
+          %td
+            =guide.sequence
+          %td
+            =guide.author
+          %td
+            =link_to I18n.t("common.edit"), edit_admin_guide_path(guide_id)
+            =link_to I18n.t("common.del"), admin_guide_path(guide_id), :method=>:delete, :confirm=>I18n.t("view.prompt.del")
+
+    =will_paginate @guides

@@ -8,7 +8,9 @@ class Admin::GuidesController < AdminController
   end
 
   def index
-    @guides = Guide.find(:all)
+    @guides = Guide.paginate(:page=>params[:page],:per_page=>20,
+                  :conditions=> ['name like ?',"%#{params[:search]}%"],
+                  :order => "updated_at DESC")
   end
 
   def new
