@@ -25,6 +25,32 @@ class Article < ActiveRecord::Base
 
   include Comment::HostMethods
 
+  def author
+    user = User.find_by_id(user_id)
+    return user.name
+  end
+
+  def title
+    return name[0..10]
+  end
+
+  def view_summary
+    return summary[0..20]
+  end
+
+  def column
+    col = Guide.find_by_id(guide_id)
+    return col == nil ? "" : col.name
+  end
+
+  def update_time
+    return updated_at.to_s[0..18]
+  end
+
+  def create_time
+    return created_at.to_s[0..18]
+  end
+
   def self.list
     Artile.find_all_by_is_show(true)
   end
