@@ -4,6 +4,7 @@
 cn:
   
   common:
+    new: 新建
     edit: 编辑
     del: 删除
     destroy: 删除
@@ -95,6 +96,9 @@ cn:
       normal: 注册会员_
     user_role:
       uniq: 每个用户只能分配一个权限 
+    topic:
+      name: 名称
+      description: 描述
 
   controller:
     save_success: 保存成功

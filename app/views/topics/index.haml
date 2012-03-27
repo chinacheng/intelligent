@@ -1,0 +1,4 @@
+.new_topic
+  = link_to I18n.t("common.new"), new_topic_path
+
+= render :partial => "info", :collection=>@topics, :as => :topic

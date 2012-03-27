@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
   end
 
   def index
+    @topics = current_user.topics.paginate(:page => params[:page], :per_page => 20)
   end
 
   def new
@@ -37,10 +38,11 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    if can_destory?(@topic)
+    if can_destroy?(@topic)
       flash[:notice] = @topic.destroy ? I18n.t("common.destroy_success") : I18n.t("common.destroy_fail")
       return redirect_to :action => :index
     end
+    render :status => 403, :text => "error"
   end
 
   private

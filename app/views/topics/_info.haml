@@ -1,0 +1,4 @@
+= link_to topic.name, topic, :class => "data"
+= topic.description
+= link_to I18n.t("common.edit"), edit_topic_path(topic)
+= link_to I18n.t("common.destroy"), topic_path(topic), :method => :delete, :confirm => I18n.t("common.confirm_destroy")

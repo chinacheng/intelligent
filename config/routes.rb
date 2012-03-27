@@ -73,6 +73,7 @@ Intelligent::Application.routes.draw do
       resources :comments
     end
     resources :comments
+    resources :topics
 
     namespace :admin do
       match "start_super/new",    :controller=>:start_super, :action=>:new

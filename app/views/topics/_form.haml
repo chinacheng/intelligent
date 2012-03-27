@@ -1,0 +1,9 @@
+= form_for topic do |f|
+  .name
+    = I18n.t("model.topic.name")
+    = f.text_field :name
+  .description
+    = I18n.t("model.topic.description")
+    = f.text_area :description, :size => "35x5"
+  .submit
+    = f.submit I18n.t("common.save")
