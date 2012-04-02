@@ -17,11 +17,11 @@
 
   .article_pass
     =I18n.t("view.article.is_pass")
-    =f.select :is_pass, Article::YES_ON, {:prompt => I18n.t("view.prompt.is_pass")}
+    =f.select :is_pass, DictionaryEntity::PASS_MAP
 
   .article_tag
     =I18n.t("view.article.allow_comment")
-    =f.select :allow_comment, Article::YES_ON, {:prompt => I18n.t("view.prompt.is_comment")}
+    =f.select :allow_comment, DictionaryEntity::REVIEW_MAP
 
   .article_sort
     =I18n.t("view.article.sort")

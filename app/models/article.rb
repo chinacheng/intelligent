@@ -21,35 +21,23 @@ class Article < ActiveRecord::Base
   PASS_ON  = true
   PASS_OFF = false
 
-  YES_ON = {"Yes" => true, "No" => false}
-
   include Comment::HostMethods
 
   def author
     user = User.find_by_id(user_id)
-    return user.name
+    user.name
   end
 
-  def title
-    return name[0..10]
-  end
-
-  def view_summary
-    return summary[0..20]
-  end
 
   def column
     col = Guide.find_by_id(guide_id)
-    return col == nil ? "" : col.name
+    col == nil ? "" : col.name
   end
 
-  def update_time
-    return updated_at.to_s[0..18]
+  def review_stat
+    Comment.count(:conditions=>["host_id = ? AND host_type = ?",id,Comment::HOST_TYPE_ARTICLE])
   end
 
-  def create_time
-    return created_at.to_s[0..18]
-  end
 
   def self.list
     Artile.find_all_by_is_show(true)

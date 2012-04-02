@@ -7,4 +7,5 @@ class DictionaryEntity < ActiveRecord::Base
   
 
   GENDER_MAP = {I18n.t("common.gender.male") => "male",I18n.t("common.gender.female") => "female"}
+
 end

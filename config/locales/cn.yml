@@ -90,9 +90,18 @@ cn:
       review: 评 论
       check: 审 核
       author: 作 者
+      review_stat: 评论数
       
     comments:
       content_label: 填写评论
+      comment_stat: 评论总数
+      host_type: 类型
+      content: 评论内容
+      author: 评论者
+      ip: IP
+      latest: 更新时间
+      host_type_article: 文章
+      anonymous: 匿名
     
     guide:
       view_title: 查看栏目

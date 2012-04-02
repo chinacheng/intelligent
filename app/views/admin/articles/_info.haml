@@ -9,7 +9,7 @@
         %th 
           =I18n.t("view.article.author")
         %th{:width => "15%"}
-          =I18n.t("view.article.summary")
+          =I18n.t("view.article.review_stat")
         %th
           =I18n.t("common.upd_date")
         %th
@@ -23,15 +23,15 @@
         %tr
           -article_id = article.id
           %td
-            =link_to article.title, admin_article_path(article_id)
+            =link_to article.name[0..10], admin_article_path(article_id)
           %td
             =article.column
           %td
             =article.author
           %td
-            =article.view_summary
+            =link_to article.review_stat,edit_admin_comment_path(:id=>article_id,:host_id=>article_id,:host_type=>Comment::HOST_TYPE_ARTICLE)
           %td
-            =article.update_time
+            =article.updated_at.full_str
           %td
             -if article.allow_comment == Article::COMMENT_OFF
               =link_to I18n.t("common.comment.open"), toggle_allow_comment_admin_article_path(article_id), :method=>:put

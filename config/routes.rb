@@ -80,12 +80,17 @@ Intelligent::Application.routes.draw do
       match "start_super/create", :controller=>:start_super, :action=>:create, :via=>"post"
       match "start_super/destroy",:controller=>:start_super, :action=>:destroy, :via=>"delete"
       resources :guides
-      resources :comments
       resources :users
       resources :articles do
         member do
           put :toggle_allow_comment
           put :toggle_is_pass
+        end
+      end
+
+      resources :comments do
+        member do
+          get :toggle_allow_show
         end
       end
     end

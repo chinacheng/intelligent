@@ -18,3 +18,12 @@ lilei_comment_study_rails:
   host_id: 5 
   host_type: Article
 
+hanmm:
+  id: 1
+  content: 1234
+  address: 192.168.1.15
+  host_id: 1
+  host_type: Article
+  user_id: 2
+  is_show: true
+
