@@ -31,10 +31,10 @@ class Admin::CommentsControllerTest < ActionController::TestCase
 
   test "toggle comment's is_show status(default is true)" do
     admin_login_get_comment
-    put :toggle_allow_show, :id=>@comment.id
+    get :toggle_allow_show, :id=>@comment.id,:source=>"list"
     @comment.reload
     assert_equal @comment.is_show, Comment::SHOW_OFF
-    put :toggle_allow_show, :id=>@comment.id
+    get :toggle_allow_show, :id=>@comment.id,:source=>"list"
     @comment.reload
     assert_equal @comment.is_show, Comment::SHOW_ON
   end

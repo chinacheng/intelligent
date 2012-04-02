@@ -22,6 +22,27 @@ class ArticleTest < ActiveSupport::TestCase
     end
   end
 
+  test "Article's author method and guide_view method and review_stat method" do
+    desginGuide = guides(:desgin)
+    lilei = users(:lilei)
+
+    article = Article.new(:name=>"Test Article",:summary=>"Test Summary Article",
+                  :content=>"hello! rails",:allow_comment=>false,:sort=>"123",:user_id=>lilei.id,:guide_id=>desginGuide.id)    
+    
+    assert_equal article.guide_view,desginGuide.name
+    assert_equal article.author,  lilei.name
+
+    study_rails = articles(:study_rails)
+    content = "hello world"
+
+    count = study_rails.review_stat
+
+    assert_difference "Comment.count",1 do
+      study_rails.add_comments({:content=>content,:address=>"192.168.0.1", :user_id=>lilei.id ,:is_show=>Comment::SHOW_ON},lilei)
+    end
+    assert_equal study_rails.review_stat,(count + 1)
+  end
+
   test "toggle is pass(default is true)" do
     article = articles(:study_rails)
     article.toggle_is_pass

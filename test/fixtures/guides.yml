@@ -27,6 +27,7 @@ brand:
   parent_id: -1
 
 desgin:
+  id: 3
   name: desginer
   uri: design
   sequence: 1

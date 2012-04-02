@@ -29,7 +29,7 @@ class Article < ActiveRecord::Base
   end
 
 
-  def column
+  def guide_view
     col = Guide.find_by_id(guide_id)
     col == nil ? "" : col.name
   end
