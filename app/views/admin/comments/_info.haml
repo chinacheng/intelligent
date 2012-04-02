@@ -1,0 +1,43 @@
+.content_list
+  %table{:width => "100%"}
+    %thead
+      %tr
+        %th{:width => "10%"}
+          =I18n.t("view.article.name")
+        %th
+          =I18n.t("view.comments.host_type")
+        %th
+          =I18n.t("view.comments.content")
+        %th
+          =I18n.t("view.comments.author")
+        %th
+          =I18n.t("view.comments.ip")
+        %th
+          =I18n.t("view.comments.latest")
+        %th
+          =I18n.t("common.operator")
+    %tbody
+      -for comment in @comments
+        %tr
+          -comment_id=comment.id
+          -host_id=comment.host_id
+          %td
+            =link_to comment.host_name_view,edit_admin_comment_path(:id=>comment_id,:host_id=>host_id,:host_type=>comment.host_type)
+          %td
+            =comment.host_type_view
+          %td
+            =comment.content[0..25]
+          %td
+            =comment.author
+          %td
+            =comment.address
+          %td
+            =comment.created_at.full_str
+          %td
+            -if comment.is_show == Comment::SHOW_OFF
+              =link_to I18n.t("common.display.show"), toggle_allow_show_admin_comment_path(:id => comment_id,:source=>"list")
+            -elsif comment.is_show == Comment::SHOW_ON
+              =link_to I18n.t("common.display.hide"), toggle_allow_show_admin_comment_path(:id => comment_id,:source=>"list")
+            =link_to I18n.t("common.del"), admin_comment_path(comment_id), :method => :delete, :confirm=>I18n.t("view.prompt.del")
+
+    =will_paginate @comments
