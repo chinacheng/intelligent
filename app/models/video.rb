@@ -9,4 +9,5 @@ class Video < ActiveRecord::Base
       base.has_many :videos
     end
   end
+
 end

@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   before_filter :check_user_auth,:only=>[:destroy]
   def check_user_auth
     if current_user != @comment.user
-      return render :status=>404,:text=>"you are in the wrong page!"
+      return render :status=>403,:text=>"you are in the wrong page!"
     end
   end
 

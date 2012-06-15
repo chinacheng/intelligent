@@ -11,21 +11,21 @@ class Admin::StartSuperController < AdminController
       return _redirect_by_role
     end
     flash[:error] = I18n.t("view.login.error") 
-    return render :action => :new
+    return render :action => :new, :layout => false
   end
 
+  def destroy
+    @_session_user = session[:current_user_id] = nil
+    redirect_to root_path 
+  end
+
+  private
   def _redirect_by_role
     case true
     # admin is not allow login from this action
     when current_user.is_admin? then redirect_to admin_index_path
     else destroy
     end
-
-  end
-
-  def destroy
-    @_session_user = session[:current_user_id] = nil
-    redirect_to root_path 
   end
 
 end

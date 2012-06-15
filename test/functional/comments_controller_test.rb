@@ -40,7 +40,7 @@ class CommentsControllerTest < ActionController::TestCase
     # destroy the comment
     assert_no_difference "Comment.count" do
       delete :destroy,:id=>comment.id
-      assert_response 404
+      assert_response 403
     end
   end
 

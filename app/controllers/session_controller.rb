@@ -14,7 +14,7 @@ class SessionController < ApplicationController
       return _redirect_by_role
     end
     flash[:error] = I18n.t("view.login.error") 
-    return render :action => :new
+    return render :action => :new, :layout => false
   end
 
   def _redirect_by_role
