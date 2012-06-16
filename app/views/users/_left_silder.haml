@@ -24,6 +24,8 @@
 -if current_user
   -if current_user == @user && current_user.has_avatar?
     =link_to I18n.t("view.users.avatar_again"), avatar_new_user_path(current_user)
+  -if current_user == @user && !current_user.has_avatar?
+    =link_to I18n.t("view.users.avatar_new"), avatar_new_user_path(current_user)
 
   .see_other_user
     -if current_user != @user && !current_user.fan?(@user)

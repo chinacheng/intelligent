@@ -9,7 +9,7 @@
   .summary
     =@article.summary
   .content
-    =@article.content
+    =@article.content.html_safe
 
   -if @comments.size > 0
     .comments
