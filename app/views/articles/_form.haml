@@ -1,3 +1,5 @@
+=javascript_include_tag 'articles'
+
 -if flash[:error]
   =flash[:error]
 
@@ -29,7 +31,7 @@
 
   .article_content
     =I18n.t("view.article.content")
-    =f.text_area :content, :rows=>15, :cols=>50
+    =f.kindeditor :content, :rows=>15, :cols=>50
 
   .submit
     =f.submit I18n.t("common.save")
