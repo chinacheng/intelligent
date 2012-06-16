@@ -7,17 +7,18 @@ gem 'rails', '3.2.2'
 
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem "mysql2"  
-gem "uuidtools"
-gem "haml"
-gem "acts_as_tree"
-gem "paperclip" 
-gem "will_paginate"
-gem "rake","0.9.2.2"
-gem "nokogiri"
-gem "will_paginate"
-gem "jquery-rails"
-gem "rmagick"
+gem 'mysql2'  
+gem 'uuidtools'
+gem 'haml'
+gem 'acts_as_tree'
+gem 'paperclip' 
+gem 'will_paginate'
+gem 'rake','0.9.2.2'
+gem 'nokogiri'
+gem 'will_paginate'
+gem 'jquery-rails'
+gem 'rmagick'
+gem 'rails_kindeditor', '~> 0.3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

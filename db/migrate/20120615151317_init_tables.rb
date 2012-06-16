@@ -9,11 +9,11 @@ class InitTables < ActiveRecord::Migration
       t.integer  "browses",                      :default => 0
       t.integer  "user_id"
       t.integer  "guide_id"
-      t.datetime "created_at"
-      t.datetime "updated_at"
       t.boolean  "is_pass",                      :default => true
       t.text     "refuse_reason"
       t.boolean  "is_top",                       :default => false
+      t.datetime "created_at"
+      t.datetime "updated_at"
     end
 
     create_table "comments", :force => true do |t|
@@ -21,10 +21,10 @@ class InitTables < ActiveRecord::Migration
       t.string   "address",    :limit => 128
       t.boolean  "is_show",                   :default => true
       t.integer  "user_id"
-      t.datetime "created_at"
-      t.datetime "updated_at"
       t.integer  "host_id"
       t.string   "host_type"
+      t.datetime "created_at"
+      t.datetime "updated_at"
     end
 
     create_table "dictionary_entities", :force => true do |t|
@@ -38,10 +38,10 @@ class InitTables < ActiveRecord::Migration
       t.boolean  "is_show",                  :default => false, :null => false
       t.string   "way"
       t.integer  "parent_id"
-      t.datetime "created_at"
-      t.datetime "updated_at"
       t.integer  "user_id"
       t.string   "uri"
+      t.datetime "created_at"
+      t.datetime "updated_at"
     end
 
     create_table "media", :force => true do |t|
@@ -136,13 +136,13 @@ class InitTables < ActiveRecord::Migration
       t.string   "hashed_password"
       t.string   "salt"
       t.string   "email"
-      t.datetime "created_at"
-      t.datetime "updated_at"
       t.string   "avatar_file_name"
       t.string   "avatar_content_type"
       t.integer  "avatar_file_size"
       t.datetime "avatar_updated_at"
       t.string   "status"
+      t.datetime "created_at"
+      t.datetime "updated_at"
     end
 
     create_table "videos", :force => true do |t|
