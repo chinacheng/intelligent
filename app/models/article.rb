@@ -48,7 +48,6 @@ class Article < ActiveRecord::Base
                 :conditions => ["name like '%?%'",article_name],
                 :order => "updated_at DESC",
                 :limit => size)
-    return articles
   end 
 
   def toggle_is_pass

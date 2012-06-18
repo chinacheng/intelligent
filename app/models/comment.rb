@@ -58,7 +58,6 @@ class Comment < ActiveRecord::Base
     if is_show == SHOW_ON
       return update_attribute(:is_show,SHOW_OFF)
     end
-
     update_attribute(:is_show,SHOW_ON)    
   end
   

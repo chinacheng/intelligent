@@ -91,6 +91,8 @@ cn:
       check: 审 核
       author: 作 者
       review_stat: 评论数
+      is_pass: 审核通过
+      allow_comment: 允许评论 
       
     comments:
       content_label: 填写评论

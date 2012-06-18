@@ -17,13 +17,14 @@
     =I18n.t("view.article.guide")
     =f.select :guide_id,Guide.all.map{|c| [c.name,c.id]}
 
-  .article_pass
-    =I18n.t("view.article.is_pass")
-    =f.select :is_pass, DictionaryEntity::PASS_MAP
+  -if current_user.is_admin?
+    .article_pass
+      =I18n.t("view.article.is_pass")
+      =f.select :is_pass, DictionaryEntity::PASS_MAP
 
-  .article_tag
-    =I18n.t("view.article.allow_comment")
-    =f.select :allow_comment, DictionaryEntity::REVIEW_MAP
+    .article_tag
+      =I18n.t("view.article.allow_comment")
+      =f.select :allow_comment, DictionaryEntity::REVIEW_MAP
 
   .article_sort
     =I18n.t("view.article.sort")
