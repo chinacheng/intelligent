@@ -11,20 +11,6 @@ class Admin::ArticlesController < AdminController
                   :order => "updated_at DESC")
   end
 
-  def new
-    @article = Article.new
-  end
-
-  def create
-    @article = Article.new(params[:article])
-    @article.user_id = current_user.id
-    if @article.save
-      flash[:notice] = I18n.t("controller.article.save_success")
-      return redirect_to admin_articles_path
-    end
-    render :action=>:new
-  end
-
   def edit
   end 
 

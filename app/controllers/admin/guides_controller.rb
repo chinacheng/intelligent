@@ -9,8 +9,8 @@ class Admin::GuidesController < AdminController
 
   def index
     @guides = Guide.paginate(:page=>params[:page],:per_page=>20,
-                  :conditions=> ['name like ?',"%#{params[:search]}%"],
-                  :order => "updated_at DESC")
+                             :conditions=> ['name like ?',"%#{params[:search]}%"],
+                             :order => "updated_at DESC")
   end
 
   def new
@@ -50,5 +50,5 @@ class Admin::GuidesController < AdminController
       redirect_to :action=>:index
     end
   end
-  
+
 end

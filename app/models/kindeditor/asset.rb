@@ -1,5 +1,5 @@
 class Kindeditor::Asset < ActiveRecord::Base
-  set_table_name "kindeditor_assets"
+  self.table_name = "kindeditor_assets"
   validates_presence_of :asset
   before_save :update_asset_attributes
   attr_accessible :asset

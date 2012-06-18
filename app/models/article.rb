@@ -65,4 +65,12 @@ class Article < ActiveRecord::Base
     update_attributes(:allow_comment => COMMENT_ON)
   end
 
+  def is_pass?
+    is_pass = Article::PASS_ON
+  end
+
+  def allow_comment?
+    allow_comment == COMMENT_ON
+  end
+
 end

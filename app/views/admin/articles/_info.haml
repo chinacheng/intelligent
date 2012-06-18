@@ -23,7 +23,7 @@
         %tr
           -article_id = article.id
           %td
-            =link_to article.name[0..10], admin_article_path(article_id)
+            =link_to article.name[0..10], article_path(article_id)
           %td
             =article.guide_view
           %td
@@ -33,17 +33,17 @@
           %td
             =article.updated_at.full_str
           %td
-            -if article.allow_comment == Article::COMMENT_OFF
-              =link_to I18n.t("common.comment.open"), toggle_allow_comment_admin_article_path(article_id), :method=>:put
-            -elsif article.allow_comment == Article::COMMENT_ON
+            -if article.allow_comment? 
               =link_to I18n.t("common.comment.close"), toggle_allow_comment_admin_article_path(article_id), :method=>:put
+            -else
+              =link_to I18n.t("common.comment.open"), toggle_allow_comment_admin_article_path(article_id), :method=>:put
           %td
-            -if article.is_pass == Article::PASS_OFF
-              =link_to I18n.t("common.approval.pass"), toggle_is_pass_admin_article_path(article_id), :method=>:put
-            -elsif article.is_pass = Article::PASS_ON
+            -if article.is_pass?
               =link_to I18n.t("common.approval.cancel"), toggle_is_pass_admin_article_path(article_id), :method=>:put
+            -else
+              =link_to I18n.t("common.approval.pass"), toggle_is_pass_admin_article_path(article_id), :method=>:put
           %td
             =link_to I18n.t("common.edit"), edit_admin_article_path(article_id)
-            =link_to I18n.t("common.del"), admin_article_path(article_id), :method => :delete, :confirm=>I18n.t("view.prompt.del")
+            =link_to I18n.t("common.del"), admin_article_path(article_id), :method => :delete, :confirm=>I18n.t("common.confirm_destroy")
 
   =will_paginate @articles

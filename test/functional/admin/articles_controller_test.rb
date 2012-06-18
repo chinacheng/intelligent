@@ -12,8 +12,6 @@ class Admin::ArticlesControllerTest < ActionController::TestCase
     article = articles(:study_rails)
     get :index
     assert_response 403
-    get :new
-    assert_response 403
     get :show,:id => article.id
     assert_response 403
     get :edit,:id => article.id
@@ -24,8 +22,6 @@ class Admin::ArticlesControllerTest < ActionController::TestCase
     admin_login_get_article
     get :index
     assert_response 200 
-    get :new
-    assert_response 200
     get :show,:id => @article.id
     assert_response 200
     get :edit,:id => @article.id
