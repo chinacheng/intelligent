@@ -1,3 +1,12 @@
+=stylesheet_link_tag 'index'
+
+.top_area
+  .pictures
+  .top_news
+    %ul
+      -@articles.each do |article|
+        %li
+          =link_to article.name, article_path(article),:class=>"data" 
 .area
   .left_area
   .main_area
@@ -5,4 +14,4 @@
       .commend
       .news
     .right_container
-.area
+

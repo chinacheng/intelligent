@@ -23,6 +23,10 @@ class Article < ActiveRecord::Base
 
   include Comment::HostMethods
 
+  def title
+    name
+  end
+
   def author
     user = User.find_by_id(user_id)
     user.name

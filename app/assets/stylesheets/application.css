@@ -11,7 +11,7 @@ body{font-size:14px;}
 .passport{left:0; top:0; width:100%; min-width:960px; height:27px; border-bottom:1px solid #CACACA; vertical-align:middle; font-size:12px;}
 .top_nav{float:right; vertical-align:middle; padding:5px 5px 5px 5px;}
 
-.header{height:100px;}
+.header{height:50px;}
 .head_logo{height:70px;}
 
 .guides{margin:2px; height:30px;}
@@ -24,12 +24,6 @@ body{font-size:14px;}
 .footer{clear:both; color:#000000; text-align:center; font-size:14px;}
 
 .info_message{}
-
-.area{height:300px;}
-.left_area{width:200px; float:left;}
-.main_area{width:760px; float:left;}
-.main_area .middle_container{width:400px; float:left;}
-.main_area .right_container{width:360px; float:right;}
 
 a.info{color:#222222; text-decoration:none;}
 a.info:hover{color:#4183C4; text-decoration:none;}
