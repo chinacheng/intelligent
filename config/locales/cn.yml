@@ -117,6 +117,9 @@ cn:
       sequence: 栏目顺序
       uri: 链接路径
       author: 作 者
+  
+    topics:
+      new: 新建主题 
 
   model:
     user:

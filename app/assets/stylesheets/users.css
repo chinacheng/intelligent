@@ -1,6 +1,6 @@
 
-.left_silder{width:150px;}
-.right_container{}
+.left_silder{width:150px; float:left;}
+.right_container{width:800px; float:right;}
 
 .user_attributes{margin:0 0 15px 15px;}
 ul.relatives{margin:0 0 10px 10px; padding:0;}

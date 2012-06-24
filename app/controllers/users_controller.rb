@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     return render :action => :new
   end
 
+  def show
+    @topics = @user.topics.paginate(:per_page => 10, :page => params[:page])
+  end
+
   # upload avatar view 
   def avatar_new
   end
