@@ -3,10 +3,16 @@
 .top_area
   .pictures
   .top_news
+    .head
     %ul
       -@articles.each do |article|
         %li
-          =link_to article.name, article_path(article),:class=>"data" 
+          =link_to article.name.truncate(20), article_path(article), :title => article.name, :class => 'data' 
+    .more
+      =link_to I18n.t('common.more'), articles_path, :target => '_blank' 
+
+.half_area
+
 .area
   .left_area
   .main_area
