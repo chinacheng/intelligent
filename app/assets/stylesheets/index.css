@@ -1,5 +1,9 @@
 .top_area{height:330px;}
-.pictures{height:325px; width:580px; float:left; border:1px solid #BBB;}
+.pictures{height:325px; width:580px; float:left; border:1px solid #BBB; background:#131310; overflow:hidden; position:relative;}
+#slideshow{height:650px; width:1160px; overflow:hidden; position:relative; list-style-type:none; margin:0; padding:0;}
+#slideshow li{height:325px; width:580px; float:left; display:inline; list-style-type:none;}
+
+
 .top_news{height:325px; width:360px; float:right; border:1px solid #BBB;}
 
 .area{height:300px;}

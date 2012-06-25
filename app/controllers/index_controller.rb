@@ -7,6 +7,7 @@ class IndexController < ApplicationController
   def index
     @guides = Guide.list_display
     @articles = Article.order('created_at desc').limit(10)
+    @pictures = Picture.order('created_at desc').limit(4)
   end
 
 end
