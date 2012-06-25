@@ -7,8 +7,8 @@ class Comment < ActiveRecord::Base
   # host_type     评论对象的类型
 
   validates_presence_of :content,:address,:host_id,:host_type
-  belongs_to  :user
-  belongs_to  :host, :polymorphic => true
+  belongs_to :user
+  belongs_to :host, :polymorphic => true
 
   SHOW_ON = true
   SHOW_OFF = false

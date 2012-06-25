@@ -1,0 +1,5 @@
+=form_for [@host, @picture] do |f|
+  =I18n.t('view.pictures.new')
+  =f.file_field :photo
+  .submit
+    =f.submit :value => I18n.t('common.submit')

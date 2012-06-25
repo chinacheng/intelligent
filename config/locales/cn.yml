@@ -121,6 +121,9 @@ cn:
     topics:
       new: 新建主题 
 
+    pictures:
+     new: 上传图片 
+
   model:
     user:
       name: 姓名
