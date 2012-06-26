@@ -9,15 +9,15 @@ $(document).ready(function(){
     //Determine the current location, and transition to next panel
     switch(current_panel){
       case 1:
-        $("#slideshow").stop().animate({left: "-560px", top: "0px"}, {easing: 'easeOutBack', duration: animation_duration});
+        $("#slideshow").stop().animate({left: "-580px", top: "0px"}, {easing: 'easeOutBack', duration: animation_duration});
         current_panel = 2;
         break;
       case 2:
-        $("#slideshow").stop().animate({left: "0px", top: "-305px"}, {easing: 'easeOutBack', duration: animation_duration});
+        $("#slideshow").stop().animate({left: "0px", top: "-325px"}, {easing: 'easeOutBack', duration: animation_duration});
         current_panel = 3;
         break;
       case 3:
-        $("#slideshow").stop().animate({left: "-560px", top: "-305px"}, {easing: 'easeOutBack', duration: animation_duration});
+        $("#slideshow").stop().animate({left: "-580px", top: "-325px"}, {easing: 'easeOutBack', duration: animation_duration});
         current_panel = 4;
         break;
       case 4:
