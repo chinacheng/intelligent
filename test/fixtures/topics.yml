@@ -6,6 +6,7 @@
 #
 
 lilei_study_rails:
+  id: 1
   name: "rails study"
   user_id: 2 
   description: "lilei study rails"

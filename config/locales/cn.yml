@@ -21,6 +21,8 @@ cn:
     operate_success: 操作成功
     operate_fail: 操作失败
     more: 更多
+    top: 置顶
+    toped: 已置顶
 
     operator: 操 作
     approval:

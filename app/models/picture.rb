@@ -3,8 +3,14 @@ class Picture < ActiveRecord::Base
   validates_presence_of :user_id, :photo_file_name
   belongs_to :user
   belongs_to :host, :polymorphic => true
+  has_one :top_picture
 
   has_attached_file :photo
+
+  # is set to top or not?
+  def is_top?
+    !top_picture.blank?  
+  end
 
   module UserMethods
     def self.included(base)

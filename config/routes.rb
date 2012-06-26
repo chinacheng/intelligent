@@ -89,7 +89,7 @@ Intelligent::Application.routes.draw do
           put :toggle_is_pass
         end
       end
-
+      resources :top_pictures
       resources :comments do
         member do
           get :toggle_allow_show

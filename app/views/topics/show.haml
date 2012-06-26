@@ -5,5 +5,11 @@
 
 =link_to I18n.t('view.pictures.new'), new_topic_picture_path(@topic)  
 
--@topic.pictures.each do |picture|
-  =image_tag picture.photo.url
+.top_pictures
+  -@topic.pictures.each do |picture|
+    =image_tag picture.photo.url, :size => '580x325'
+    -if current_user && current_user.is_admin?
+      -if picture.is_top?
+        =I18n.t('common.toped')
+      -else
+        =link_to I18n.t('common.top'), admin_top_pictures_path(:picture_id => picture.id ), :remote => true, :method => :post
