@@ -8,7 +8,8 @@
     %ul#slideshow
       -@pictures.each_with_index do |picture, index|
         %li{:class => "box#{index + 1}"}
-          =image_tag picture.photo.url, :size=>'580x325'
+          =link_to picture.host do 
+            =image_tag picture.photo.url, :size=>'580x325'
 
   .top_news
     .head
