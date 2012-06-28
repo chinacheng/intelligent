@@ -19,4 +19,12 @@ class TopPicture < ActiveRecord::Base
     end
   end
 
+  # cancel a top picture, and also only allow admin to do it  
+  def self.cancel_top(user, picture)
+    if user.is_admin?
+      tp = TopPicture.find_by_picture_id(picture.id)
+      tp.destroy if !tp.blank?
+    end
+  end
+
 end

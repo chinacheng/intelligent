@@ -1,0 +1,4 @@
+-@top_pictures.each do |top_picture|
+  =image_tag top_picture.picture.photo.url, :size => '500x300'
+  =link_to I18n.t("common.cancel_top"), admin_top_picture_path(top_picture), :method => :delete
+=will_paginate @top_pictures

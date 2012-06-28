@@ -30,6 +30,12 @@ class TopPictureTest < ActiveSupport::TestCase
       TopPicture.top(admin, picture)
     end
 
+    # a top picture can destroyed by admin
+    assert_difference "TopPicture.count", -1 do
+      TopPicture.cancel_top(admin, picture)
+    end
+
+
   end
 
 end

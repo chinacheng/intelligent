@@ -23,6 +23,7 @@ cn:
     more: 更多
     top: 置顶
     toped: 已置顶
+    cancel_top: 取消置顶
 
     operator: 操 作
     approval:
@@ -57,6 +58,7 @@ cn:
       guides: 导航管理
       articles: 文章管理
       comments: 评论管理
+      top_pictures: 置顶图片管理      
     login:
       login: 登录
       logout: 登出

@@ -13,6 +13,6 @@
 .main_area .middle_container{width:400px; float:left;}
 .main_area .right_container{width:360px; float:right;}
 
-.top_news .head{height:24px; border-bottom:1px solid #BBB;}
+.top_news .head{height:24px; border-bottom:0px solid #BBB;}
 .top_news li{line-height:25px;}
 .top_news .more{font-size:12px; margin-right:25px; float:right;}
