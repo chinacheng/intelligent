@@ -54,6 +54,7 @@ cn:
     cancel: 取消
     destroy: 删除
     admin:
+      sign: 欢迎管理员
       users: 用户管理
       guides: 导航管理
       articles: 文章管理

@@ -1,10 +1,17 @@
-.manage
-  =link_to I18n.t("view.admin.users"), admin_users_path 
-.manage
-  =link_to I18n.t("view.admin.guides"), admin_guides_path
-.manage
-  =link_to I18n.t("view.admin.articles"), admin_articles_path
-.manage
-  =link_to I18n.t("view.admin.comments"), admin_comments_path
-.manage
-  =link_to I18n.t("view.admin.top_pictures"), admin_top_pictures_path
+.admin_logo
+  .logo
+  .sign
+    %h4
+      =I18n.t("view.admin.sign")
+  %nav
+    %ul
+      %li
+        =link_to I18n.t("view.admin.users"), admin_users_path 
+      %li
+        =link_to I18n.t("view.admin.guides"), admin_guides_path
+      %li
+        =link_to I18n.t("view.admin.articles"), admin_articles_path
+      %li
+        =link_to I18n.t("view.admin.comments"), admin_comments_path
+      %li
+        =link_to I18n.t("view.admin.top_pictures"), admin_top_pictures_path
