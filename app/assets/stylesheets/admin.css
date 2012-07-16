@@ -1,5 +1,5 @@
 .admin_silder{width:170px; height:600px; margin: 20px 5px 0 0; float:left; border:1px solid #CACACA;}
-.admin_content{width:780px; height:600px; margin: 20px 0 0 0; float:right; border:1px solid #CACACA;}
+.admin_content{width:780px; height:600px; margin: 20px 0 0 0; float:right; border:1px solid #CACACA; overflow:scroll;}
 
 .admin_logo .logo{height:30px; margin: 20px 0 20px 0;}
 .admin_logo .sign{text-align:center; background-color:#CACACA;}

@@ -17,8 +17,10 @@ class Admin::TopPicturesController < AdminController
   end
 
   def destroy
+    picture = @top_picture.blank? ? @picture : @top_picture.picture
+    return render(:status => 404, :text => "picture is not found") if picture.blank?
     respond_to do |format|
-      if TopPicture.cancel_top(current_user, @top_picture.picture)
+      if TopPicture.cancel_top(current_user, picture)
         format.html{redirect_to :action => :index}
         format.js do
           render(:status => 200, :text => 'success')
