@@ -1,16 +1,19 @@
-.login_form{:style=>'width:400px;border-right:1px solid #ACACAC;'}
-  -if flash[:error]
-    =flash[:error]
-  =form_tag session_create_path,:method=>"post" do
-    .email
-      %span{:style=>'display:inline-block;width:100px;text-align:right;'}
-        =I18n.t("view.login.email") 
-      =text_field_tag "email"
-    .password
-      %span{:style=>'display:inline-block;width:100px;text-align:right;'}
-        =I18n.t("view.login.password")
-      =password_field_tag "password"
-    .submit
-      =submit_tag I18n.t("view.login.login")
-.right_sign{:style=>'width:580px;'}
-
+=stylesheet_link_tag 'session'
+.blank_area
+.login_main
+  .login_form
+    -if flash[:error]
+      =flash[:error]
+    =form_tag session_create_path,:method=>"post" do
+      .email
+        %span{:class=>'sign_label'}
+          =I18n.t("view.login.email") 
+        =text_field_tag "email"
+      .password
+        %span{:class=>'sign_label'}
+          =I18n.t("view.login.password")
+        =password_field_tag "password"
+      .submit
+        =submit_tag I18n.t("view.login.login")
+  .right_sign
+    ok,that is fine, there are many things to do;

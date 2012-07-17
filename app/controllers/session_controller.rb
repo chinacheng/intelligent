@@ -5,6 +5,7 @@ class SessionController < ApplicationController
   skip_before_filter :login_require
 
   def new
+    render :layout => false
   end
 
   def create
