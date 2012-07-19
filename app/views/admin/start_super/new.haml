@@ -7,6 +7,9 @@
   .password
     =I18n.t("view.login.password")
     =password_field_tag "password"
+  .captcha
+    = captcha_tag
+    = text_field_tag :captcha
   .submit
     =submit_tag I18n.t("view.login.login")
 

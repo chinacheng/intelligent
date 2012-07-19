@@ -6,9 +6,11 @@ class Admin::StartSuperController < AdminController
   end
 
   def create
-    if user = User.login(params[:email],params[:password])
-      session[:current_user_id] = user.id
-      return _redirect_by_role
+    if captcha_valid?(params[:captcha])
+      if user = User.login(params[:email],params[:password])
+        session[:current_user_id] = user.id
+        return _redirect_by_role
+      end
     end
     flash[:error] = I18n.t("view.login.error") 
     return render :action => :new, :layout => false
