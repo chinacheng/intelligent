@@ -19,6 +19,7 @@ gem 'will_paginate'
 gem 'jquery-rails'
 gem 'rmagick'
 gem 'rails_kindeditor', '~> 0.3.0'
+gem 'easy_captcha'
 
 # Gems used only for assets and not required
 # in production environments by default.
