@@ -1,15 +1,25 @@
+=stylesheet_link_tag 'session'
+
 -if flash[:error]
   =flash[:error]
-=form_tag admin_start_super_create_path,:method=>"post" do
-  .email
-    =I18n.t("view.login.email") 
-    =text_field_tag "email"
-  .password
-    =I18n.t("view.login.password")
-    =password_field_tag "password"
-  .captcha
-    = captcha_tag
-    = text_field_tag :captcha
-  .submit
-    =submit_tag I18n.t("view.login.login")
+.blank_area
+.login_main
+  =form_tag admin_start_super_create_path,:method=>"post" do
+    .email
+      %span{:class=>'sign_label'}
+        =I18n.t("view.login.email") 
+      =text_field_tag "email"
+    .password
+      %span{:class=>'sign_label'}
+        =I18n.t("view.login.password")
+      =password_field_tag "password"
+    .captcha_field
+      %span{:class=>'sign_label'}
+        =I18n.t('view.login.captcha')
+      = text_field_tag :captcha
+    .captcha
+      %span{:class=>'sign_label'}
+      = captcha_tag
+    .submit
+      =submit_tag I18n.t("view.login.login")
 

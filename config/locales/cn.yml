@@ -67,6 +67,7 @@ cn:
       email: 邮箱地址：
       password: 密码：
       error: 登录失败，登录名邮箱或者密码输入错误 
+      captcha: 验证码：     
 
     users:
       avatar_new: 上传头像
