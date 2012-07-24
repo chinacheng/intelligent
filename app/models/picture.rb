@@ -5,7 +5,7 @@ class Picture < ActiveRecord::Base
   belongs_to :host, :polymorphic => true
   has_one :top_picture
 
-  has_attached_file :photo
+  has_attached_file :photo, :styles => {:thumb=>"60*35>"}
 
   # is set to top or not?
   def is_top?

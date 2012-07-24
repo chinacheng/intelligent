@@ -1,3 +1,7 @@
+=javascript_include_tag 'jquery.ad-gallery.js'
+=javascript_include_tag 'topics.js'
+=stylesheet_link_tag 'jquery.Jcrop.css' 
+
 .topic_name
   = @topic.name
 .topic_description
@@ -6,10 +10,25 @@
 =link_to I18n.t('view.pictures.new'), new_topic_picture_path(@topic)  
 
 .top_pictures
-  -@topic.pictures.each do |picture|
-    =image_tag picture.photo.url, :size => '580x325'
-    -if current_user && current_user.is_admin?
-      -if picture.is_top?
-        =I18n.t('common.toped')
-      -else
-        =link_to I18n.t('common.top'), admin_top_pictures_path(:picture_id => picture.id ), :remote => true, :method => :post
+  //-@topic.pictures.each do |picture|
+  // =image_tag picture.photo.url, :size => '580x325'
+  //  -if current_user && current_user.is_admin?
+  //    -if picture.is_top?
+  //      =I18n.t('common.toped')
+  //    -else
+  //      =link_to I18n.t('common.top'), admin_top_pictures_path(:picture_id => picture.id ), :remote => true, :method => :post
+
+#gallery.ad-gallery
+  .ad-image-wrapper
+  .ad-controls
+  .ad-nav
+    .ad-thumbs
+      %ul.ad-thumb-list
+        %li
+          %a{:href => @topic.pictures.first}
+            %img{:src => !@topic.pictures.first.blank? ? @topic.pictures.first.photo.url : '', :class=>"image0"}
+
+        -@topic.pictures.each do |picture|
+          %li
+            %a{:href => picture}
+              %img{:src => picture.photo.url(:thumb),:size => '58x32', :title => "A title for 10.jpg", :alt => "This is a nice, and incredibly descriptive, description of the image 10.jpg",:class => "image1"}
