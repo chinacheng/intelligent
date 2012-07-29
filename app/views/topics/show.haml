@@ -28,8 +28,8 @@
   .others
     .t_label
       =I18n.t("view.topics.others")
-    -(@topics - [@topic]).each do |topic|
-      %ul
+    %ul
+      -(@topics - [@topic]).each do |topic|
         %li
           =link_to topic.name, topic
   .relates
