@@ -35,6 +35,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @pictures = @topic.pictures if @topic
   end
 
   def destroy
