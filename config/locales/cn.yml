@@ -126,6 +126,8 @@ cn:
   
     topics:
       new: 新建主题 
+      others: 其他主题
+      relates: 相关主题
 
     pictures:
      new: 上传图片 

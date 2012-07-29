@@ -1,22 +1,37 @@
 =javascript_include_tag 'jquery.ad-gallery.js'
 =javascript_include_tag 'topics.js'
+
+=stylesheet_link_tag 'topics.css' 
 =stylesheet_link_tag 'jquery.ad-gallery.css' 
 
-.topic_name
-  = @topic.name
-.topic_description
-  = @topic.description
+.topic_content
+  .topic_name
+    = @topic.name
+  .topic_description
+    = @topic.description
 
-=link_to I18n.t('view.pictures.new'), new_topic_picture_path(@topic)  
+  =link_to I18n.t('view.pictures.new'), new_topic_picture_path(@topic)  
 
--if @pictures && @pictures.size > 0
-  #gallery.ad-gallery
-    .ad-image-wrapper
-    .ad-controls
-    .ad-nav
-      .ad-thumbs
-        %ul.ad-thumb-list
-          -@pictures.each do |picture|
-            %li
-              %a{:href => picture.photo.url}
-                %img{:src => picture.photo.url(:thumb), :title => "#{picture.name}", :alt => "#{picture.description}",:class => "image"}
+  -if @pictures && @pictures.size > 0
+    .pictures
+      #gallery.ad-gallery
+        .ad-image-wrapper
+        .ad-controls
+        .ad-nav
+          .ad-thumbs
+            %ul.ad-thumb-list
+              -@pictures.each do |picture|
+                %li
+                  %a{:href => picture.photo.url}
+                    %img{:src => picture.photo.url(:thumb), :title => "#{picture.name}", :alt => "#{picture.description}",:class => "image"}
+.topic_silder
+  .others
+    .t_label
+      =I18n.t("view.topics.others")
+    -(@topics - [@topic]).each do |topic|
+      %ul
+        %li
+          =link_to topic.name, topic
+  .relates
+    .t_label
+      =I18n.t("view.topics.relates")

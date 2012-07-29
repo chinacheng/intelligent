@@ -35,7 +35,10 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @pictures = @topic.pictures if @topic
+    if @topic
+      @pictures = @topic.pictures
+      @topics = @topic.user.topics
+    end
   end
 
   def destroy
