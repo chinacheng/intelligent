@@ -8,4 +8,4 @@ config/database.yml
 db/schema.rb
 public/system/*
 public/uploads/*
-public/asserts/*
+public/assets/*
