@@ -78,6 +78,7 @@ Intelligent::Application.routes.draw do
     resources :topics do 
       resources :pictures
     end
+    resources :pictures
 
     namespace :admin do
       match "start_super/new",    :controller=>:start_super, :action=>:new

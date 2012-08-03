@@ -11,8 +11,20 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @host.add_picture(current_user,params[:picture][:photo])
-    redirect_to @host
+    @pictures = @host.add_picture(current_user,params[:picture][:photo])
+    respond_to do |format|
+      #format.html{ redirect_to @host }
+      format.json{render :json => @pictures.map{|picture|picture.to_jq_upload}.to_json}
+    end
+  end
+
+  def destroy
+    @picture.destroy
+    render :json => true
+  end
+
+  def index
+    return render :status => 200, :text => 'ok'
   end
 
 end
