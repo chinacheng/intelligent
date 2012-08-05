@@ -114,20 +114,29 @@
     {% } %}
 </script>
 
-<%= javascript_include_tag 'file_upload/jquery.ui.widget.js' %>
-<%= javascript_include_tag 'file_upload/jquery.tmpl.min.js' %>
-<%= javascript_include_tag 'file_upload/load-image.min.js' %>
-<%= javascript_include_tag 'file_upload/canvas-to-blob.min.js' %>
-<%= javascript_include_tag 'file_upload/bootstrap.min.js' %>
-<%= javascript_include_tag 'file_upload/bootstrap-image-gallery.min.js' %>
-<%= javascript_include_tag 'file_upload/jquery.iframe-transport.js' %>
-<%= javascript_include_tag 'file_upload/jquery.fileupload.js' %>
-<%= javascript_include_tag 'file_upload/jquery.fileupload-fp.js' %>
-<%= javascript_include_tag 'file_upload/jquery.fileupload-ui.js' %>
-<%= javascript_include_tag 'file_upload/locale.js' %>
+<%= javascript_include_tag "file_upload/js/vendor/jquery.ui.widget.js" %>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<%= javascript_include_tag "tmpl.min.js" %>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<%= javascript_include_tag "load-image.min.js" %>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<%= javascript_include_tag "canvas-to-blob.min.js" %>
+<!-- Bootstrap JS and Bootstrap Image Gallery are not required, but included for the demo -->
+<%= javascript_include_tag "bootstrap.min.js" %>
+<%= javascript_include_tag "bootstrap-image-gallery.min.js" %>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<%= javascript_include_tag "file_upload/js/jquery.iframe-transport.js" %>
+<!-- The basic File Upload plugin -->
+<%= javascript_include_tag "file_upload/js/jquery.fileupload.js" %>
+<!-- The File Upload file processing plugin -->
+<%= javascript_include_tag "file_upload/js/jquery.fileupload-fp.js" %>
+<!-- The File Upload user interface plugin -->
+<%= javascript_include_tag "file_upload/js/jquery.fileupload-ui.js" %>
+<!-- The localization script -->
+<%= javascript_include_tag "file_upload/js/locale.js" %>
+
 
 <script type='text/javascript'>
-
   $(function () {
      'use strict';
 
