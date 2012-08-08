@@ -1,10 +1,4 @@
 class Comment < ActiveRecord::Base
-  # content       评论内容 
-  # address       发表评论的ip地址
-  # show          是否展示评论
-  # user_id       发表者
-  # host_id       评论的对象的ID
-  # host_type     评论对象的类型
 
   validates_presence_of :content,:address,:host_id,:host_type
   belongs_to :user
@@ -32,11 +26,9 @@ class Comment < ActiveRecord::Base
 
   def author
     user = User.find_by_id(user_id)
-
     if user == nil
       return I18n.t("view.comments.anonymous")
     end
-
     user.name
   end
 

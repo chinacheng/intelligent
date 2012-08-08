@@ -1,13 +1,5 @@
 class Article < ActiveRecord::Base
-  # name    文章名称
-  # summary 文章摘要
-  # content 文章内容
-  # sort    文章分类
-  # allow_comment 文章是否可评论标志
-  # browses 文章浏览量
-  # user    创建文章的用户
-  # column  文章归属的栏目 
-  # comment 文章评论
+
   validates_presence_of :name, :summary, :content, :user_id
   validates_length_of :name, :within => 0..128
   validates_length_of :sort, :within => 0..32
@@ -32,7 +24,6 @@ class Article < ActiveRecord::Base
     user.name
   end
 
-
   def guide_view
     col = Guide.find_by_id(guide_id)
     col == nil ? "" : col.name
@@ -41,7 +32,6 @@ class Article < ActiveRecord::Base
   def review_stat
     Comment.count(:conditions=>["host_id = ? AND host_type = ?",id,Comment::HOST_TYPE_ARTICLE])
   end
-
 
   def self.list
     Artile.find_all_by_is_show(true)

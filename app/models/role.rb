@@ -9,6 +9,7 @@ class Role < ActiveRecord::Base
   ROLE_ENGINEER = "engineer"
   ROLE_NORMAL = "normal"
 
+  # return the name of the role
   def role_str
     case name
     when ROLE_ADMIN then I18n.t("model.role.admin") 
