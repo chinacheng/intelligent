@@ -13,8 +13,7 @@ class PicturesController < ApplicationController
   def create
     @pictures = @host.add_picture(current_user,params[:picture][:photo])
     respond_to do |format|
-      #format.html{ redirect_to @host }
-      format.json{render :json => @pictures.map{|picture|picture.to_jq_upload}.to_json}
+      format.html{ redirect_to @host }
     end
   end
 

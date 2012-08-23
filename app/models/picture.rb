@@ -12,19 +12,6 @@ class Picture < ActiveRecord::Base
     !top_picture.blank?  
   end
 
-  include Rails.application.routes.url_helpers
-  #one convenient method to pass jq_upload the necessary information
-  def to_jq_upload
-    {
-      "name" => photo_file_name,
-      "size" => photo.size,
-      "url" => photo.url,
-      "thumbnail_url" => photo.url(:thumb),
-      "delete_url" => picture_path(:id => id),
-      "delete_type" => "DELETE"
-    }
-  end
-
   module UserMethods
     def self.included(base)
       base.has_many :pictures
