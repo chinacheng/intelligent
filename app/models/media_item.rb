@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class MediaItem < ActiveRecord::Base
 
   belongs_to :media

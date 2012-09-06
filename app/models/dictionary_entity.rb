@@ -1,3 +1,4 @@
+# encoding: utf-8
 
 class DictionaryEntity 
   REVIEW_MAP = {I18n.t("common.comment.open") => true, I18n.t("common.comment.close") => false}

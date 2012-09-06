@@ -25,11 +25,11 @@
           %td
             =link_to article.name[0..10], article_path(article_id)
           %td
-            =article.guide_view
+            =article.guide.name
           %td
             =article.author
           %td
-            =link_to article.review_stat,edit_admin_comment_path(:id=>article_id,:host_id=>article_id,:host_type=>Comment::HOST_TYPE_ARTICLE)
+            =link_to article.comments_count,edit_admin_comment_path(:id=>article_id,:host_id=>article_id,:host_type=>article.class.to_s)
           %td
             =article.updated_at.full_str
           %td

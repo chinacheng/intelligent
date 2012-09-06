@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class TopicsController < ApplicationController
 
   skip_before_filter :login_require, :only=>[:show, :index]

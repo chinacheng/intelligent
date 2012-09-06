@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Admin::CommentsController < AdminController
   
   before_filter :per_load

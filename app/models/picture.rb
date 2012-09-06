@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Picture < ActiveRecord::Base
 
   validates_presence_of :user_id, :photo_file_name

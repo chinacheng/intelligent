@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AdminController < ActionController::Base
 
   protect_from_forgery

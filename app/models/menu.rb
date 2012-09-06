@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Menu < ActiveRecord::Base
 
   validates_presence_of :name,:app_id,:sequence,:image,:tip

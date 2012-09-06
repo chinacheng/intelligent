@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class TopPicture < ActiveRecord::Base
   
   validates_uniqueness_of :picture_id

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class PicturesController < ApplicationController
 
   before_filter :per_load

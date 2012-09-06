@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Relative < ActiveRecord::Base
 
   validates_presence_of :fan_id, :follow_id

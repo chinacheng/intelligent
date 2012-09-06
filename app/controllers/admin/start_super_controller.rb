@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Admin::StartSuperController < AdminController
   skip_before_filter :login_require
 

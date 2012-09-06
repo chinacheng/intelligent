@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UserRole < ActiveRecord::Base
   
   validates_presence_of :user_id,:role_id

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Kindeditor::Asset < ActiveRecord::Base
   self.table_name = "kindeditor_assets"
   validates_presence_of :asset

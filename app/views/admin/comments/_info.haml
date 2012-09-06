@@ -22,9 +22,9 @@
           -comment_id=comment.id
           -host_id=comment.host_id
           %td
-            =link_to comment.host_name_view,edit_admin_comment_path(:id=>comment_id,:host_id=>host_id,:host_type=>comment.host_type)
+            =link_to comment.host_name, edit_admin_comment_path(:id=>comment_id,:host_id=>host_id,:host_type=>comment.host_type)
           %td
-            =comment.host_type_view
+            =comment.host_type
           %td
             =comment.content[0..25]
           %td
