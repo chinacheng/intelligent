@@ -12,10 +12,10 @@
 
 study_rails:
   id: 5
-  name: "How to Study Rails"
-  summary: "It is a easy to study a rails if you are work hard"
-  content: "Study is a very important thing for the life. rails is a easy and good computer language ……"
-  sort: "123"
+  name: 'How to Study Rails'
+  summary: 'It is a easy to study a rails if you are work hard'
+  content: 'Study is a very important thing for the life. rails is a easy and good computer language ……'
+  sort: '123'
   user_id: 1
   guide_id: 1
   allow_comment: true
@@ -24,28 +24,28 @@ study_rails:
 
 Test1:
   id: 1
-  name: "Test Article"
-  summary: "Test Summary Article"
-  content: "hello! rails"
-  sort: "123"
+  name: 'Test Article'
+  summary: 'Test Summary Article'
+  content: 'hello! rails'
+  sort: '123'
   user_id: 1
   guide_id: 1
 
 Test2:
   id: 2
-  name: "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890ssssssssssssssssssssdddddddddfffffssssssssssssddddddddxxxxxxxffffffffffffggggggg"
-  summary: "Test Summary Article"
-  content: "hello! rails"
-  sort: "123"
+  name: '1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890ssssssssssssssssssssdddddddddfffffssssssssssssddddddddxxxxxxxffffffffffffggggggg'
+  summary: 'Test Summary Article'
+  content: 'hello! rails'
+  sort: '123'
   user_id: 1
   guide_id: 1
 
 Test3:
   id: 3
-  name: "Test Article"
-  summary: "Test Summary Article"
-  content: "hello! rails"
-  sort: "1234567890123456789012345678901234567"
+  name: 'Test Article'
+  summary: 'Test Summary Article'
+  content: 'hello! rails'
+  sort: '1234567890123456789012345678901234567'
   user_id: 1
   guide_id: 1
   

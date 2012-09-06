@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Comment < ActiveRecord::Base
 
   validates_presence_of :content,:address,:host_id,:host_type
@@ -6,10 +8,6 @@ class Comment < ActiveRecord::Base
 
   SHOW_ON = true
   SHOW_OFF = false
-
-  HOST_TYPE_ARTICLE = "Article"
-
-  HOST_TYPE_MAP = { "Article" => I18n.t("view.comments.host_type_article")}
 
   module HostMethods
     def self.included(base)
@@ -21,36 +19,26 @@ class Comment < ActiveRecord::Base
       comment.user_id = user.id
       comment.save
     end
+
+    def comments_count
+      comments.count
+    end
   end
 
-
+  # allow anonymous comment
+  # so when user is blank return the sign of annoymous
   def author
-    user = User.find_by_id(user_id)
-    if user == nil
-      return I18n.t("view.comments.anonymous")
-    end
-    user.name
+    user.blank? ? I18n.t('view.comments.anonymous') : user.name
   end
 
-  def host_name_view
+  def host_name
     case host_type 
-    when HOST_TYPE_ARTICLE then Article.find_by_id(host_id).name
+    when 'Article' then host.name
     end
-  end
-
-  def host_type_view
-    HOST_TYPE_MAP[host_type]
-  end
-
-  def stat
-    Comment.count(:conditions=>["host_id = ? AND host_type = ?",host_id,host_type])
   end
 
   def toggle_allow_show 
-    if is_show == SHOW_ON
-      return update_attribute(:is_show,SHOW_OFF)
-    end
-    update_attribute(:is_show,SHOW_ON)    
+    (is_show == SHOW_ON) ? update_attribute(:is_show,SHOW_OFF) : update_attribute(:is_show,SHOW_ON)    
   end
   
 end

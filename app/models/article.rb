@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Article < ActiveRecord::Base
 
   validates_presence_of :name, :summary, :content, :user_id
@@ -13,6 +15,9 @@ class Article < ActiveRecord::Base
   PASS_ON  = true
   PASS_OFF = false
 
+  scope :passed, where(:is_pass => PASS_ON)
+  scope :not_passed, where(:is_pass => PASS_OFF)
+
   include Comment::HostMethods
 
   def title
@@ -20,27 +25,13 @@ class Article < ActiveRecord::Base
   end
 
   def author
-    user = User.find_by_id(user_id)
     user.name
-  end
-
-  def guide_view
-    col = Guide.find_by_id(guide_id)
-    col == nil ? "" : col.name
-  end
-
-  def review_stat
-    Comment.count(:conditions=>["host_id = ? AND host_type = ?",id,Comment::HOST_TYPE_ARTICLE])
-  end
-
-  def self.list
-    Artile.find_all_by_is_show(true)
   end
 
   def self.find_by_name_articles(article_name,size)
     articles = Article.find(:all,
                 :conditions => ["name like '%?%'",article_name],
-                :order => "updated_at DESC",
+                :order => 'updated_at DESC',
                 :limit => size)
   end 
 
