@@ -9,7 +9,7 @@ class TopPicture < ActiveRecord::Base
 
   # tops pictures show in index page
   def self.tops
-    TopPicture.order("created_at desc").limit(4).map do |top_picture|
+    TopPicture.order('created_at desc').limit(4).map do |top_picture|
       top_picture.picture
     end
   end

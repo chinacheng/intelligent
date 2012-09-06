@@ -10,10 +10,10 @@ class CommentTest < ActiveSupport::TestCase
     lilei_comments_size = lilei.comments.size
     study_comments_size = study_rails.comments.size
     assert_difference 'Comment.count',1 do
-      study_rails.add_comments({:content=>content,
-                               :address=>'192.168.0.1',
-                               :user_id=>lilei.id,
-                               :is_show=>Comment::SHOW_ON},lilei)
+      study_rails.add_comments({:content => content,
+                               :address => '192.168.0.1',
+                               :user_id => lilei.id,
+                               :is_show => Comment::SHOW_ON},lilei)
     end
 
     comment = Comment.last
@@ -34,10 +34,10 @@ class CommentTest < ActiveSupport::TestCase
     lilei_comments_size = lilei.comments.size
     study_comments_size = study_rails.comments.size
     assert_difference 'Comment.count',1 do
-      study_rails.add_comments({:content=>content,
-                               :address=>'192.168.0.1', 
-                               :user_id=>lilei.id,
-                               :is_show=>Comment::SHOW_ON},lilei)
+      study_rails.add_comments({:content => content,
+                               :address => '192.168.0.1', 
+                               :user_id => lilei.id,
+                               :is_show => Comment::SHOW_ON},lilei)
     end
 
     comment = Comment.last
@@ -49,10 +49,10 @@ class CommentTest < ActiveSupport::TestCase
   test 'toggle allow show(default is true)' do
     #comment = comments(:hanmm)
     lilei = users(:lilei)
-    comment = Comment.new(:content=>'sasdfg',
-                          :address=>'192.168.1.15',
-                          :host_id=>'1',
-                          :host_type=>'Article')
+    comment = Comment.new(:content => 'sasdfg',
+                          :address => '192.168.1.15',
+                          :host_id => '1',
+                          :host_type => 'Article')
 
     assert_difference 'Comment.count',1 do
       assert comment.valid?
@@ -69,20 +69,20 @@ class CommentTest < ActiveSupport::TestCase
 
   test "comment's author" do
     lilei = users(:lilei)
-    comment = Comment.new(:content=>'123456sagah',
-                          :address=>'127.0.0.1',
-                          :host_id=>'1',
-                          :host_type=>'Article',
-                          :user_id=>lilei.id)
+    comment = Comment.new(:content => '123456sagah',
+                          :address => '127.0.0.1',
+                          :host_id => '1',
+                          :host_type => 'Article',
+                          :user_id => lilei.id)
 
     assert_equal lilei.name,comment.author
   end
 
   test "comment's author is anonymous" do
-    comment = Comment.new(:content=>'123456sagah',
-                          :address=>'127.0.0.1',
-                          :host_id=>'1',
-                          :host_type=>'Article')
+    comment = Comment.new(:content => '123456sagah',
+                          :address => '127.0.0.1',
+                          :host_id => '1',
+                          :host_type => 'Article')
 
     assert_equal comment.author,I18n.t('view.comments.anonymous')
   end

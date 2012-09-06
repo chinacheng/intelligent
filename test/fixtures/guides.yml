@@ -12,11 +12,11 @@
 
 index:
   id: 1
-  name: "shouye"
-  uri: "index"
+  name: 'shouye'
+  uri: 'index'
   sequence: 1
   is_show: true 
-  way: "1"
+  way: '1'
   parent_id: -1
 
 brand:

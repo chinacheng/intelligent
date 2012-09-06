@@ -4,14 +4,14 @@ require 'test_helper'
 
 class RelativeTest < ActiveSupport::TestCase
 
-  test "user follow other people" do 
-    lilei, lucy, kate = users("lilei"),users("lucy"),users("kate")
-    assert_difference "Relative.count",3 do 
+  test 'user follow other people' do 
+    lilei, lucy, kate = users('lilei'),users('lucy'),users('kate')
+    assert_difference 'Relative.count',3 do 
       lilei.fan(lucy)
       kate.fan(lucy)
       kate.fan(lilei)
     end
-    assert_difference "Relative.count",0 do 
+    assert_difference 'Relative.count',0 do 
       kate.fan(lilei)
     end
     assert_equal lucy.fans.size, 2
@@ -26,8 +26,8 @@ class RelativeTest < ActiveSupport::TestCase
   end
 
   # test the method fan_each_other
-  test "fan each other and remove a fan" do
-    lucy,lilei = users("lucy"),users("lilei")
+  test 'fan each other and remove a fan' do
+    lucy,lilei = users('lucy'),users('lilei')
     assert !lucy.fan_each_other?(lilei)
     lucy.fan(lilei)
     assert !lucy.fan_each_other?(lilei)

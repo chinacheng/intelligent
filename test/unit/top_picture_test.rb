@@ -4,19 +4,19 @@ require 'test_helper'
 
 class TopPictureTest < ActiveSupport::TestCase
 
-  test "admin can top a picture to index" do
+  test 'admin can top a picture to index' do
 
     assert_equal 0, TopPicture.tops.size
 
-    picture = pictures("picture_of_lilei")
-    admin, lilei = users("admin"), users("lilei") 
+    picture = pictures('picture_of_lilei')
+    admin, lilei = users('admin'), users('lilei') 
     
-    assert_no_difference "TopPicture.count" do 
+    assert_no_difference 'TopPicture.count' do 
       TopPicture.top(lilei, picture)
     end
 
     tp = nil
-    assert_difference "TopPicture.count", 1 do
+    assert_difference 'TopPicture.count', 1 do
       tp = TopPicture.top(admin, picture)
     end
     assert_not_nil tp
@@ -28,15 +28,14 @@ class TopPictureTest < ActiveSupport::TestCase
     assert picture.is_top?
 
     # a picture can set top only once
-    assert_no_difference "TopPicture.count" do
+    assert_no_difference 'TopPicture.count' do
       TopPicture.top(admin, picture)
     end
 
     # a top picture can destroyed by admin
-    assert_difference "TopPicture.count", -1 do
+    assert_difference 'TopPicture.count', -1 do
       TopPicture.cancel_top(admin, picture)
     end
-
 
   end
 

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
-require "digest"
-require "uuidtools"
+require 'digest'
+require 'uuidtools'
 
 class User < ActiveRecord::Base
 
@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
-  GENDER_MALE = "male"
-  GENDER_FEMALE = "female"
+  GENDER_MALE = 'male'
+  GENDER_FEMALE = 'female'
 
   has_many :articles
   has_many :comments
@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   include Relative::UserMethods
   include UserRole::UserMethods
 
-  has_attached_file :avatar, :styles => {:medium=>"300x300>",:thumb=>"100x100>",:tiny=>"25x25>"}
+  has_attached_file :avatar, :styles => {:medium=>'300x300>',:thumb=>'100x100>',:tiny=>'25x25>'}
 
   def self.login(email, password)
     user = User.find_by_email(email)
@@ -43,8 +43,8 @@ class User < ActiveRecord::Base
 
   def gender_text
     case gender
-    when GENDER_MALE  then I18n.t("model.user.gender_male") 
-    when GENDER_FEMALE then I18n.t("model.user.gender_female")
+    when GENDER_MALE  then I18n.t('model.user.gender_male') 
+    when GENDER_FEMALE then I18n.t('model.user.gender_female')
     end
   end
 
@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
   end
 
   # cut user's avatar, if cuccess return true, or return false
-  require "RMagick"
+  require 'RMagick'
   def cut_avatar(params)
     update_attributes(params)
     if !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
@@ -87,8 +87,8 @@ class User < ActiveRecord::Base
 
   def self.random_string(len)
     #generat a random password consisting of strings and digits
-    chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
-    newpass = ""
+    chars = ('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a
+    newpass = ''
     1.upto(len) { |i| newpass << chars[rand(chars.size-1)] }
     return newpass
   end
