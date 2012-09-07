@@ -8,7 +8,8 @@ class Admin::StartSuperController < AdminController
   end
 
   def create
-    if captcha_valid?(params[:captcha])
+    # TODO change the captcha
+    if true
       if user = User.login(params[:email],params[:password])
         session[:current_user_id] = user.id
         return _redirect_by_role

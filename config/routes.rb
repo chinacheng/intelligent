@@ -1,5 +1,4 @@
 Intelligent::Application.routes.draw do
-  captcha_route
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

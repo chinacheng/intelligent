@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -13,19 +13,19 @@ gem 'haml'
 gem 'acts_as_tree'
 gem 'paperclip' 
 gem 'will_paginate'
-gem 'rake','0.9.2.2'
-gem 'nokogiri'
+gem 'rake'
+gem 'nokogiri', '~>1.5.5'
 gem 'will_paginate'
 gem 'jquery-rails'
 gem 'rmagick'
-gem 'rails_kindeditor', '~> 0.3.0'
-gem 'easy_captcha'
+gem 'rails_kindeditor'
+# gem 'easy_captcha'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes                          
   # JavaScript runtime
