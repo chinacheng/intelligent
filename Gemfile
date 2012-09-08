@@ -21,8 +21,7 @@ gem 'paperclip'
 gem 'jquery-rails'
 gem 'will_paginate'
 gem 'rails_kindeditor'
-gem "galetahub-simple_captcha", :require => "simple_captcha"
-
+gem 'galetahub-simple_captcha', :require => 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 # gem 'easy_captcha'
 
 # Gems used only for assets and not required
