@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 class ApplicationController < ActionController::Base
-  # reset captcha code after each request for security
 
   protect_from_forgery
   include ApplicationHelper

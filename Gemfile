@@ -8,17 +8,21 @@ gem 'rails'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'mysql2'  
-gem 'uuidtools'
-gem 'haml'
-gem 'acts_as_tree'
-gem 'paperclip' 
-gem 'will_paginate'
+
 gem 'rake'
-gem 'nokogiri', '~>1.5.5'
-gem 'will_paginate'
-gem 'jquery-rails'
+
 gem 'rmagick'
+gem 'uuidtools'
+gem 'acts_as_tree'
+gem 'nokogiri', '~>1.5.5'
+
+gem 'haml'
+gem 'paperclip' 
+gem 'jquery-rails'
+gem 'will_paginate'
 gem 'rails_kindeditor'
+gem "galetahub-simple_captcha", :require => "simple_captcha"
+
 # gem 'easy_captcha'
 
 # Gems used only for assets and not required

@@ -13,13 +13,8 @@
       %span{:class=>'sign_label'}
         =I18n.t("view.login.password")
       =password_field_tag "password"
-    .captcha_field
-      %span{:class=>'sign_label'}
-        =I18n.t('view.login.captcha')
-      = text_field_tag :captcha
     .captcha
-      %span{:class=>'sign_label'}
-      =# TODO captcha_tag
+      = show_simple_captcha
     .submit
       =submit_tag I18n.t("view.login.login")
 
