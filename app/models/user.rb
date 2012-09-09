@@ -5,8 +5,7 @@ require 'uuidtools'
 
 class User < ActiveRecord::Base
 
-  validates_presence_of :email, :login, :salt
-  validates_presence_of :gender
+  validates_presence_of :email, :login, :salt, :gender
   validates_presence_of :password, :on=>:create
   validates_presence_of :password_confirmation, :on=>:create
   validates_confirmation_of :password
@@ -32,6 +31,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => {:medium=>'300x300>',:thumb=>'100x100>',:tiny=>'25x25>'}
 
+  # the check for the user login
   def self.login(email, password)
     user = User.find_by_email(email)
     return false if user.blank?

@@ -8,6 +8,8 @@ class Article < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :guide
+  
+  alias author user
 
   COMMENT_ON  = true
   COMMENT_OFF = false
@@ -22,10 +24,6 @@ class Article < ActiveRecord::Base
 
   def title
     name
-  end
-
-  def author
-    user.name
   end
 
   def self.find_by_name_articles(article_name,size)

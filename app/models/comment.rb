@@ -2,7 +2,7 @@
 
 class Comment < ActiveRecord::Base
 
-  validates_presence_of :content,:address,:host_id,:host_type
+  validates_presence_of :content, :address, :host_id, :host_type
   belongs_to :user
   belongs_to :host, :polymorphic => true
 
@@ -27,7 +27,7 @@ class Comment < ActiveRecord::Base
 
   # allow anonymous comment
   # so when user is blank return the sign of annoymous
-  def author
+  def author_name
     user.blank? ? I18n.t('view.comments.anonymous') : user.name
   end
 

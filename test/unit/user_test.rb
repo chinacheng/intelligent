@@ -17,10 +17,13 @@ class UserTest < ActiveSupport::TestCase
       assert_equal user.login, 'test_login'
       assert_equal user.email, 'user@test.com'
       assert_equal user.gender, User::GENDER_MALE
+      assert_equal user.gender_text, I18n.t('model.user.gender_male') 
 
       assert !User.login('user@test.com','12')
       assert !User.login('sss','333')
       assert !!User.login('user@test.com','123456')
+
+      assert !user.has_avatar?
     end
   end
 

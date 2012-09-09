@@ -9,7 +9,7 @@ class CommentTest < ActiveSupport::TestCase
     content = 'hello world'
     lilei_comments_size = lilei.comments.size
     study_comments_size = study_rails.comments.size
-    assert_difference 'Comment.count',1 do
+    assert_difference ['Comment.count', 'lilei.comments.count'],1 do
       study_rails.add_comments({:content => content,
                                :address => '192.168.0.1',
                                :user_id => lilei.id,
@@ -75,7 +75,8 @@ class CommentTest < ActiveSupport::TestCase
                           :host_type => 'Article',
                           :user_id => lilei.id)
 
-    assert_equal lilei.name,comment.author
+    assert_equal lilei, comment.user
+    assert_equal lilei.name, comment.author_name
   end
 
   test "comment's author is anonymous" do
@@ -84,7 +85,7 @@ class CommentTest < ActiveSupport::TestCase
                           :host_id => '1',
                           :host_type => 'Article')
 
-    assert_equal comment.author,I18n.t('view.comments.anonymous')
+    assert_equal comment.author_name, I18n.t('view.comments.anonymous')
   end
 
 end

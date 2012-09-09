@@ -3,19 +3,22 @@
 require 'test_helper'
 
 class ArticleTest < ActiveSupport::TestCase
-  test 'Create Article and Successed' do
-    assert_difference 'Article.count',1 do
+  test 'Create Article Successed, the count of author articles is increase' do
+    lilei = users('lilei')
+    assert_difference ['Article.count', 'lilei.articles.count'],1 do
       article = Article.new(:name => 'Test Article',
                             :summary => 'Test Summary Article',
                             :content => 'hello! rails',
                             :allow_comment => false,
                             :sort => '123',
-                            :user_id => 1,
+                            :user_id => lilei.id,
                             :guide_id => 1)
       assert article.valid?
       assert article.save
       assert !article.is_top
       assert_equal article.title, article.name
+      # the author is the alias for uer
+      assert_equal article.author, article.user
       assert_equal article.title, 'Test Article'
       assert_equal Article::COMMENT_OFF,article.allow_comment
       assert_equal 0,article.browses
@@ -46,9 +49,9 @@ class ArticleTest < ActiveSupport::TestCase
                           :sort => '123',
                           :user_id => lilei.id,
                           :guide_id => desgin_guide.id)    
-    
+
     assert_equal article.guide, desgin_guide
-    assert_equal article.author,  lilei.name
+    assert_equal article.author, lilei
 
     study_rails = articles(:study_rails)
     content = 'hello world'
@@ -69,16 +72,26 @@ class ArticleTest < ActiveSupport::TestCase
     not_passed_count = Article.not_passed.size
     passed_count = Article.passed.size
 
-    article.toggle_is_pass
-    assert !article.is_pass
-    # the count of not passed artiles is add 1, on the other hand, the count of passed articles is minus 1
-    assert_equal not_passed_count + 1, Article.not_passed.size
-    assert_equal passed_count - 1, Article.passed.size
+    # change to not pass
+    assert_difference("Article.passed.count", -1) do
+      assert_difference("Article.not_passed.count", 1) do
+        article.toggle_is_pass
+        assert !article.is_pass
+        # the count of not passed artiles is add 1, on the other hand, the count of passed articles is minus 1
+        assert_equal not_passed_count + 1, Article.not_passed.size
+        assert_equal passed_count - 1, Article.passed.size
+      end
+    end
 
-    article.toggle_is_pass
-    assert article.is_pass 
-    assert_equal not_passed_count, Article.not_passed.size
-    assert_equal passed_count, Article.passed.size
+    # change to pass
+    assert_difference("Article.passed.count", 1) do
+      assert_difference("Article.not_passed.count", -1) do
+        article.toggle_is_pass
+        assert article.is_pass 
+        assert_equal not_passed_count, Article.not_passed.size
+        assert_equal passed_count, Article.passed.size
+      end
+    end
   end
 
   test 'toggle allow comment(default is true)' do

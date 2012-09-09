@@ -6,7 +6,7 @@ class GuideTest < ActiveSupport::TestCase
   test 'Create guides Success' do
     lilei = users(:lilei)
     count = Guide.list_display.size
-    assert_difference 'Guide.count', 1 do
+    assert_difference ['Guide.count', 'lilei.guides.count'], 1 do
       guide_tmp = Guide.new(:name => 'index',
                             :uri => 'index',
                             :sequence => 1,

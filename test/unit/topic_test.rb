@@ -7,7 +7,7 @@ class TopicTest < ActiveSupport::TestCase
   test 'user topic' do
     lilei = users('lilei')
     topic = nil;
-    assert_difference 'Topic.count', 1 do
+    assert_difference ['Topic.count', 'lilei.topics.count'], 1 do
       topic = Topic.create(:name => 'topic', :user_id => lilei.id, :description => 'this is a topic of lilei')
     end
     assert lilei.topics.include?(topic)
