@@ -6,6 +6,8 @@ class Guide < ActiveRecord::Base
   validates_uniqueness_of :name
 
   belongs_to :user
+  belongs_to :parent, :class_name => 'Guide', :foreign_key => 'parent_id'
+
 
   scope :list_display, where(:is_show => true)
 
@@ -18,15 +20,6 @@ class Guide < ActiveRecord::Base
     user.name
   end
 
-  def parent
-    if parent_id == -1 || parent_id == nil
-      return ''
-    end
-
-    guide = Guide.find_by_id(parent_id)
-    return guide.name
-  end
-
   def display
     case is_show
     when DictionaryEntity::DISPLAY_MAP[I18n.t('common.display.show')] then I18n.t('common.display.show')
@@ -35,10 +28,7 @@ class Guide < ActiveRecord::Base
   end
   
   def uri_path
-    if uri.blank?
-      return '/'
-    end
-    uri
+    uri.blank? ? '/' : uri
   end
 
 end
