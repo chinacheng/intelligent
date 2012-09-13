@@ -2,13 +2,13 @@
   %table{:width => "100%"}
     %thead
       %tr{:style => 'text-align:left;'}
-        %th{:width => "10%"}
+        %th
           =I18n.t("view.article.name")
         %th 
           =I18n.t("view.article.guide")
         %th 
           =I18n.t("view.article.author")
-        %th{:width => "15%"}
+        %th
           =I18n.t("view.article.review_stat")
         %th
           =I18n.t("common.upd_date")
@@ -16,7 +16,7 @@
           =I18n.t("view.article.review")
         %th 
           =I18n.t("view.article.check")
-        %th{:width => "15%"} 
+        %th
           =I18n.t("common.operator")
     %tbody
       -for article in @articles
@@ -25,9 +25,9 @@
           %td
             =link_to article.name[0..10], article_path(article_id)
           %td
-            =article.guide.name
+            =article.guide.name if article.guide
           %td
-            =article.author
+            =article.user.name
           %td
             =link_to article.comments_count,edit_admin_comment_path(:id=>article_id,:host_id=>article_id,:host_type=>article.class.to_s)
           %td
